@@ -53,14 +53,14 @@ const About = () => {
           <h3>skills</h3>
           <div>
             <div>
-              <p>shit</p>
-              <p>shit</p>
-              <p>shit</p>
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
             </div>
             <div>
-              <p>shit</p>
-              <p>shit</p>
-              <p>shit</p>
+              <p>4</p>
+              <p>4</p>
+              <p>t</p>
             </div>
           </div>
         </div>
@@ -68,14 +68,14 @@ const About = () => {
           <h3>tech / years</h3>
           <div>
             <div>
-              <p>shit</p>
-              <p>shit</p>
-              <p>shit</p>
+              <p>t</p>
+              <p>it</p>
+              <p>t</p>
             </div>
             <div>
-              <p>shit</p>
-              <p>shit</p>
-              <p>shit</p>
+              <p>t</p>
+              <p>t</p>
+              <p>t</p>
             </div>
           </div>
         </div>
@@ -92,10 +92,10 @@ const About = () => {
         <div className="aboutSection">
           <h3>work experience</h3>
           <div>
-            <p>Macdonalds</p>
-            <p>Macdonalds</p>
-            <p>Macdonalds</p>
-            <p>Macdonalds</p>
+            <p>M</p>
+            <p>Ms</p>
+            <p>Ms</p>
+            <p>s</p>
           </div>
         </div>
       </div>

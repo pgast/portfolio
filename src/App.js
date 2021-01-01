@@ -35,7 +35,13 @@ function App() {
           </div>
         </Link>
         <Navigation setView={setView} view={view} labelId={setLabelId(view)}/>
-        <Route exact path={"/"} component={Home} />
+        <Route 
+          exact 
+          path={"/"} 
+          render={(props) => (
+            <Home {...props} setView={setView} />
+          )}
+        />
         <Route exact path={"/work"} component={Work} />
         <Route exact path={"/about"} component={About} />
         <Route exact path={"/contact"} component={Contact} />
