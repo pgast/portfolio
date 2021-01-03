@@ -1,8 +1,9 @@
 .nav {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: fixed;
+  height: 82vh;
 }
 
 .nav > div:first-child {
@@ -17,12 +18,12 @@
 }
 
 .nav a {
-  color: black;
+  color: #121212;
 }
 
 .nav > div:first-child h5 {
   margin-bottom: 0.4rem;
-  color: black;
+  color: #121212;
   font-weight: 600;
 }
 
@@ -53,12 +54,13 @@
   color: #003cf9;
 }
 
-.fa-github {
+.fa-linkedin {
   margin-right: 1rem;
 }
 
+#logo:hover,
 .fa-envelope:hover,
-.fa-github:hover,
+.fa-linkedin:hover,
 .navLink:hover {
   -webkit-animation: shadow-drop-2-bottom 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: shadow-drop-2-bottom 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -70,8 +72,8 @@
     transform: translateZ(0) translateY(0);
   }
   100% {
-    -webkit-transform: translateZ(20px) translateY(-2px);
-    transform: translateZ(20px) translateY(-2px);
+    -webkit-transform: translateZ(20px) translateY(-3px);
+    transform: translateZ(20px) translateY(-3px);
     color: #003cf9;
   }
 }
@@ -81,8 +83,8 @@
     transform: translateZ(0) translateY(0);
   }
   100% {
-    -webkit-transform: translateZ(20px) translateY(-2px);
-    transform: translateZ(20px) translateY(-2px);
+    -webkit-transform: translateZ(20px) translateY(-3px);
+    transform: translateZ(20px) translateY(-3px);
     color: #003cf9;
   }
 }

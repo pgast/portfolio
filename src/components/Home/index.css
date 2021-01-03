@@ -62,11 +62,6 @@
   color: #121212;
 }
 
-.introDescription:hover {
-  -webkit-animation: bounce-right 0.3s both;
-  animation: bounce-right 0.3s both;
-}
-
  @-webkit-keyframes bounce-right {
   0% {
     -webkit-transform: translateX(48px);

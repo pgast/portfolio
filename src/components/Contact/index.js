@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { Link } from 'react-router-dom';
+import resumeLink from '../../assets/Pablo-Gastelum-Resume.pdf';
 import './index.css';
 
 const Contact = () => {
@@ -18,6 +21,7 @@ const Contact = () => {
             <h3>pablo.g.leyva@gmail.com</h3>
           </a>
           <div className="btn">
+            <Link to={resumeLink} target="_blank" download>Download resume</Link>
             <h3>
               Get resume
             </h3>

@@ -1,51 +1,124 @@
 .about {
-  border: 1px dashed navy;
-  margin-bottom: 3.3rem;
-  margin-top: 3.4rem;
+  /* margin-bottom: 3.3rem; */
+  /* margin-top: 3.4rem; */
+  margin-top: 2rem;
   width: 100%;
   margin-left: 5.5rem;
   margin-right: 4rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
-.aboutRow {
-  display: flex;
-  margin-top: 2rem;
+.about ul {
+  list-style-type: none;
 }
-
 
 .aboutSection {
   border-left: 3px solid black;
   padding-left: 0.5rem;
-  width: 50%;
-  height: 5rem;
+  /* width: 50%; */
+  /* height: 5rem; */
   padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.aboutScroll > div:last-of-type > div > div,
+#awardsEducation .aboutSection > div div:first-of-type {
+  margin-bottom: 0.9rem;
+}
+
+.aboutScroll > div > div p:first-of-type,
+#awardsEducation .aboutSection > div > div p:first-of-type {
+  font-weight: 600;
+}
+
+#experience ul {
+  /* margin-left: .5rem; */
+  margin-bottom: 2rem;
+}
+
+#experience div div:last-of-type ul {
+  margin-bottom: 0;
+}
+
+#experience ul li {
+  /* margin-bottom: 0.3rem; */
+  /* margin-left: 0.3rem; */
+}
+
+.aboutMain_desc p {
+  text-align: justify;
+}
+
+.aboutMain_desc > div:first-of-type h3 {
+  margin-bottom: 0.3rem;
+}
+
+.aboutMain_desc > div:first-of-type h3,
+.aboutSection h3 {
+  font-size: 0.95rem;
+}
+
+.aboutSection > div {
   display: flex;
   flex-direction: column;
 }
 
-.aboutSection > div {
-  border: 1px solid black;
+.aboutSection .skillsTech {
   display: flex;
+  flex-direction: row;
+}
+
+.skillsTech ul {
+  margin-right: 3rem;
+}
+
+
+/* Fixed Main */
+.aboutMain {
+  position: fixed;
+  /* left: 8.5rem; */
+  left: 13rem;
+  /* width: 22rem; */
+  width: 17.5rem;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 2rem;
 }
 
 .aboutPhoto {
-  width: 50%;
+  width: 9rem;
+  height: 9rem;
+  margin-bottom: 2.3rem;
+  border-radius: 100%;
+  background: blue;
+  background-image: url("../../assets/kermit.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
-.aboutMain {
-  width: 50%;
+.aboutMain_desc div:first-of-type p:last-of-type {
+  margin-top: 1rem;
 }
 
-.aboutMain p {
-  font-size: 0.9rem;
+.about li,
+.about p {
+  font-size: 0.7rem;
   color: #afafaf;
 }
 
 .aboutMain_btnRow {
   display: flex;
+  margin-top: 1.5rem;
+}
+
+.aboutMain_btnRow .btn {
+  margin-right: 0.4rem;
 }
 
 .aboutMain_btnRow a {
@@ -53,11 +126,13 @@
   color: black;
 }
 
+.aboutMain_btnRow > .btn:nth-child(3) a,
 .aboutMain_btnRow > .btn:last-child a,
 .aboutMain_btnRow > .btn:first-child a {
   color: white;
 }
 
+.aboutMain_btnRow > .btn:nth-child(3),
 .aboutMain_btnRow > .btn:first-child {
   background: #003cf9;
 }
@@ -66,7 +141,13 @@
   background: black;
 }
 
-.aboutMain h1 {
-  font-size: 1.5rem;
+
+/* Scroll */
+.aboutScroll {
+  padding-right: 5rem;
+  width: 48%;
 }
 
+.aboutScroll > div:last-of-type {
+  height: 3rem;
+}

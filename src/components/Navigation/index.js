@@ -31,9 +31,9 @@ const Navigation = ({ setView, view, labelId }) => {
           <a 
             target="_blank" 
             rel="noreferrer"
-            href="https://github.com/pgast" 
+            href="https://www.linkedin.com/in/pablo-gastélum-2a5081115" 
           >
-            <i className="fab fa-github" />
+            <i className="fab fa-linkedin" />
           </a>
           <a href="mailto: pablo.g.leyva@gmail.com">
             <i className="fas fa-envelope" />

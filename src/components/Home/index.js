@@ -46,7 +46,6 @@ const Home = ({ setView }) => {
           {["G", "a", "s", "t", "e", "l", "u", "m"].map((el, idx) => renderAnimatedLetter(el, idx, "lastName"))}
         </div>
       </div>
-
       <div className="introDescription" onMouseEnter={changeLabels}>
         <div>
           <p>is a</p>
@@ -59,18 +58,17 @@ const Home = ({ setView }) => {
           <p>web and mobile experiences.</p>
         </div>
       </div>
-
-      <div className="btn">
-        <Link 
-          to={`/work`} 
-          onClick={() => setView('work')} 
-          style={{ textDecoration: "none", color: "black" }} 
-        >
-          <h3>
-            Discover them here
-          </h3>
-        </Link>
-      </div>
+      <Link 
+        to={`/work`} 
+        onClick={() => setView('work')} 
+        style={{ textDecoration: "none", color: "black" }} 
+      >
+        <div className="btn">
+            <h3>
+              Discover them here
+            </h3>
+        </div>
+      </Link>
     </div>
   );
 };

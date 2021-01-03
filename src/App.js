@@ -28,7 +28,7 @@ function App() {
         <Link 
           to='/' 
           onClick={() => setView(null)}
-          style={{ textDecoration: "none" }} 
+          style={{ textDecoration: "none", color: "black" }} 
         >
           <div id="logo">
             pg
