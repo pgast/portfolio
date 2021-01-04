@@ -43,7 +43,7 @@ const Work = () => {
     {
       name: 'dashtabs',
       info: 'QR based order management tool for food businesses',
-      stack: ['React', 'Authentication', 'Firebase db'],
+      stack: ['React', 'Authentication', 'Backend db'],
       links: {
         live: 'http://dashtabs.surge.sh/',
         code: 'https://github.com/pgast/dash-tabs'

@@ -1,5 +1,4 @@
 .contact {
-  /* border: 1px dashed navy; */
   margin-bottom: 3.3rem;
   margin-top: 3.4rem;
   width: 100%;
@@ -7,30 +6,54 @@
   margin-right: 4rem;
   display: flex;
   justify-content: center;
+  -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.contactHeader > div:first-child h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.contact p {
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: #afafaf;
+}
+
+.contactForm p {
+  color: #121212;
+  font-weight: 600;
 }
 
 .contactHeader,
 .contactForm {
-  /* border: 1px solid red; */
-  /* width: 50%; */
-  width: auto;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  margin: 0 3rem;
+}
+
+.contactHeader {
+  padding-right: 3.5rem;
+  align-items: flex-end;
+}
+
+.contactHeader div {
+  width: 11rem;
 }
 
 .contactHeader .btn {
   background: #003cf9;
   color: white;
-  width: 6rem;
+  width: 5rem;
   text-align: center;
   margin-top: 1.7rem;
 }
 
 .contactHeader > div:first-of-type {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .contactHeader a {
@@ -42,14 +65,8 @@
   font-size: 1.5rem;
 }
 
-.contactHeader h3 {
-  font-size: 0.9rem;
-  font-weight: 400;
-}
-
-.contactHeader .btn h3,
-.contactForm .btn h3 {
-  font-size: 0.8rem;
+.contactForm {
+  padding-left: 1rem;
 }
 
 .contactForm div {
@@ -59,22 +76,26 @@
 .contactForm .btn {
   margin-top: 2rem;
   text-align: center;
-  width: 7rem;
+  width: 5.5rem;
 }
 
 .contactForm textarea,
 .contactForm input {
   border: none;
   border-left: 3px solid black;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 0.4rem;
+  width: 10rem;
   background: #f3f3f3;
+  margin-top: 0.2rem;
+  border-radius: 3px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 textarea {
   resize: none;
 }
 
-.contactForm h3 {
-  font-size: 0.9rem;
+.contact a p:hover {
+  color: #003cf9;
 }
