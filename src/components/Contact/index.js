@@ -8,6 +8,8 @@ const Contact = () => {
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ message, setMessage ] = useState('');
+  const [ sentMessage, setSentMessage ] = useState(false);
+  const [ errorMessage, setErrorMessage ] = useState(false);
 
   const handleSubmit = (event) => {
     const templateId = 'template_tbr3zii';
@@ -17,9 +19,9 @@ const Contact = () => {
   
   const sendFeedback = (serviceId, templateId, variables) => {
     window.emailjs.send(serviceId, templateId, variables).then(res => {
-      console.log('Email successfully sent!')
+      setSentMessage(true);
     })
-    .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
+    .catch(err => setErrorMessage(false));
   }
 
   return (
@@ -50,37 +52,52 @@ const Contact = () => {
         </div>
       </div>
       <div className="contactForm">
-        <div>
-          <p>Name</p>
-          <input 
-            type="text" 
-            value={name} 
-            onChange={(e) => setName(e.target.value)} 
-          />
-        </div>
-        <div>
-          <p>Email</p>
-          <input 
-            type="text" 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <p>Message</p>
-          <textarea 
-            rows="4" 
-            cols="15"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          >
-          </textarea>
-        </div>
-        <div className="btn" onClick={(e) => handleSubmit(e)}>
-          <h3>
-            Send message
-          </h3>
-        </div>
+        {/* Message Sent */}
+        {(sentMessage && !errorMessage) && <h3>Message sent!</h3>}
+        {/* Error Message */}
+        {(sentMessage && errorMessage) && (
+          <>
+            <h3>Oops!</h3>
+            <h3>Unable to send message.</h3>
+            <h3>Please reach me through my email or linkedin.</h3>
+          </>
+        )}
+        {/* Contact Form */}
+        {(!sentMessage && !errorMessage) && (
+          <>
+            <div>
+              <p>Name</p>
+              <input 
+                type="text" 
+                value={name} 
+                onChange={(e) => setName(e.target.value)} 
+              />
+            </div>
+            <div>
+              <p>Email</p>
+              <input 
+                type="text" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <p>Message</p>
+              <textarea 
+                rows="4" 
+                cols="15"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              >
+              </textarea>
+            </div>
+            <div className="btn" onClick={(e) => handleSubmit(e)}>
+              <h3>
+                Send message
+              </h3>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
