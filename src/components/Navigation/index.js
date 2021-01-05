@@ -40,6 +40,8 @@ const Navigation = ({ setView, view, labelId }) => {
           </a>
         </div>
       </div>
+
+      <i className="fas fa-bars" id="hamburgerMenu" />
     </React.Fragment>
   );
 };

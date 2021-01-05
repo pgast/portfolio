@@ -31,3 +31,10 @@ html {
   font-weight: 600;
   color: #121212;
 }
+
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  #root > div:first-child {
+    padding: 0;
+  }
+}

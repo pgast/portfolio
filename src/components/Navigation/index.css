@@ -89,3 +89,30 @@
     color: #003cf9;
   }
 }
+
+#hamburgerMenu {
+  display: none;
+}
+
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  #logo {
+    top: 2rem;
+    left: 2rem;
+  }
+
+  #root > div:first-child {
+    padding: 1rem;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  #hamburgerMenu {
+    display: block;
+    position: fixed;
+    top: 2.8rem;
+    right: 2rem;
+  }
+}

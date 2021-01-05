@@ -47,6 +47,12 @@ const Home = ({ setView }) => {
         </div>
       </div>
       <div className="introDescription" onMouseEnter={changeLabels}>
+        <p id="mobileDesc">
+          is a <span id="yellowLabel">&nbsp;{labels.dev[labelsIdx.dev]}&nbsp;</span>
+          developer and product designer that <span id="blueLabel">&nbsp;{labels.verb[labelsIdx.verb]}&nbsp;</span>
+          web and mobile experiences.
+        </p>
+
         <div>
           <p>is a</p>
           <p id="yellowLabel">&nbsp;{labels.dev[labelsIdx.dev]}&nbsp;</p>
