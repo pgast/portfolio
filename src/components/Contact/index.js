@@ -56,11 +56,11 @@ const Contact = () => {
         {(sentMessage && !errorMessage) && <h3>Message sent!</h3>}
         {/* Error Message */}
         {(sentMessage && errorMessage) && (
-          <>
+          <div id="errorMessage">
             <h3>Oops!</h3>
             <h3>Unable to send message.</h3>
             <h3>Please reach me through my email or linkedin.</h3>
-          </>
+          </div>
         )}
         {/* Contact Form */}
         {(!sentMessage && !errorMessage) && (

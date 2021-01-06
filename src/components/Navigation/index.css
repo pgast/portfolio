@@ -99,6 +99,7 @@
   #logo {
     top: 2rem;
     left: 2rem;
+    z-index: 888;
   }
 
   #root > div:first-child {
@@ -114,6 +115,7 @@
     position: fixed;
     top: 2.8rem;
     right: 2rem;
+    z-index: 888;
   }
 
   .label {
