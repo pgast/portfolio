@@ -225,8 +225,6 @@
 /* MOBILE */
 @media screen and (max-width: 480px) {
   .home {
-    width: 100%;
-    display: flex;
     margin: 0rem;
     padding-left: 1rem;
     justify-content: center;

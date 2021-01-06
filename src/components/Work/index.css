@@ -175,3 +175,36 @@
     transform: translateX(8px) translateY(-8px);
   }
 }
+
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  .work {
+    margin: 0rem;
+    margin-top: 4rem;
+    justify-content: center;
+  }
+
+  .work > div {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .project {
+    width: 11rem;
+    height: auto;
+    margin: 1.5rem;
+  }
+
+  .project > h1 {
+    font-size: 1.1rem;
+  }
+  
+  .project p {
+    text-align: justify;
+    font-size: 0.7rem;
+  }
+
+  .projectStack {
+    flex-wrap: wrap;    
+  }
+}
