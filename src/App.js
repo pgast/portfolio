@@ -21,7 +21,7 @@ function App() {
         return null;
     }
   };
-
+  
   return (
     <Router>
       <div>
@@ -34,7 +34,11 @@ function App() {
             pg
           </div>
         </Link>
-        <Navigation setView={setView} view={view} labelId={setLabelId(view)}/>
+        <Navigation 
+          view={view} 
+          setView={setView} 
+          labelId={setLabelId(view)}
+        />
         <Route 
           exact 
           path={"/"} 

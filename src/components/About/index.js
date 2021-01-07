@@ -7,18 +7,15 @@ import './index.css';
 const About = () => {
   const buttons = [
     { text: 'Resume', href: resumeLink },
-    { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablo-gastélum-2a5081115'},
     { text: 'Github', href: 'https://github.com/pgast' },
-    { text: 'Codepen', href: 'https://codepen.io/Pabl-o' }
-  ]
+    { text: 'Codepen', href: 'https://codepen.io/Pabl-o' },
+    { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablo-gastélum-2a5081115'},
+  ];
 
   return (
     <div className="about">
-      {/* About Main Fixed on Side */}
       <div className="aboutMain">
-        <div className="aboutPhoto">
-          {/* foto */}
-        </div>
+        <div className="aboutPhoto"></div>
         <div className="aboutMain_desc">
           <div>
             <h3>Pablo Gastelum Leyva</h3>
@@ -32,9 +29,9 @@ const About = () => {
           </div>
           <div className="aboutMain_btnRow">
             <Link 
-              to={buttons[0].href} 
-              target="_blank"
               download
+              target="_blank"
+              to={buttons[0].href} 
               style={{ textDecoration: "none", color: "black" }} 
             >
               <div className="btn">
@@ -43,27 +40,27 @@ const About = () => {
             </Link>
             <div className="btn">
               <a 
-                href={buttons[1].href}
                 target="_blank" 
                 rel="noreferrer"
+                href={buttons[1].href}
               >
                 <h3>{buttons[1].text}</h3>
               </a>
             </div>
             <div className="btn">
               <a 
-                href={buttons[2].href}
                 target="_blank" 
                 rel="noreferrer"
+                href={buttons[2].href}
               >
                 <h3>{buttons[2].text}</h3>
               </a>
             </div>
             <div className="btn">
               <a 
-                href={buttons[3].href}
                 target="_blank" 
                 rel="noreferrer"
+                href={buttons[3].href}
               >
                 <h3>{buttons[3].text}</h3>
               </a>
@@ -71,7 +68,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      {/* Scrollable */}
       <div className="aboutScroll">
         <div className="aboutSection">
           <h3>skills</h3>
@@ -126,7 +122,7 @@ const About = () => {
             <div>
               <div>
                 <p>Bachelor in Product Design</p>
-                <p>Universidad Autonoma de Nuevo Leon, Monterrey MEX.</p>
+                <p>Universidad Autónoma de Nuevo León, Monterrey MEX.</p>
               </div>
               <div>
                 <p>Over 700 hours of online learning and 5 certifications spanning</p>
@@ -151,7 +147,7 @@ const About = () => {
               </ul>
             </div>
             <div>
-              <p>2017 (10 Mo.) / Product Designer / G3 Fabricacion</p>
+              <p>2017 (10 Mo.) / Product Designer / G3 Fabricación</p>
               <ul>
                 <li>Conceptualization of commercial interior design concepts.</li>
                 <li>Oversaw manufacturing of point of sale, commercial interiorism, signage, and furniture projects.</li>
@@ -161,9 +157,9 @@ const About = () => {
             <div>
               <p>2016 (6 Mo.) / Design Intern / Jorge Diego Etienne Design</p>
               <ul>
-                <li>Participated in user design research for project ideation.</li>
                 <li>Generated computer models and visualizations.</li>
                 <li>Build models and mockups for idea validation.</li>
+                <li>Participated in user design research for project ideation.</li>
               </ul>
             </div>
             <div>
@@ -176,7 +172,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div />
+        <div/>
       </div>
     </div>
   );

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './index.css';
 
 const Navigation = ({ setView, view, labelId }) => {
+  const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
+  const setMobileView = (view) => {
+    setView(view);
+    setMobileMenuOpen(false);
+  };
+
   return (
     <React.Fragment>
       <div className="label" id={labelId}>
@@ -41,7 +47,47 @@ const Navigation = ({ setView, view, labelId }) => {
         </div>
       </div>
 
-      <i className="fas fa-bars" id="hamburgerMenu" />
+      {!mobileMenuOpen ? (
+          <i 
+            className="fas fa-bars" 
+            id="mobileMenuIcon" 
+            onClick={() => setMobileMenuOpen(true)} 
+          />
+        )
+        :
+        (
+          <i 
+            class="fas fa-times" 
+            id="mobileMenuIcon" 
+            onClick={() => setMobileMenuOpen(false)} 
+          />
+        )
+      }
+      <div id={mobileMenuOpen ? "mobileMenuOpen" : "mobileMenuClosed"}>
+        <div>
+          {['work', 'about', 'contact'].map(el => (
+            <Link 
+              to={`/${el}`} 
+              onClick={() => setMobileView(el)} 
+              style={{ textDecoration: "none" }} 
+            >
+              <p>{el}</p>
+            </Link>
+          ))}   
+        </div>
+        <div>
+          <a 
+            target="_blank" 
+            rel="noreferrer"
+            href="https://www.linkedin.com/in/pablo-gastélum-2a5081115" 
+          >
+            <i className="fab fa-linkedin" />
+          </a>
+          <a href="mailto: pablo.g.leyva@gmail.com">
+            <i className="fas fa-envelope" />
+          </a>
+        </div>
+      </div>
     </React.Fragment>
   );
 };
