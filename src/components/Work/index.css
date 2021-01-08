@@ -1,3 +1,4 @@
+/* Desktop */
 .work {
   margin-bottom: 3.3rem;
   margin-top: 3.4rem;
@@ -176,7 +177,42 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+/* Tablet Landscape */
+@media screen and (max-width: 1025px) {
+  .work {
+    margin-right: 0rem;
+    margin-left: 0rem;
+  }
+
+  .project {
+    width: 11rem;
+  }
+
+  .project > h1 {
+    font-size: 1.1rem;
+  }
+  
+  .project p {
+    font-size: 0.7rem;
+    text-align: justify;
+  }
+
+  .projectStack {
+    font-size: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .projectStack h3 {
+    margin-right: 1rem;
+  }
+
+  .btn {
+    font-size: 0.45rem;
+  }
+}
+
+/* Mobile Phones */
+@media screen and (max-width: 716px) {
   .work {
     margin: 0rem;
     margin-top: 4rem;
@@ -189,18 +225,8 @@
   }
 
   .project {
-    width: 11rem;
     height: auto;
     margin: 1.5rem;
-  }
-
-  .project > h1 {
-    font-size: 1.1rem;
-  }
-  
-  .project p {
-    text-align: justify;
-    font-size: 0.7rem;
   }
 
   .projectStack {
