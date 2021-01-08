@@ -116,7 +116,7 @@
   font-size: 0.6rem;
   display: flex;
   margin: 1rem 0;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .projectStack h3 {
@@ -176,7 +176,6 @@
   }
 }
 
-/* MOBILE */
 @media screen and (max-width: 480px) {
   .work {
     margin: 0rem;

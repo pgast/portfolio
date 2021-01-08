@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import './index.css';
 
 const Work = () => {
@@ -10,14 +11,14 @@ const Work = () => {
       <div 
         className="project"
         onClick={() => toggleProject(project.name)}
-        id={isSelected(project.name) && 'selectedProject'}
+        id={isSelected(project.name) ? 'selectedProject' : undefined}
       >
         <h1>{project.name}</h1>
         <p>{project.info}</p>
         {isSelected(project.name) &&
           <div id="projectInfo">
             <div className="projectStack">
-              {project.stack.map(el => <h3>{el}</h3>)}
+              {project.stack.map(el => <h3 key={el}>{el}</h3>)}
             </div>
             <div className="projectBtnRow">
               <div 

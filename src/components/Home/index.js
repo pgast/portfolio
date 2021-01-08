@@ -31,7 +31,11 @@ const Home = ({ setView }) => {
   }
 
   const renderAnimatedLetter = (letter, index, name) => (
-    <h1 id={lettersIds[name][index]} onMouseEnter={() => changeLetterColor(index, name)}>
+    <h1 
+      key={index} 
+      id={lettersIds[name][index]} 
+      onMouseEnter={() => changeLetterColor(index, name)}
+    >
       {letter}
     </h1>
   );
@@ -52,7 +56,6 @@ const Home = ({ setView }) => {
           developer and product designer that <span id="blueLabel">&nbsp;{labels.verb[labelsIdx.verb]}&nbsp;</span>
           web and mobile experiences.
         </p>
-
         <div>
           <p>is a</p>
           <p id="yellowLabel">&nbsp;{labels.dev[labelsIdx.dev]}&nbsp;</p>

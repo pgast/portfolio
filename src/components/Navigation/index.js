@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import './index.css';
 
 const Navigation = ({ setView, view, labelId }) => {
@@ -20,13 +21,14 @@ const Navigation = ({ setView, view, labelId }) => {
         <div>
           {['work', 'about', 'contact'].map(el => (
             <Link 
+              key={el}
               to={`/${el}`} 
               onClick={() => setView(el)} 
               style={{ textDecoration: "none" }} 
             >
               <h5 
                 className="navLink"
-                id={view === el && "selectedView"}
+                id={view === el ? "selectedView" : undefined}
               >
                 {el}
               </h5>
@@ -46,19 +48,18 @@ const Navigation = ({ setView, view, labelId }) => {
           </a>
         </div>
       </div>
-
       {!mobileMenuOpen ? (
           <i 
-            className="fas fa-bars" 
             id="mobileMenuIcon" 
+            className="fas fa-bars" 
             onClick={() => setMobileMenuOpen(true)} 
           />
         )
         :
         (
           <i 
-            class="fas fa-times" 
             id="mobileMenuIcon" 
+            className="fas fa-times" 
             onClick={() => setMobileMenuOpen(false)} 
           />
         )
@@ -67,6 +68,7 @@ const Navigation = ({ setView, view, labelId }) => {
         <div>
           {['work', 'about', 'contact'].map(el => (
             <Link 
+              key={el}
               to={`/${el}`} 
               onClick={() => setMobileView(el)} 
               style={{ textDecoration: "none" }} 

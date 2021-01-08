@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-
 import { Link } from 'react-router-dom';
-import resumeLink from '../../assets/Pablo-Gastelum-Resume.pdf';
+
 import './index.css';
+import resumeLink from '../../assets/Pablo-Gastelum-Resume.pdf';
 
 const Contact = () => {
   const [ name, setName ] = useState('');
@@ -40,9 +40,9 @@ const Contact = () => {
             <p>pablo.g.leyva@gmail.com</p>
           </a>
           <Link 
+            download
             to={resumeLink} 
             target="_blank"
-            download
             style={{ textDecoration: "none", color: "black" }} 
           >
             <div className="btn">
@@ -52,9 +52,7 @@ const Contact = () => {
         </div>
       </div>
       <div className="contactForm">
-        {/* Message Sent */}
         {(sentMessage && !errorMessage) && <h3>Message sent!</h3>}
-        {/* Error Message */}
         {(sentMessage && errorMessage) && (
           <div id="errorMessage">
             <h3>Oops!</h3>
@@ -62,7 +60,6 @@ const Contact = () => {
             <h3>Please reach me through my email or linkedin.</h3>
           </div>
         )}
-        {/* Contact Form */}
         {(!sentMessage && !errorMessage) && (
           <>
             <div>
