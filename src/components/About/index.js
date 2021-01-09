@@ -7,9 +7,9 @@ import './index.css';
 const About = () => {
   const buttons = [
     { text: 'Resume', href: resumeLink },
+    { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablo-gastélum-2a5081115'},
     { text: 'Github', href: 'https://github.com/pgast' },
     { text: 'Codepen', href: 'https://codepen.io/Pabl-o' },
-    { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablo-gastélum-2a5081115'},
   ];
 
   return (

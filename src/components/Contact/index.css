@@ -1,3 +1,4 @@
+/* Desktop */
 .contact {
   margin-bottom: 3.3rem;
   margin-top: 3.4rem;
@@ -100,14 +101,16 @@ textarea {
   color: #003cf9;
 }
 
-@media screen and (max-width: 480px) {
+
+/* Mobile Phones / Tablet Portrait */
+@media screen and (max-width: 768px) {
   .contact {
     justify-content: flex-start;
     height: fit-content;
     align-items: center;
     margin: 0rem;
     margin-top: 5rem;
-    flex-direction: column;
+    flex-direction: column
   }
 
   .contactHeader,
