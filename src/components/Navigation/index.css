@@ -3,7 +3,9 @@
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  height: 82vh;
+  padding: 3rem 0rem;
+  margin-top: -3rem;
+  height: 100vh;
 }
 
 .nav > div:first-child {

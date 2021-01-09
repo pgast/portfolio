@@ -10,11 +10,14 @@ const Contact = () => {
   const [ message, setMessage ] = useState('');
   const [ sentMessage, setSentMessage ] = useState(false);
   const [ errorMessage, setErrorMessage ] = useState(false);
+  const validForm = (name && email && message) !== '' ? true : false;
 
   const handleSubmit = (event) => {
-    const templateId = 'template_tbr3zii';
-    const serviceId = 'service_5r0kymp';
-    sendFeedback(serviceId, templateId, {message, name, email})
+    if(validForm) {
+      const templateId = 'template_tbr3zii';
+      const serviceId = 'service_5r0kymp';
+      sendFeedback(serviceId, templateId, {message, name, email})
+    }
   }
   
   const sendFeedback = (serviceId, templateId, variables) => {
@@ -52,7 +55,13 @@ const Contact = () => {
         </div>
       </div>
       <div className="contactForm">
-        {(sentMessage && !errorMessage) && <h3>Message sent!</h3>}
+        {(sentMessage && !errorMessage) && (
+          <>
+            <h3>Message sent!</h3>
+            <h3>I'll get back to you ASAP,</h3>
+            <h3>Thanks for your interest!</h3>
+          </>
+        )}
         {(sentMessage && errorMessage) && (
           <div id="errorMessage">
             <h3>Oops!</h3>
