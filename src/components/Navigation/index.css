@@ -144,7 +144,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 8rem;
     position: fixed;
     left: 0;
     top: 0;
@@ -200,7 +201,7 @@
 
   #mobileMenuOpen div:last-child {
     position: fixed;
-    bottom: 4rem;
+    bottom: 6rem;
     font-size: 1.7rem;
     display: flex;
     justify-content: space-between;
