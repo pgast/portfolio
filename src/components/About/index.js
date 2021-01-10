@@ -136,7 +136,7 @@ const About = () => {
           </div>
         </div>
         <div className="aboutSection" id="experience">
-          <h3>experience</h3>
+          <h3>work history</h3>
           <div>
             <div>
               <p>2018-Now / Designer / Macizo Carpinteria</p>
