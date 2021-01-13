@@ -7,7 +7,7 @@ import './index.css';
 const About = () => {
   const buttons = [
     { text: 'Resume', href: resumeLink },
-    { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablo-gastélum-2a5081115'},
+    { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablogastelum'},
     { text: 'Github', href: 'https://github.com/pgast' },
     { text: 'Codepen', href: 'https://codepen.io/Pabl-o' },
   ];
@@ -141,25 +141,25 @@ const About = () => {
             <div>
               <p>2018-Now / Designer / Macizo Carpinteria</p>
               <ul>
-                <li>Delivered design and engineering woodwork concepts for hotel chains and residential clients.</li>
-                <li>Helped in proposal of new user friendly redesign of production blueprints.</li>
                 <li>Developed web app that calculates wood wastage.</li>
+                <li>Worked in new user-friendly redesign of production blueprints.</li>
+                <li>Delivered design and engineering woodwork concepts for hotel chains and residential clients.</li>
               </ul>
             </div>
             <div>
               <p>2017 (10 Mo.) / Product Designer / G3 Fabricación</p>
               <ul>
                 <li>Conceptualization of commercial interior design concepts.</li>
-                <li>Oversaw manufacturing of point of sale, commercial interiorism, signage, and furniture projects.</li>
+                <li>Worked with construction team to achieve project deadlines.</li>
                 <li>Generated 3D visualizations of concepts and product engineering.</li>
               </ul>
             </div>
             <div>
               <p>2016 (6 Mo.) / Design Intern / Jorge Diego Etienne Design</p>
               <ul>
+                <li>Collaborated in user research execution and analysis.</li>
                 <li>Generated computer models and visualizations.</li>
-                <li>Build models and mockups for idea validation.</li>
-                <li>Participated in user design research for project ideation.</li>
+                <li>Built physical models and mockups for idea validation.</li>
               </ul>
             </div>
             <div>

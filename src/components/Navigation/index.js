@@ -39,7 +39,7 @@ const Navigation = ({ setView, view, labelId }) => {
           <a 
             target="_blank" 
             rel="noreferrer"
-            href="https://www.linkedin.com/in/pablo-gastélum-2a5081115" 
+            href="https://www.linkedin.com/in/pablogastelum" 
           >
             <i className="fab fa-linkedin" />
           </a>
@@ -81,7 +81,7 @@ const Navigation = ({ setView, view, labelId }) => {
           <a 
             target="_blank" 
             rel="noreferrer"
-            href="https://www.linkedin.com/in/pablo-gastélum-2a5081115" 
+            href="https://www.linkedin.com/in/pablogastelum" 
           >
             <i className="fab fa-linkedin" />
           </a>
