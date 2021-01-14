@@ -1,12 +1,11 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import resumeLink from '../../assets/Pablo-Gastelum-Resume.pdf';
 import './index.css';
 
 const About = () => {
   const buttons = [
-    { text: 'Resume', href: resumeLink },
+    { text: 'Resume', href: 'https://drive.google.com/uc?export=download&id=1nN_dQuBMAPaTofOev5Zomf4MHDXZFmBB' },
     { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablogastelum'},
     { text: 'Github', href: 'https://github.com/pgast' },
     { text: 'Codepen', href: 'https://codepen.io/Pabl-o' },
@@ -28,16 +27,11 @@ const About = () => {
             <p>Feel free to contact me, I'd love to hear from you.</p>
           </div>
           <div className="aboutMain_btnRow">
-            <Link 
-              download
-              target="_blank"
-              to={buttons[0].href} 
-              style={{ textDecoration: "none", color: "black" }} 
-            >
+            <a href={buttons[0].href}>
               <div className="btn">
                 <h3>{buttons[0].text}</h3>
               </div>
-            </Link>
+            </a>
             <div className="btn">
               <a 
                 target="_blank" 

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './index.css';
-import resumeLink from '../../assets/Pablo-Gastelum-Resume.pdf';
 
 const Contact = () => {
   const [ name, setName ] = useState('');
@@ -42,16 +41,11 @@ const Contact = () => {
           <a href="mailto: pablo.g.leyva@gmail.com">
             <p>pablo.g.leyva@gmail.com</p>
           </a>
-          <Link 
-            download
-            to={resumeLink} 
-            target="_blank"
-            style={{ textDecoration: "none", color: "black" }} 
-          >
+          <a href="https://drive.google.com/uc?export=download&id=1nN_dQuBMAPaTofOev5Zomf4MHDXZFmBB" >
             <div className="btn">
               <h3>Get resume</h3>
             </div>
-          </Link>
+          </a>
         </div>
       </div>
       <div className="contactForm">
