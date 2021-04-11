@@ -64,7 +64,7 @@ const Work = () => {
       info: 'Progressive web app for expense breakdown in events and projects',
       stack: ['React', 'Progressive Web App'],
       links: {
-        live: 'http://s-plit.herokuapp.com/',
+        live: 'http://s-plit.surge.sh/',
         code:  'https://github.com/pgast/split' 
       }
     },
