@@ -7,20 +7,21 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 
+const setLabelId = (view) => {
+  switch(view) {
+    case 'work':
+      return 'workLabel';
+    case 'about':
+      return 'aboutLabel';
+    case 'contact':
+      return 'contactLabel';
+    default:
+      return null;
+  }
+};
+
 function App() {
   const [view, setView] = useState(null);
-  const setLabelId = (view) => {
-    switch(view) {
-      case 'work':
-        return 'workLabel';
-      case 'about':
-        return 'aboutLabel';
-      case 'contact':
-        return 'contactLabel';
-      default:
-        return null;
-    }
-  };
   
   return (
     <Router>

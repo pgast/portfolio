@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
 import './index.css';
 
 const Contact = () => {
@@ -38,9 +36,6 @@ const Contact = () => {
           </h3>
         </div>
         <div>
-          <a href="mailto: pablo.g.leyva@gmail.com">
-            <p>pablo.g.leyva@gmail.com</p>
-          </a>
           <a href="https://drive.google.com/uc?export=download&id=1nN_dQuBMAPaTofOev5Zomf4MHDXZFmBB" >
             <div className="btn">
               <h3>Get resume</h3>

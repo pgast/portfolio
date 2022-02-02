@@ -1,30 +1,31 @@
 import React from 'react';
-
-import { Link } from 'react-router-dom';
 import './index.css';
 
-const About = () => {
-  const buttons = [
-    { text: 'Resume', href: 'https://drive.google.com/uc?export=download&id=1nN_dQuBMAPaTofOev5Zomf4MHDXZFmBB' },
-    { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablogastelum'},
-    { text: 'Github', href: 'https://github.com/pgast' },
-    { text: 'Codepen', href: 'https://codepen.io/Pabl-o' },
-  ];
+const buttons = [
+  { text: 'Resume', href: 'https://drive.google.com/uc?export=download&id=1nN_dQuBMAPaTofOev5Zomf4MHDXZFmBB' },
+  { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablogastelum'},
+  { text: 'Github', href: 'https://github.com/pgast' },
+  { text: 'Codepen', href: 'https://codepen.io/Pabl-o' },
+];
 
+const about = {
+  mainDescription: {
+    h3: "Pablo Gastelum Leyva",
+    description: "Hi! I'm a web developer with a product design background. After years building real physical objects (and the occasional venture into graphic design) I took my side hobby of web development and decided to focus full time on creating digital experiences.",
+    greet: "Feel free to contact me, I'd love to hear from you."
+  }
+}
+
+const About = () => {
   return (
     <div className="about">
       <div className="aboutMain">
         <div className="aboutPhoto"></div>
         <div className="aboutMain_desc">
           <div>
-            <h3>Pablo Gastelum Leyva</h3>
-            <p>
-              Hi! I'm a web developer with a product design background.
-              After years building real physical objects (and the occasional venture
-              into graphic design) I took my side hobby of web development and
-              decided to focus full time on creating digital experiences.
-            </p>
-            <p>Feel free to contact me, I'd love to hear from you.</p>
+            <h3>{about.mainDescription.h3}</h3>
+            <p>{about.mainDescription.description}</p>
+            <p>{about.mainDescription.greet}</p>
           </div>
           <div className="aboutMain_btnRow">
             <a href={buttons[0].href}>

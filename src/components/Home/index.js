@@ -3,6 +3,18 @@ import { Link } from 'react-router-dom';
 
 import './index.css';
 
+const letterIds = ["blackLetter", "yellowLetter", "blueLetter"];
+
+const labels = {
+  dev: ['front-end', 'self-taught', 'react', 'creative'],
+  verb: ['builds', 'codes', 'designs', 'creates', 'delivers']
+}
+
+const letters = {
+  pablo: ["P", "a", "b", "l", "o"],
+  gastelum: ["G", "a", "s", "t", "e", "l", "u", "m"]
+}
+
 const Home = ({ setView }) => {
   const [labelsIdx, setLabelsIdx] = useState({ dev: 0, verb: 0 });
   const [lettersIds, setLettersIds] = useState({
@@ -23,13 +35,6 @@ const Home = ({ setView }) => {
     setLettersIds(newLettersIds);
   }
 
-  const letterIds = ["blackLetter", "yellowLetter", "blueLetter"];
-
-  const labels = {
-    dev: ['front-end', 'self-taught', 'react', 'creative'],
-    verb: ['builds', 'codes', 'designs', 'creates', 'delivers']
-  }
-
   const renderAnimatedLetter = (letter, index, name) => (
     <h1 
       key={index} 
@@ -44,10 +49,10 @@ const Home = ({ setView }) => {
     <div className="home">
       <div className="titleName">
         <div>
-          {["P", "a", "b", "l", "o"].map((el, idx) => renderAnimatedLetter(el, idx, "firstName"))}
+          {letters.pablo.map((el, idx) => renderAnimatedLetter(el, idx, "firstName"))}
         </div>
         <div>
-          {["G", "a", "s", "t", "e", "l", "u", "m"].map((el, idx) => renderAnimatedLetter(el, idx, "lastName"))}
+          {letters.gastelum.map((el, idx) => renderAnimatedLetter(el, idx, "lastName"))}
         </div>
       </div>
       <div className="introDescription" onMouseEnter={changeLabels}>
