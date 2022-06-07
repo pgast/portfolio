@@ -103,6 +103,7 @@
 
 .aboutMain_btnRow {
   display: flex;
+  justify-content: center;
   margin-top: 1.5rem;
 }
 
@@ -115,14 +116,12 @@
   color: black;
 }
 
-.aboutMain_btnRow > .btn:nth-child(3) a,
-.aboutMain_btnRow > .btn:last-child a,
-.aboutMain_btnRow > .btn:first-child a {
+.aboutMain_btnRow > .btn:nth-child(2) a,
+.aboutMain_btnRow > .btn:last-child a {
   color: white;
 }
 
-.aboutMain_btnRow > .btn:nth-child(3),
-.aboutMain_btnRow > .btn:first-child {
+.aboutMain_btnRow > .btn:nth-child(2) {
   background: #003cf9;
 }
 
