@@ -5,7 +5,6 @@ const buttons = [
   { text: 'Resume', href: 'https://drive.google.com/uc?export=download&id=1nN_dQuBMAPaTofOev5Zomf4MHDXZFmBB' },
   { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablogastelum'},
   { text: 'Github', href: 'https://github.com/pgast' },
-  { text: 'Codepen', href: 'https://codepen.io/Pabl-o' },
 ];
 
 const about = {
@@ -16,7 +15,24 @@ const about = {
   }
 }
 
+const renderBtns = (btns) => {
+  return btns.map(btn => {
+    return (
+      <div className="btn">
+        <a 
+          target="_blank" 
+          rel="noreferrer"
+          href={btn.href}
+        >
+          <h3>{btn.text}</h3>
+        </a>
+      </div>
+    )
+  })
+}
+
 const About = () => {
+
   return (
     <div className="about">
       <div className="aboutMain">
@@ -28,44 +44,32 @@ const About = () => {
             <p>{about.mainDescription.greet}</p>
           </div>
           <div className="aboutMain_btnRow">
-            <a href={buttons[0].href}>
-              <div className="btn">
-                <h3>{buttons[0].text}</h3>
-              </div>
-            </a>
-            <div className="btn">
-              <a 
-                target="_blank" 
-                rel="noreferrer"
-                href={buttons[1].href}
-              >
-                <h3>{buttons[1].text}</h3>
-              </a>
-            </div>
-            <div className="btn">
-              <a 
-                target="_blank" 
-                rel="noreferrer"
-                href={buttons[2].href}
-              >
-                <h3>{buttons[2].text}</h3>
-              </a>
-            </div>
-            <div className="btn">
-              <a 
-                target="_blank" 
-                rel="noreferrer"
-                href={buttons[3].href}
-              >
-                <h3>{buttons[3].text}</h3>
-              </a>
-            </div>
+            {renderBtns(buttons)}
           </div>
         </div>
       </div>
       <div className="aboutScroll">
+      <div className="aboutSection">
+          <h3>tech / years</h3>
+          <div className="skillsTech">
+            <ul>
+              <li>HTML-CSS / 7</li>
+              <li>Javascript / 7</li>
+              <li>React / 6</li>
+              <li>Redux / 5</li>
+              <li>React-Query / 1</li>
+            </ul>
+            <ul>
+              <li>Node.js / 3</li>
+              <li>Express.js / 3</li>
+              <li>MongoDB / 1</li>
+              <li>Python / 1</li>
+              <li>NextJS / 1</li>
+            </ul>
+          </div>
+        </div>
         <div className="aboutSection">
-          <h3>skills</h3>
+          <h3>skills</h3>          
           <div className="skillsTech">
             <ul>
               <li>Graphic design</li>
@@ -76,25 +80,6 @@ const About = () => {
               <li>Adobe (AI, PS)</li>
               <li>3D Modeling</li>
               <li>Rendering</li>
-            </ul>
-          </div>
-        </div>
-        <div className="aboutSection">
-          <h3>tech / years</h3>
-          <div className="skillsTech">
-            <ul>
-              <li>HTML/6</li>
-              <li>CSS/6</li>
-              <li>Javascript/6</li>
-            </ul>
-            <ul>
-              <li>JQuery/6</li>
-              <li>React/4</li>
-              <li>Redux/4</li>
-            </ul>
-            <ul>
-              <li>Node.js/3</li>
-              <li>Express.js/3</li>
             </ul>
           </div>
         </div>
@@ -120,11 +105,44 @@ const About = () => {
                 <p>Universidad Autónoma de Nuevo León, Monterrey MEX.</p>
               </div>
               <div>
-                <p>Over 700 hours of online learning and 5 certifications spanning</p>
+                <p>Over 700 hours of online learning and 6 certifications spanning</p>
                 <ul>
-                  <li>- Front end development</li>
-                  <li>- React / Redux</li>
-                  <li>- Data Structures</li>
+                  <li>
+                    <a
+                      target="_blank" 
+                      rel="noreferrer"
+                      href={"https://udemy-certificate.s3.amazonaws.com/pdf/UC-32236e40-565f-46e0-a24a-5a0275d8b99e.pdf"}
+                    >
+                      - Python
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank" 
+                      rel="noreferrer"
+                      href={"http://ude.my/UC-CJJEMRIW"}
+                    >
+                      - React / Redux
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank" 
+                      rel="noreferrer"
+                      href={"https://www.freecodecamp.org/certification/pabl-o/javascript-algorithms-and-data-structures"}
+                    >
+                      - Data Structures
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank" 
+                      rel="noreferrer"
+                      href={"https://www.freecodecamp.org/certification/pabl-o/legacy-front-end"}
+                    >
+                      - Front end development
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -134,7 +152,15 @@ const About = () => {
           <h3>work history</h3>
           <div>
             <div>
-              <p>2018-Now / Designer / Macizo Carpinteria</p>
+              <p>2021-Now / Frontend Developer / Apli</p>
+              <ul>
+                <li>Developed client-facing and internal software using React and NextJS.</li>
+                <li>Worked with internal microservices APIs connecting them to the frontend.</li>
+                <li>Planned, managed and executed standalone projects.</li>
+              </ul>
+            </div>
+            <div>
+              <p>2018-2021 / Designer / Macizo Carpinteria</p>
               <ul>
                 <li>Developed web app that calculates wood wastage.</li>
                 <li>Worked in new user-friendly redesign of production blueprints.</li>
