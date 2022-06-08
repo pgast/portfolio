@@ -43,6 +43,10 @@
   text-align: justify;
 }
 
+.aboutSection > h3:hover {
+  color: blue;
+}
+
 .aboutMain_desc > div:first-of-type h3 {
   margin-bottom: 0.3rem;
 }
@@ -95,10 +99,21 @@
   margin-top: 1rem;
 }
 
+a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+li > a:hover {
+  color: blue;
+  font-weight: bold;
+}
+
 .about li,
 .about p {
   font-size: 0.7rem;
   color: #afafaf;
+  text-decoration: none!important;
 }
 
 .aboutMain_btnRow {

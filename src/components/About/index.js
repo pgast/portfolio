@@ -58,13 +58,13 @@ const About = () => {
               <li>React / 6</li>
               <li>Redux / 5</li>
               <li>React-Query / 1</li>
-              <li>NextJS / 1</li>
             </ul>
             <ul>
               <li>Node.js / 3</li>
               <li>Express.js / 3</li>
               <li>MongoDB / 1</li>
               <li>Python / 1</li>
+              <li>NextJS / 1</li>
             </ul>
           </div>
         </div>
@@ -111,14 +111,38 @@ const About = () => {
                     <a
                       target="_blank" 
                       rel="noreferrer"
-                      href={"https://udemy-certificate.s3.amazonaws.com/pdf/UC-32236e40-565f-46e0-a24a-5a0275d8b99e.pdf"}>
+                      href={"https://udemy-certificate.s3.amazonaws.com/pdf/UC-32236e40-565f-46e0-a24a-5a0275d8b99e.pdf"}
+                    >
+                      - Python
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank" 
+                      rel="noreferrer"
+                      href={"http://ude.my/UC-CJJEMRIW"}
+                    >
+                      - React / Redux
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank" 
+                      rel="noreferrer"
+                      href={"https://www.freecodecamp.org/certification/pabl-o/javascript-algorithms-and-data-structures"}
+                    >
+                      - Data Structures
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank" 
+                      rel="noreferrer"
+                      href={"https://www.freecodecamp.org/certification/pabl-o/legacy-front-end"}
+                    >
                       - Front end development
                     </a>
                   </li>
-                  <li>- React / Redux</li>
-                  <li>- Data Structures</li>
-                  <li>- Python</li>
-                  {/* Add links to certificates */}
                 </ul>
               </div>
             </div>
@@ -131,8 +155,8 @@ const About = () => {
               <p>2021-Now / Frontend Developer / Apli</p>
               <ul>
                 <li>Developed client-facing and internal software using React and NextJS.</li>
-                <li>Created job-board for clients.</li>
-                <li>Delivered design and engineering woodwork concepts for hotel chains and residential clients.</li>
+                <li>Worked with internal microservices APIs connecting them to the frontend.</li>
+                <li>Planned, managed and executed standalone projects.</li>
               </ul>
             </div>
             <div>
