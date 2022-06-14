@@ -13,7 +13,7 @@ const Work = () => {
         onClick={() => toggleProject(project.name)}
         id={isSelected(project.name) ? 'selectedProject' : undefined}
       >
-        <h1>{project.name}</h1>
+        <h3>{project.name}</h3>
         <p>{project.info}</p>
         {isSelected(project.name) &&
           <div id="projectInfo">
@@ -76,6 +76,24 @@ const Work = () => {
         live: 'http://zoet.surge.sh/Landing',
         code: 'https://github.com/pgast/zoet' 
       }
+    },
+    {
+      name: 'weather',
+      info: 'Small widget that fetches a 5 day weather forecast of your current location from an API.',
+      stack: ['React', 'API'],
+      links: {
+        live: 'http://quick-weather.surge.sh/',
+        code: 'https://github.com/pgast/quick-weather#QuickWeather' 
+      }
+    },
+    {
+      name: 'job application manager',
+      info: 'Helps you keep track of job applications',
+      stack: ['MongoDB', 'Express.js', 'React', 'Node.js'],
+      links: {
+        live: 'https://jobapplication-manager.herokuapp.com/home',
+        code: 'https://github.com/pgast/job-applications-manager' 
+      }
     }
   ];
 
@@ -84,9 +102,11 @@ const Work = () => {
       <div>
         {renderProject(projects[0])}
         {renderProject(projects[1])}
+        {renderProject(projects[2])}
       </div>
       <div>
-        {renderProject(projects[2])}
+        {renderProject(projects[4])}
+        {renderProject(projects[5])}
         {renderProject(projects[3])}
       </div>
     </div>
