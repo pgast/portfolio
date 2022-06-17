@@ -11,12 +11,7 @@ const Navigation = ({ setView, view, labelId }) => {
   };
 
   return (
-    <React.Fragment>
-      <div className="label" id={labelId}>
-        <h1>
-          {view}
-        </h1>
-      </div>
+    <div className="navigation">
       <div className="nav">
         <div>
           {['work', 'about', 'contact'].map(el => (
@@ -90,7 +85,7 @@ const Navigation = ({ setView, view, labelId }) => {
           </a>
         </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

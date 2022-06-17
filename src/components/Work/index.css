@@ -153,8 +153,8 @@
     transform: translateX(0) translateY(0);
   }
   100% {
-    -webkit-box-shadow: -1px 1px black, -2px 2px black, -3px 3px black, -4px 4px black, -5px 5px black, -6px 6px black, -7px 7px black, -8px 8px black;
-    box-shadow: -1px 1px black, -2px 2px black, -3px 3px black, -4px 4px black, -5px 5px black, -6px 6px black, -7px 7px black, -8px 8px black;
+    -webkit-box-shadow: -1px 1px #03ca9f, -2px 2px #03ca9f, -3px 3px #03ca9f, -4px 4px #03ca9f, -5px 5px #03ca9f, -6px 6px #03ca9f, -7px 7px #03ca9f, -8px 8px #03ca9f;
+    box-shadow: -1px 1px #03ca9f, -2px 2px #03ca9f, -3px 3px #03ca9f, -4px 4px #03ca9f, -5px 5px #03ca9f, -6px 6px #03ca9f, -7px 7px #03ca9f, -8px 8px #03ca9f;
     -webkit-transform: translateX(8px) translateY(-8px);
     transform: translateX(8px) translateY(-8px);
   }
@@ -167,8 +167,8 @@
     transform: translateX(0) translateY(0);
   }
   100% {
-    -webkit-box-shadow: -1px 1px black, -2px 2px black, -3px 3px black, -4px 4px black, -5px 5px black, -6px 6px black, -7px 7px black, -8px 8px black;
-    box-shadow: -1px 1px black, -2px 2px black, -3px 3px black, -4px 4px black, -5px 5px black, -6px 6px black, -7px 7px black, -8px 8px black;
+    -webkit-box-shadow: -1px 1px #03ca9f, -2px 2px #03ca9f, -3px 3px #03ca9f, -4px 4px #03ca9f, -5px 5px #03ca9f, -6px 6px #03ca9f, -7px 7px #03ca9f, -8px 8px #03ca9f;
+    box-shadow: -1px 1px #03ca9f, -2px 2px #03ca9f, -3px 3px #03ca9f, -4px 4px #03ca9f, -5px 5px #03ca9f, -6px 6px #03ca9f, -7px 7px #03ca9f, -8px 8px #03ca9f;
     -webkit-transform: translateX(8px) translateY(-8px);
     transform: translateX(8px) translateY(-8px);
   }

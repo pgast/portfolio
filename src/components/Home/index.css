@@ -60,7 +60,7 @@
   margin-bottom: 2.5rem;
   font-weight: 600;
   font-size: 1.3rem;
-  color: #121212;
+  color: white;
 }
 
 .introDescription > div {
@@ -72,7 +72,7 @@
 }
 
 #blackLetter {
-  color: #121212;
+  color: #03ca9f;
   -moz-transition: color .2s ease-in;
   -o-transition: color .2s ease-in;
   -webkit-transition: color .2s ease-in;
@@ -80,7 +80,7 @@
 }
 
 #blueLetter {
-  color: #003cf9;
+  color: white;
   -moz-transition: color .2s ease-in;
   -o-transition: color .2s ease-in;
   -webkit-transition: color .2s ease-in;
@@ -88,7 +88,7 @@
 }
 
 #yellowLetter {
-  color: #fcdd00;
+  color: #ffc448;
   -moz-transition: color .2s ease-in;
   -o-transition: color .2s ease-in;
   -webkit-transition: color .2s ease-in;
@@ -96,13 +96,14 @@
 }
 
 #yellowLabel {
-  background: #fcdd00;
+  background: #ffc448;
+  color: black;
   margin: 0 0.2rem;
 }
 
 #blueLabel {
-  color: white;
-  background: #003cf9;
+  color: black;
+  background: #03ca9f;
   margin: 0 0.2rem;
 }
 
@@ -110,6 +111,7 @@
   width: 8rem;
   text-align: center;
   font-size: 0.6rem;
+  background: #ffc448;
 }
 
 #mobileDesc {
