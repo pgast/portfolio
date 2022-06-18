@@ -1,11 +1,13 @@
 /* Desktop */
 .about {
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   width: 100%;
   margin-left: 5.5rem;
   margin-right: 4rem;
   display: flex;
   justify-content: flex-end;
+  border: 1px solid green;
+  height: 100%;
 }
 
 .about ul {
@@ -80,6 +82,7 @@
   align-items: center;
   justify-content: center;
   padding-right: 2rem;
+  margin-top: 2rem;
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
@@ -149,6 +152,7 @@ li > a:hover {
   width: 48%;
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  border-left: 1px solid red;
 }
 
 .aboutScroll > div:last-of-type {
