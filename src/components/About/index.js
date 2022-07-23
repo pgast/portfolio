@@ -1,19 +1,14 @@
 import React from 'react';
 import './index.css';
-
-const buttons = [
-  { text: 'Resume', href: 'https://drive.google.com/uc?export=download&id=1nN_dQuBMAPaTofOev5Zomf4MHDXZFmBB' },
-  { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablogastelum'},
-  { text: 'Github', href: 'https://github.com/pgast' },
-];
-
-const about = {
-  mainDescription: {
-    h3: "Pablo Gastelum Leyva",
-    description: "Hi! I'm a web developer with a product design background. After years building real physical objects (and the occasional venture into graphic design) I took my side hobby of web development and decided to focus full time on creating digital experiences.",
-    greet: "Feel free to contact me, I'd love to hear from you."
-  }
-}
+import {
+  about,
+  awards,
+  skills,
+  buttons,
+  skillTech,
+  education,
+  workHistory,
+} from '../../constants/about'
 
 const renderBtns = (btns) => {
   return btns.map(btn => {
@@ -32,7 +27,6 @@ const renderBtns = (btns) => {
 }
 
 const About = () => {
-
   return (
     <div className="about">
       <div className="aboutMain">
@@ -50,147 +44,75 @@ const About = () => {
       </div>
       <div className="aboutScroll">
       <div className="aboutSection">
-          <h3>tech / years</h3>
+          <h3>{skillTech.title}</h3>
           <div className="skillsTech">
             <ul>
-              <li>HTML-CSS / 7</li>
-              <li>Javascript / 7</li>
-              <li>React / 6</li>
-              <li>Redux / 5</li>
-              <li>React-Query / 1</li>
+              {skillTech.columns[0].map(el => <li>{el}</li>)}
             </ul>
             <ul>
-              <li>Node.js / 3</li>
-              <li>Express.js / 3</li>
-              <li>MongoDB / 1</li>
-              <li>Python / 1</li>
-              <li>NextJS / 1</li>
+              {skillTech.columns[1].map(el => <li>{el}</li>)}
             </ul>
           </div>
         </div>
         <div className="aboutSection">
-          <h3>skills</h3>          
+          <h3>{skills.title}</h3>          
           <div className="skillsTech">
             <ul>
-              <li>Graphic design</li>
-              <li>Product design</li>
-              <li>UX/UI design</li>
+              {skills.columns[0].map(el => <li>{el}</li>)}
             </ul>
             <ul>
-              <li>Adobe (AI, PS)</li>
-              <li>3D Modeling</li>
-              <li>Rendering</li>
+              {skills.columns[1].map(el => <li>{el}</li>)}
             </ul>
           </div>
         </div>
         <div id="awardsEducation">
           <div className="aboutSection">
-            <h3>awards / recognition</h3>
+            <h3>{awards.title}</h3>
             <div>
               <div>
-                <p>First Prize / Toy design proposal</p>
-                <p>2014 - Kinder Surprise Me! International Competition</p>
+                {awards.columns[0].map(el => <p>{el}</p>)}
               </div>
               <div>
-                <p>Finalist / Refrigeration unit made with recycled materials</p>
-                <p>2015 - IMBERA Refrigeration</p>
+                {awards.columns[1].map(el => <p>{el}</p>)}
               </div>
             </div>
           </div>
           <div className="aboutSection">
-            <h3>education</h3>
+            <h3>{education.title}</h3>
             <div>
               <div>
-                <p>Bachelor in Product Design</p>
-                <p>Universidad Autónoma de Nuevo León, Monterrey MEX.</p>
+                {education.school.map(el => <p>{el}</p>)}
               </div>
               <div>
-                <p>Over 700 hours of online learning and 6 certifications spanning</p>
+                <p>{education.certifications.title}</p>
                 <ul>
-                  <li>
-                    <a
-                      target="_blank" 
-                      rel="noreferrer"
-                      href={"https://udemy-certificate.s3.amazonaws.com/pdf/UC-32236e40-565f-46e0-a24a-5a0275d8b99e.pdf"}
-                    >
-                      - Python
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      target="_blank" 
-                      rel="noreferrer"
-                      href={"http://ude.my/UC-CJJEMRIW"}
-                    >
-                      - React / Redux
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      target="_blank" 
-                      rel="noreferrer"
-                      href={"https://www.freecodecamp.org/certification/pabl-o/javascript-algorithms-and-data-structures"}
-                    >
-                      - Data Structures
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      target="_blank" 
-                      rel="noreferrer"
-                      href={"https://www.freecodecamp.org/certification/pabl-o/legacy-front-end"}
-                    >
-                      - Front end development
-                    </a>
-                  </li>
+                  {education.certifications.links.map(el => 
+                    <li>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={el.href}
+                      >
+                        {el.title}
+                      </a>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
           </div>
         </div>
         <div className="aboutSection" id="experience">
-          <h3>work history</h3>
+          <h3>{workHistory.title}</h3>
           <div>
-            <div>
-              <p>2021-Now / Frontend Developer / Apli</p>
-              <ul>
-                <li>Developed client-facing and internal software using React and NextJS.</li>
-                <li>Worked with internal microservices APIs connecting them to the frontend.</li>
-                <li>Planned, managed and executed standalone projects.</li>
-              </ul>
-            </div>
-            <div>
-              <p>2018-2021 / Designer / Macizo Carpinteria</p>
-              <ul>
-                <li>Developed web app that calculates wood wastage.</li>
-                <li>Worked in new user-friendly redesign of production blueprints.</li>
-                <li>Delivered design and engineering woodwork concepts for hotel chains and residential clients.</li>
-              </ul>
-            </div>
-            <div>
-              <p>2017 (10 Mo.) / Product Designer / G3 Fabricación</p>
-              <ul>
-                <li>Conceptualization of commercial interior design concepts.</li>
-                <li>Worked with construction team to achieve project deadlines.</li>
-                <li>Generated 3D visualizations of concepts and product engineering.</li>
-              </ul>
-            </div>
-            <div>
-              <p>2016 (6 Mo.) / Design Intern / Jorge Diego Etienne Design</p>
-              <ul>
-                <li>Collaborated in user research execution and analysis.</li>
-                <li>Generated computer models and visualizations.</li>
-                <li>Built physical models and mockups for idea validation.</li>
-              </ul>
-            </div>
-            <div>
-              <p>2011-2013 / Junior Designer / Marley Industrial Supply</p>
-              <ul>
-                <li>Conceptualization of promotional graphics.</li>
-                <li>Delivered industrial safety signage.</li>
-                <li>Responsible for project blueprints.</li>
-              </ul>
-            </div>
+            {workHistory.jobs.map(el => 
+              <div>
+                <p>{el.title}</p>
+                <ul>
+                  {el.items.map(item => <li>{item}</li>)}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
         <div/>
