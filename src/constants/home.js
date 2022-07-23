@@ -1,0 +1,16 @@
+export const letterIds = ["blackLetter", "yellowLetter", "blueLetter"];
+
+export const labels = {
+  dev: ['front-end', 'self-taught', 'react', 'creative'],
+  verb: ['builds', 'codes', 'designs', 'creates', 'delivers']
+}
+
+export const letters = {
+  pablo: ["P", "a", "b", "l", "o"],
+  gastelum: ["G", "a", "s", "t", "e", "l", "u", "m"]
+}
+
+export const blankLetters = {
+  firstName: ["", "", "", "", ""],
+  lastName: ["", "", "", "", "", "", "", ""]
+}

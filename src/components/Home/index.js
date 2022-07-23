@@ -2,25 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './index.css';
-
-const letterIds = ["blackLetter", "yellowLetter", "blueLetter"];
-
-const labels = {
-  dev: ['front-end', 'self-taught', 'react', 'creative'],
-  verb: ['builds', 'codes', 'designs', 'creates', 'delivers']
-}
-
-const letters = {
-  pablo: ["P", "a", "b", "l", "o"],
-  gastelum: ["G", "a", "s", "t", "e", "l", "u", "m"]
-}
+import {
+  letterIds,
+  labels,
+  letters,
+  blankLetters,
+} from '../../constants/home'
 
 const Home = ({ setView }) => {
   const [labelsIdx, setLabelsIdx] = useState({ dev: 0, verb: 0 });
-  const [lettersIds, setLettersIds] = useState({
-    firstName: ["", "", "", "", ""],
-    lastName: ["", "", "", "", "", "", "", ""]
-  });
+  const [lettersIds, setLettersIds] = useState(blankLetters);
 
   const changeLabels = () => {
     setLabelsIdx({
@@ -55,7 +46,10 @@ const Home = ({ setView }) => {
           {letters.gastelum.map((el, idx) => renderAnimatedLetter(el, idx, "lastName"))}
         </div>
       </div>
-      <div className="introDescription" onMouseEnter={changeLabels}>
+      <div 
+        className="introDescription" 
+        onMouseEnter={changeLabels}
+      >
         <p id="mobileDesc">
           is a <span id="yellowLabel">&nbsp;{labels.dev[labelsIdx.dev]}&nbsp;</span>
           developer and product designer that <span id="blueLabel">&nbsp;{labels.verb[labelsIdx.verb]}&nbsp;</span>
