@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './index.css';
+import {
+  contact,
+  messageStatuses
+} from '../../constants/contact'
 
 const Contact = () => {
   const [ name, setName ] = useState('');
@@ -28,17 +32,12 @@ const Contact = () => {
     <div className="contact">
       <div className="contactHeader">
         <div>
-          <h3>
-            Project or work inquiries?
-          </h3>
-          <h3>
-            Let's get in touch!
-          </h3>
+          {contact.headers.map(header => <h3>{header}</h3>)}
         </div>
         <div>
-          <a href="https://drive.google.com/uc?export=download&id=1nN_dQuBMAPaTofOev5Zomf4MHDXZFmBB" >
+          <a href={contact.pdfHref}>
             <div className="btn">
-              <h3>Get resume</h3>
+              <h3>{contact.resumeTitle}</h3>
             </div>
           </a>
         </div>
@@ -46,16 +45,12 @@ const Contact = () => {
       <div className="contactForm">
         {(sentMessage && !errorMessage) && (
           <>
-            <h3>Message sent!</h3>
-            <h3>I'll get back to you ASAP,</h3>
-            <h3>Thanks for your interest!</h3>
+            {messageStatuses.sent.map(text => <h3>{text}</h3>)}
           </>
         )}
         {(sentMessage && errorMessage) && (
           <div id="errorMessage">
-            <h3>Oops!</h3>
-            <h3>Unable to send message.</h3>
-            <h3>Please reach me through my email or linkedin.</h3>
+            {messageStatuses.error.map(text => <h3>{text}</h3>)}
           </div>
         )}
         {(!sentMessage && !errorMessage) && (
