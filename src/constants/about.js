@@ -1,5 +1,5 @@
 export const buttons = [
-  { text: 'Resume', href: 'https://drive.google.com/uc?export=download&id=1nN_dQuBMAPaTofOev5Zomf4MHDXZFmBB' },
+  { text: 'Resume', href: 'https://drive.google.com/uc?export=download&id=1BaHbD6dtRw9dFAJQXUE_yWqIVYKTYuVx' },
   { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablogastelum'},
   { text: 'Github', href: 'https://github.com/pgast' },
 ]
@@ -92,14 +92,14 @@ export const education = {
 }
 
 export const workHistory = {
-  title: "work history",
+  title: "work experience",
   jobs: [
     {
       title: "2021-Now / Frontend Developer / Apli",
       items: [
-        "Developed client-facing and internal software using React and NextJS.",
-        "Worked with internal microservices APIs connecting them to the frontend.",
-        "Planned, managed and executed standalone projects."
+        "Planned, developed and implemented client-facing frontend products used by internal recruiteres in international companies.",
+        "Streamlined an internal tool used by conversation architects improving bot building timeframes and reducing errors.",
+        "Worked with internal microservices APIs guaranteeing a smooth interaction with the frontend stack."
       ]
     },
     {

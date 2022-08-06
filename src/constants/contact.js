@@ -4,7 +4,7 @@ export const contact = {
     "Let's get in touch!"
   ],
   resumeTitle: "Get resume",
-  pdfHref: "https://drive.google.com/uc?export=download&id=1nN_dQuBMAPaTofOev5Zomf4MHDXZFmBB"
+  pdfHref: "https://drive.google.com/uc?export=download&id=1BaHbD6dtRw9dFAJQXUE_yWqIVYKTYuVx"
 }
 
 export const messageStatuses = {

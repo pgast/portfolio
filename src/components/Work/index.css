@@ -18,7 +18,7 @@
 }
 
 .project {
-  border-left: 3px solid black;
+  border-left: 2px solid black;
   padding-left: 0.5rem;
   width: 15rem;
   height: 4rem;
@@ -32,7 +32,7 @@
 .project:hover {
   -webkit-animation: projectHover 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: projectHover 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  border-left: 3px solid #003cf9;
+  border-left: 2px solid #003cf9;
 }
 
 @-webkit-keyframes projectHover {
@@ -68,7 +68,7 @@
 
 #selectedProject {
   height: auto;
-  border-left: 3px solid #003cf9;
+  border-left: 2px solid #003cf9;
   transform: translateZ(20px) translateY(-6px);
 }
 
