@@ -120,7 +120,8 @@
 
 .projectStack h3 {
   margin-right: 1.3rem;
-  color:  #03ca9f;
+  font-weight: lighter;
+  color:  #ffc448;
 }
 
 .projectBtnRow {
