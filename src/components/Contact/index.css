@@ -14,16 +14,17 @@
 .contactHeader > div:first-child h3 {
   font-size: 0.95rem;
   font-weight: 700;
+  color: #ffc448;
 }
 
 .contact p {
   font-weight: 500;
   font-size: 0.7rem;
-  color: #afafaf;
+  color: #ffc448;
 }
 
 .contactForm p {
-  color: #121212;
+  color: #ffc448;
   font-weight: 600;
 }
 
@@ -46,8 +47,8 @@
 }
 
 .contactHeader .btn {
-  background: #003cf9;
-  color: white;
+  background: #ffc448;
+  color: black;
   width: 5rem;
   text-align: center;
   margin-top: 1.7rem;
@@ -78,19 +79,26 @@
   margin-top: 2rem;
   text-align: center;
   width: 5.5rem;
+  background: #ffc448;
 }
 
 .contactForm textarea,
 .contactForm input {
   border: none;
-  border-left: 3px solid black;
+  border-left: 3px solid #03ca9f;
   font-size: 0.7rem;
   padding: 0.4rem;
   width: 10rem;
-  background: #f3f3f3;
+  color: rgba(255, 255, 255, 0.456);
+  background: #03ca9f1c;
   margin-top: 0.2rem;
   border-radius: 3px;
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.contactForm textarea:focus,
+.contactForm input:focus {
+  color: white;
 }
 
 textarea {
