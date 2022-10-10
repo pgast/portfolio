@@ -18,7 +18,11 @@
 }
 
 .project {
+<<<<<<< HEAD
   border-left: 3px solid #ffc448;
+=======
+  border-left: 2px solid black;
+>>>>>>> ab4fff37aba1e6a970620f288c6d7ba355548007
   padding-left: 0.5rem;
   width: 15rem;
   height: 4rem;
@@ -33,7 +37,11 @@
 .project:hover {
   -webkit-animation: projectHover 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: projectHover 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+<<<<<<< HEAD
   border-left: 3px solid #03ca9f;
+=======
+  border-left: 2px solid #003cf9;
+>>>>>>> ab4fff37aba1e6a970620f288c6d7ba355548007
 }
 
 @-webkit-keyframes projectHover {
