@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Work from './components/Work';
 import Home from './components/Home';
@@ -26,15 +26,6 @@ function App() {
   return (
     <Router>
       <div>
-        <Link 
-          to='/' 
-          onClick={() => setView(null)}
-          style={{ textDecoration: "none", color: "black" }} 
-        >
-          <div id="logo">
-            pg
-          </div>
-        </Link>
         <Navigation 
           view={view} 
           setView={setView} 

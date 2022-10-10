@@ -24,16 +24,7 @@ html {
   display: flex;
   flex-direction: row-reverse;
   height: 100%;
-  padding: 3rem;
-}
-
-#logo {
-  position: fixed;
-  top: 2.3rem;
-  left: 3rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: white;
+  border: '1px solid green'
 }
 
 @media screen and (max-width: 480px) {
