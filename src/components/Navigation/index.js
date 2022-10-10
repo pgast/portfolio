@@ -13,7 +13,16 @@ const Navigation = ({ setView, view, labelId }) => {
   return (
     <div className="navigation">
       <div className="nav">
-        <div>
+        <Link 
+          to='/' 
+          onClick={() => setView(null)}
+          style={{ textDecoration: "none", color: "black" }} 
+        >
+          <div id="logo">
+            pg
+          </div>
+        </Link>
+        <div id="navLinks">
           {['work', 'about', 'contact'].map(el => (
             <Link 
               key={el}
@@ -30,19 +39,9 @@ const Navigation = ({ setView, view, labelId }) => {
             </Link>
           ))}
         </div>
-        <div>
-          <a 
-            target="_blank" 
-            rel="noreferrer"
-            href="https://www.linkedin.com/in/pablogastelum" 
-          >
-            <i className="fab fa-linkedin" />
-          </a>
-          <a href="mailto: pablo.g.leyva@gmail.com">
-            <i className="fas fa-envelope" />
-          </a>
-        </div>
       </div>
+
+      
       {!mobileMenuOpen ? (
           <i 
             id="mobileMenuIcon" 
