@@ -14,7 +14,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 1200px;
+  max-width: 1200px;
 }
 
 #logo {
@@ -103,6 +104,12 @@
 #mobileMenuOpen,
 #mobileMenuIcon {
   display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .nav {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 480px) {

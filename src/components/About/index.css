@@ -1,10 +1,6 @@
-/* Desktop */
-/* Verde: #03ca9f */
-/* Amarilllo: #ffc448 */
 .about {
-  width: 100%;
-  margin-left: 5.5rem;
-  margin-right: 4rem;
+  width: 1200px;
+  max-width: 1200px;
   display: flex;
   justify-content: flex-end;
   height: 100%;
@@ -79,16 +75,15 @@
 }
 
 .aboutMain {
-  position: fixed;
-  left: 13rem;
-  width: 17.5rem;
+  width: 400px;
   height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-right: 2rem;
+  margin-right: 2rem;
   margin-top: 2rem;
+  align-self: flex-start;
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
@@ -155,6 +150,10 @@ li > a:hover {
 
 /* Tablet Landscape */
 @media screen and (max-width: 1200px) {
+  .about {
+    width: 80%;
+  }
+
   .aboutScroll {
     width: 50%;
   }

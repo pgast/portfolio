@@ -1,8 +1,8 @@
 /* Desktop */
 .work {
-  margin-bottom: 3.3rem;
   margin-top: 3.4rem;
-  width: 100%;
+  width: 1200px;
+  max-width: 1200px;
   display: flex;
   justify-content: space-evenly;
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;

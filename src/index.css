@@ -22,9 +22,8 @@ html {
 
 #root > div:first-child {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: center;
   height: 100%;
-  border: '1px solid green'
 }
 
 @media screen and (max-width: 480px) {
