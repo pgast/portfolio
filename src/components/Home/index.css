@@ -1,4 +1,10 @@
 /* Desktop */
+
+/* #04D0F0 - azulito */
+/* #045AF0 - azul fuerte */
+/* #04F09A - verde fosfo */
+
+/* #F02404 - rojo */
 .home {
   padding-bottom: 2.4rem;
   display: flex;
@@ -69,7 +75,8 @@
 }
 
 #blackLetter {
-  color: #03ca9f;
+  /* color: #03ca9f; */
+  color: #04F09A;
   -moz-transition: color .2s ease-in;
   -o-transition: color .2s ease-in;
   -webkit-transition: color .2s ease-in;
@@ -77,7 +84,8 @@
 }
 
 #blueLetter {
-  color: white;
+  color: #045AF0;
+  /* color: white; */
   -moz-transition: color .2s ease-in;
   -o-transition: color .2s ease-in;
   -webkit-transition: color .2s ease-in;
@@ -85,6 +93,7 @@
 }
 
 #yellowLetter {
+  /* color: #04D0F0; */
   color: #ffc448;
   -moz-transition: color .2s ease-in;
   -o-transition: color .2s ease-in;
@@ -93,6 +102,7 @@
 }
 
 #yellowLabel {
+  /* background: #04D0F0; */
   background: #ffc448;
   color: black;
   margin: 0 0.2rem;
@@ -100,7 +110,8 @@
 
 #blueLabel {
   color: black;
-  background: #03ca9f;
+  /* background: #03ca9f; */
+  background: #045AF0;
   margin: 0 0.2rem;
 }
 
@@ -108,7 +119,8 @@
   width: 8rem;
   text-align: center;
   font-size: 0.6rem;
-  background: #ffc448;
+  background: #04F09A;
+  /* background: #ffc448; */
 }
 
 #mobileDesc {
