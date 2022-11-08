@@ -15,15 +15,63 @@ html {
   background: #121212;
 }
 
+body {
+  cursor: none !important;
+}
+
+.cursor {
+/* #invertedcursor { */
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  /* width: 40px;
+  height: 40px; */
+  background: #fff;
+  border-radius: 50%;
+  top: var(--y, 0);
+  left: var(--x, 0);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  mix-blend-mode: difference;
+  transition: transform .2s;
+  pointer-events: none;
+
+  transition: all 100ms ease;
+  transition-property: opacity, background-color, transform;
+}
+
+.c--click {
+  /* transform: translate(-50%, -50%) scale(2); */
+  transform: translate(-50%, -50%) scale(0.5);
+  background-color: white;
+}
+
+.c--hidden {
+  opacity: 0;
+}
+
+.c--hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  cursor: default;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
 }
 
-#root > div:first-child {
+#container {
   display: flex;
   justify-content: center;
   height: 100%;
+}
+
+a,
+.btn,
+.project,
+.navLink,
+#logo {
+  cursor: none !important;
 }
 
 @media screen and (max-width: 480px) {
