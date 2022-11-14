@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
-import './index.css';
 import {
   contact,
   messageStatuses
 } from '../../constants/contact'
+
+import {
+  Container,
+  Form,
+  Header,
+  HeaderTitle,
+  ErrorMessage,
+  HeaderButton,
+  FormButton,
+} from './styled'
 
 const Contact = () => {
   const [ name, setName ] = useState('');
@@ -29,29 +38,30 @@ const Contact = () => {
   }
 
   return (
-    <div className="contact">
-      <div className="contactHeader">
+    <Container>
+      <Header>
         <div>
-          {contact.headers.map(header => <h3>{header}</h3>)}
+          {contact.headers.map(header => <HeaderTitle>{header}</HeaderTitle>)}
         </div>
         <div>
           <a href={contact.pdfHref}>
-            <div className="btn">
+            <HeaderButton>
               <h3>{contact.resumeTitle}</h3>
-            </div>
+            </HeaderButton>
           </a>
         </div>
-      </div>
-      <div className="contactForm">
+      </Header>
+
+      <Form>
         {(sentMessage && !errorMessage) && (
           <>
             {messageStatuses.sent.map(text => <h3>{text}</h3>)}
           </>
         )}
         {(sentMessage && errorMessage) && (
-          <div id="errorMessage">
+          <ErrorMessage>
             {messageStatuses.error.map(text => <h3>{text}</h3>)}
-          </div>
+          </ErrorMessage>
         )}
         {(!sentMessage && !errorMessage) && (
           <>
@@ -81,15 +91,15 @@ const Contact = () => {
               >
               </textarea>
             </div>
-            <div className="btn" onClick={(e) => handleSubmit(e)}>
+            <FormButton onClick={(e) => handleSubmit(e)}>
               <h3>
                 Send message
               </h3>
-            </div>
+            </FormButton>
           </>
         )}
-      </div>
-    </div>
+      </Form>
+    </Container>
   );
 };
 

@@ -56,6 +56,10 @@ export default function Cursor() {
         el.addEventListener('mouseover', () => setLinkHover(true));
         el.addEventListener('mouseout', () => setLinkHover(false));
       });
+      document.querySelectorAll('#btn').forEach((el) => {
+        el.addEventListener('mouseover', () => setLinkHover(true));
+        el.addEventListener('mouseout', () => setLinkHover(false));
+      });
     };
 
     addEventListeners();
@@ -65,7 +69,6 @@ export default function Cursor() {
 
   return (
     <div
-      // id="invertedcursor" 
       className={
         'cursor ' +
         (hidden ? 'c--hidden ' : ' ') + 

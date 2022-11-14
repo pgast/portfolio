@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 
-import './index.css';
 import { projects } from '../../constants/work'
+
+import { 
+  Container, 
+  ProjectsContainer, 
+  Project,
+  ProjectTitle, 
+  Description,
+  ProjectInfo,
+  ProjectStack,
+  StackTitle,
+  ProjectBtnRow,
+  Button,
+} from './styled'
 
 const Work = () => {
   const [selected, setSelected] = useState(null);
@@ -9,51 +21,48 @@ const Work = () => {
   const toggleProject = (project) => setSelected(isSelected(project) ? null : project);
   const renderProject = (project) => {
     return (
-      <div 
-        className="project"
+      <Project 
         onClick={() => toggleProject(project.name)}
-        id={isSelected(project.name) ? 'selectedProject' : undefined}
+        $isSelected={isSelected(project.name)}
       >
-        <h3>{project.name}</h3>
-        <p>{project.info}</p>
+        <ProjectTitle $isSelected={isSelected(project.name)}>{project.name}</ProjectTitle>
+        <Description>{project.info}</Description>
         {isSelected(project.name) &&
-          <div id="projectInfo">
-            <div className="projectStack">
-              {project.stack.map(el => <h3 key={el}>{el}</h3>)}
-            </div>
-            <div className="projectBtnRow">
-              <div 
-                className="btn" 
+          <ProjectInfo>
+            <ProjectStack>
+              {project.stack.map(el => <StackTitle key={el}>{el}</StackTitle>)}
+            </ProjectStack>
+            <ProjectBtnRow>
+              <Button  
                 onClick={() => window.open(project.links.live, "_blank")}
               >
                 <h3>Try it</h3>
-              </div>
-              <div 
-                className="btn" 
+              </Button>
+              <Button 
                 onClick={() => window.open(project.links.code, "_blank")}
               >
                 <h3>Code</h3>
-              </div>
-            </div>
-          </div>
+              </Button>
+            </ProjectBtnRow>
+          </ProjectInfo>
         }
-      </div>
+      </Project>
     )
   }
 
   return (
-    <div className="work">
-      <div>
+    <Container>
+      <ProjectsContainer>
         {renderProject(projects[0])}
         {renderProject(projects[1])}
         {renderProject(projects[2])}
-      </div>
-      <div>
+      </ProjectsContainer>
+      <ProjectsContainer>
         {renderProject(projects[4])}
         {renderProject(projects[5])}
         {renderProject(projects[3])}
-      </div>
-    </div>
+      </ProjectsContainer>
+    </Container>
   );
 };
 

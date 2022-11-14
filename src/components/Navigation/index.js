@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import './index.css';
+import {
+  Container,
+  DesktopNavbar,
+  NavLogo,
+  NavLinks,
+  NavLink,
+  MobileMenu,
+  MobileMenuSectionLinks,
+  MobileMenuContactLinks,
+  MobileMenuIcon,
+  ContactIcon,
+  LinkedInIcon,
+} from './styled'
 
 const Navigation = ({ setView, view, labelId }) => {
   const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
@@ -10,19 +22,21 @@ const Navigation = ({ setView, view, labelId }) => {
     setMobileMenuOpen(false);
   };
 
+  // TODO Separate render for mobile menu and desktop
+
   return (
-    <div className="navigation">
-      <div className="nav">
+    <Container>
+      <DesktopNavbar>
         <Link 
           to='/' 
           onClick={() => setView(null)}
           style={{ textDecoration: "none", color: "black" }} 
         >
-          <div id="logo">
+          <NavLogo>
             pg
-          </div>
+          </NavLogo>
         </Link>
-        <div id="navLinks">
+        <NavLinks>
           {['work', 'about', 'contact'].map(el => (
             <Link 
               key={el}
@@ -30,36 +44,21 @@ const Navigation = ({ setView, view, labelId }) => {
               onClick={() => setView(el)} 
               style={{ textDecoration: "none" }} 
             >
-              <h5 
-                className="navLink"
-                id={view === el ? "selectedView" : undefined}
-              >
+              <NavLink $isSelected={view === el}>
                 {el}
-              </h5>
+              </NavLink>
             </Link>
           ))}
-        </div>
-      </div>
+        </NavLinks>
+      </DesktopNavbar>
 
-      
-      {!mobileMenuOpen ? (
-          <i 
-            id="mobileMenuIcon" 
-            className="fas fa-bars" 
-            onClick={() => setMobileMenuOpen(true)} 
-          />
-        )
-        :
-        (
-          <i 
-            id="mobileMenuIcon" 
-            className="fas fa-times" 
-            onClick={() => setMobileMenuOpen(false)} 
-          />
-        )
-      }
-      <div id={mobileMenuOpen ? "mobileMenuOpen" : "mobileMenuClosed"}>
-        <div>
+      <MobileMenuIcon 
+        className={`fas fa-${mobileMenuOpen ? "times" : "bars"}`}
+        onClick={() => setMobileMenuOpen(mobileMenuOpen ? false : true)}
+      />
+
+      <MobileMenu $isVisible={mobileMenuOpen}>
+        <MobileMenuSectionLinks>
           {['work', 'about', 'contact'].map(el => (
             <Link 
               key={el}
@@ -70,21 +69,21 @@ const Navigation = ({ setView, view, labelId }) => {
               <p>{el}</p>
             </Link>
           ))}   
-        </div>
-        <div>
+        </MobileMenuSectionLinks>
+        <MobileMenuContactLinks>
           <a 
             target="_blank" 
             rel="noreferrer"
             href="https://www.linkedin.com/in/pablogastelum" 
           >
-            <i className="fab fa-linkedin" />
+            <LinkedInIcon className="fab fa-linkedin" />
           </a>
           <a href="mailto: pablo.g.leyva@gmail.com">
-            <i className="fas fa-envelope" />
+            <ContactIcon className="fas fa-envelope" />
           </a>
-        </div>
-      </div>
-    </div>
+        </MobileMenuContactLinks>
+      </MobileMenu>
+    </Container>
   );
 };
 
