@@ -51,3 +51,31 @@ export const showInfo = keyframes`
     opacity: 1;
   }
 `
+
+export const shadowDrop = keyframes`
+  from {
+    -webkit-transform: translateZ(0) translateY(0);
+    transform: translateZ(0) translateY(0);
+  }
+  to {
+    -webkit-transform: translateZ(20px) translateY(-3px);
+    transform: translateZ(20px) translateY(-3px);
+  }
+`
+
+export const menuEntrance = keyframes`
+  from {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+`

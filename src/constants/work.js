@@ -27,20 +27,11 @@ export const projects = [
     }
   },
   {
-    name: 'zoet',
-    info: 'Responsive site for a local business',
-    stack: ['Gatsby', 'Responsive'],
-    links: {
-      live: 'http://zoet.surge.sh/Landing',
-      code: 'https://github.com/pgast/zoet' 
-    }
-  },
-  {
     name: 'weather',
     info: 'Small widget that fetches a 5 day weather forecast of your current location from an API.',
     stack: ['React', 'API'],
     links: {
-      live: 'http://quick-weather.surge.sh/',
+      live: 'https://quick-weather.vercel.app/',
       code: 'https://github.com/pgast/quick-weather#QuickWeather' 
     }
   },
