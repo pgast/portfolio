@@ -46,12 +46,10 @@ const Work = () => {
       <div>
         {renderProject(projects[0])}
         {renderProject(projects[1])}
-        {renderProject(projects[2])}
       </div>
       <div>
         {renderProject(projects[4])}
         {renderProject(projects[5])}
-        {renderProject(projects[3])}
       </div>
     </div>
   );
