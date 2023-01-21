@@ -1,17 +1,16 @@
 import styled from 'styled-components'
 
 import { 
-  btnPop, 
+  btnPopHome,
   fadeInBottom
 } from '../../constants/animations'
 
 export const Container = styled.div`
-  padding-bottom: 2.4rem;
   display: flex;
   width: 1200px;
   max-width: 1200px;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   -webkit-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 
@@ -55,7 +54,7 @@ export const TitleTextRow = styled.div`
 
 export const AnimatedLetter = styled.h1`
   color: ${({ theme, $color }) => theme.colors[$color]};
-  font-size: 4.2rem;
+  font-size: 5rem;
 
   -moz-transition: color .2s ease-in;
   -o-transition: color .2s ease-in;
@@ -127,30 +126,33 @@ export const MobileTextLabel = styled.span`
 `
 
 export const Button = styled.div`
-  border-radius: 1rem; 
-  padding:  0.4rem 0.7rem;
+  border-radius: 3rem; 
+  padding:  0.7rem;
   cursor: none;
-  width: 8rem;
+  width: 9rem;
+  width: 200px;
   text-align: center;
   font-size: 0.6rem;
   background: ${({ theme }) => theme.colors.green};
 
   &:hover {
-    -webkit-animation: ${btnPop} 0.2s ease-in-out alternate both;
-    animation: ${btnPop} 0.2s ease-in-out alternate both;
+    -webkit-animation: ${btnPopHome} 0.2s ease-in-out alternate both;
+    animation: ${btnPopHome} 0.2s ease-in-out alternate both;
   }
 
   @media screen and (max-width: 740px) {
     font-size: 0.5rem;
-    width: 6.4rem;
+    width: 10rem;
   }
 
   @media screen and (max-width: 490px) {
     position: fixed;
     bottom: 5rem;
-    left: 50%;
-    margin-left: -4rem;
-    width: 8rem;
     font-size: 0.6rem;
   }
+`
+
+export const Content = styled.div`
+  position: relative;
+  top: 12%;
 `
