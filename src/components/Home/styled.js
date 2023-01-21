@@ -29,8 +29,6 @@ export const Container = styled.div`
 
   @media screen and (max-width: 490px) {
     margin: 0rem;
-    padding-left: 1rem;
-    padding-top: 6rem;
   }
 `
 
@@ -84,14 +82,6 @@ export const Description = styled.div`
     margin-bottom: 2.5rem;
     font-size: 0.8rem;
   }
-
-  @media screen and (max-width: 740px) {
-    font-size: 0.6rem;
-  }
-
-  @media screen and (max-width: 490px) {
-    font-size: 0.8rem;
-  }
 `
 
 export const DescriptionTextRow = styled.div`
@@ -129,7 +119,6 @@ export const Button = styled.div`
   border-radius: 3rem; 
   padding:  0.7rem;
   cursor: none;
-  width: 9rem;
   width: 200px;
   text-align: center;
   font-size: 0.6rem;
@@ -147,8 +136,9 @@ export const Button = styled.div`
 
   @media screen and (max-width: 490px) {
     position: fixed;
-    bottom: 5rem;
-    font-size: 0.6rem;
+    left: 50%;
+    margin-left: -100px;
+    top: 88%;
   }
 `
 
