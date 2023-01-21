@@ -43,7 +43,7 @@ const projectAnimation = css`
 export const Project = styled.div`
   border-left: ${({ theme, $isSelected }) => `3px solid ${$isSelected ? theme.colors.green : theme.colors.yellow}`};
   padding-left: 0.5rem;
-  width: 15rem;
+  width: 15.5rem;
   height: ${({ $isSelected }) => $isSelected ? 'auto' : '4rem'};
   cursor: default;
   transform: ${({ $isSelected }) => $isSelected ? "translateZ(20px) translateY(-6px)" : "none"};
@@ -69,8 +69,7 @@ export const Project = styled.div`
   }
 `
 
-export const ProjectTitle = styled.h3`
-  font-size: 1rem;
+export const ProjectTitle = styled.h4`
   font-weight: 600;
   color: ${({ theme, $isSelected }) => $isSelected ? theme.colors.green : theme.colors.yellow};
 `
