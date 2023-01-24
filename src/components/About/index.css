@@ -1,24 +1,11 @@
-/* .about {
-  width: 1200px;
-  max-width: 1200px;
-  display: flex;
-  justify-content: flex-end;
-  height: 100%;
-  margin-top: 100px;
-} */
-
-/* .about ul {
-  list-style-type: none;
-} */
-
-/* .aboutSection {
+.aboutSection {
   border-left: 2px solid #ffc448;
   padding-left: 0.5rem;
   padding-top: 0;
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
-} */
+}
 
 .aboutScroll > div:last-of-type > div > div,
 #awardsEducation .aboutSection > div div:first-of-type {
@@ -30,13 +17,13 @@
   font-weight: 600;
 }
 
-/* #experience ul {
+#experience ul {
   margin-bottom: 2rem;
-} */
+}
 
-/* #experience div div:last-of-type ul {
+#experience div div:last-of-type ul {
   margin-bottom: 0;
-} */
+}
 
 .aboutMain_desc p {
   text-align: justify;
@@ -65,16 +52,16 @@
   flex-direction: column;
 }
 
-/* .aboutSection .skillsTech {
+.aboutSection .skillsTech {
   display: flex;
   flex-direction: row;
-} */
+}
 
-/* .skillsTech ul {
+.skillsTech ul {
   margin-right: 3rem;
-} */
+}
 
-/* .aboutMain {
+.aboutMain {
   width: 400px;
   height: 70vh;
   display: flex;
@@ -86,7 +73,7 @@
   align-self: flex-start;
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-} */
+}
 
 .aboutPhoto {
   width: 9rem;
@@ -113,13 +100,6 @@ li > a:hover {
   font-weight: bold;
 }
 
-.about li,
-.about p {
-  font-size: 0.7rem;
-  color: white;
-  text-decoration: none!important;
-}
-
 .aboutMain_btnRow {
   display: flex;
   justify-content: center;
@@ -136,13 +116,6 @@ li > a:hover {
   color: black;
 }
 
-/* .aboutScroll {
-  padding-right: 5rem;
-  width: 48%;
-  -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-} */
-
 .aboutScroll > div:last-of-type {
   height: 3rem;
 }
@@ -150,70 +123,34 @@ li > a:hover {
 
 /* Tablet Landscape */
 @media screen and (max-width: 1200px) {
-  /* .about {
-    width: 80%;
-  } */
-/* 
-  .aboutScroll {
-    width: 50%;
-  } */
-
-  .about li {
-    text-align: justify;
-  }
-/* 
   .aboutMain {
     left: 50%;
     margin-left: -33vw;
-    margin-top: -5rem;
+    margin-top: 0rem;
     width: 33vw;
     height: 100%;
-  } */
+  }
 
   .aboutMain_desc {
     width: 100%;
   }
 
-  /* .skillsTech ul {
+  .skillsTech ul {
     margin-right: 1.3rem;
-  } */
+  }
 }
 
 /* Tablet Portrait 888 */
 @media screen and (max-width: 888px) {
-  /* .aboutScroll {
-    padding-right: 0rem;
-  } */
-
   .aboutMain_btnRow {
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  .aboutMain_btnRow .btn {
-    margin-top: 0.4rem;
   }
 }
 
 /* Mobile Phones */
 @media screen and (max-width: 750px) {
-  /* .about {
-    margin: 0rem;
-    margin-top: 5rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    height: fit-content;
-  } */
-
-  /* .aboutScroll {
-    margin-top: 3rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    width: 100%;
-  } */
-
-  /* .aboutMain {
+  .aboutMain {
     position: static;
     height: fit-content;
     padding-right: 1rem;
@@ -222,11 +159,11 @@ li > a:hover {
     margin-left: 0rem;
     margin-top: 0rem;
     left: 13rem;
-  } */
+  }
 
-  /* .aboutSection .skillsTech {
+  .aboutSection .skillsTech {
     flex-wrap: wrap;
-  } */
+  }
 
   .aboutMain_desc {
     margin-right: 1rem;
@@ -235,13 +172,13 @@ li > a:hover {
     width: 50vw;
   }
 
-  /* .skillsTech ul {
+  .skillsTech ul {
     margin-right: 1.5rem;
-  } */
+  }
 
-  /* .skillsTech ul:last-of-type {
+  .skillsTech ul:last-of-type {
     margin-right: 0;
-  } */
+  }
 }
 
 @media screen and (max-width: 490px) {

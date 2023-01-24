@@ -12,18 +12,14 @@ import {
 
 import {
   Container,
-  List,
-  SkillTechList,
-  Section,
-  Main,
-  ScrollArea,
-  Skills,
+  Scroll,
+  Button
 } from './styled'
 
 const renderBtns = (btns) => {
   return btns.map(btn => {
     return (
-      <div className="btn">
+      <Button>
         <a 
           target="_blank" 
           rel="noreferrer"
@@ -31,7 +27,7 @@ const renderBtns = (btns) => {
         >
           <h3>{btn.text}</h3>
         </a>
-      </div>
+      </Button>
     )
   })
 }
@@ -39,7 +35,7 @@ const renderBtns = (btns) => {
 const About = () => {
   return (
     <Container>
-      <Main>
+      <div className="aboutMain">
         <div className="aboutPhoto"></div>
         <div className="aboutMain_desc">
           <div>
@@ -51,41 +47,34 @@ const About = () => {
             {renderBtns(buttons)}
           </div>
         </div>
-      </Main>
-
-
-
-      <ScrollArea>
-        <Section>
+      </div>
+      <Scroll>
+        <div className="aboutSection">
           <h3>{skillTech.title}</h3>
-          <Skills>
-            <List>
+          <div className="skillsTech">
+            <ul>
               {skillTech.columns[0].map(el => <li>{el}</li>)}
-            </List>
-            <List>
+            </ul>
+            <ul>
               {skillTech.columns[1].map(el => <li>{el}</li>)}
-            </List>
-          </Skills>
-        </Section>
-
-        <Section>
+            </ul>
+          </div>
+        </div>
+        <div className="aboutSection">
           <h3>
             {skills.title}
           </h3>          
-          <Skills>
-            <SkillTechList>
+          <div className="skillsTech">
+            <ul>
               {skills.columns[0].map(el => <li>{el}</li>)}
-            </SkillTechList>
-            <SkillTechList $isLast>
+            </ul>
+            <ul>
               {skills.columns[1].map(el => <li>{el}</li>)}
-            </SkillTechList>
-          </Skills>
-        </Section>
-
-
+            </ul>
+          </div>
+        </div>
         <div id="awardsEducation">
-
-          <Section>
+          <div className="aboutSection">
             <h3>
               {awards.title}
             </h3>
@@ -97,10 +86,8 @@ const About = () => {
                 {awards.columns[1].map(el => <p>{el}</p>)}
               </div>
             </div>
-          </Section>
-
-
-          <Section>
+          </div>
+          <div className="aboutSection">
             <h3>
               {education.title}
             </h3>
@@ -110,7 +97,7 @@ const About = () => {
               </div>
               <div>
                 <p>{education.certifications.title}</p>
-                <List>
+                <ul>
                   {education.certifications.links.map(el => 
                     <li>
                       <a
@@ -122,37 +109,29 @@ const About = () => {
                       </a>
                     </li>
                   )}
-                </List>
+                </ul>
               </div>
             </div>
-          </Section>
-
+          </div>
         </div>
-
-
-        <Section>
+        <div className="aboutSection" id="experience">
           <h3>
             {workHistory.title}
           </h3>
           <div>
-            {workHistory.jobs.map((el, idx) => 
+            {workHistory.jobs.map(el => 
               <div>
                 <p>
                   {el.title}
                 </p>
-                <List 
-                  $marginBottom={idx === workHistory.jobs.length - 1 ? 0 : '2rem'}
-                >
+                <ul>
                   {el.items.map(item => <li>{item}</li>)}
-                </List>
+                </ul>
               </div>
             )}
           </div>
-        </Section>
-
-        <div/>
-      </ScrollArea>
-
+        </div>
+      </Scroll>
     </Container>
   );
 };
