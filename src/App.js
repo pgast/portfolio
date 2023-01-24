@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { ThemeProvider } from 'styled-components'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import { theme } from '../src/constants/theme'
 
 import Work from './components/Work';
 import Home from './components/Home';
@@ -25,10 +28,8 @@ function App() {
   const [view, setView] = useState(null);
   
   return (
-    <>
-      {/* <Cursor />  */}
+    <ThemeProvider theme={theme}>
       <Router>
-        {/* <Cursor /> */}
         <div id="container">
           <Cursor />
           <Navigation 
@@ -48,7 +49,7 @@ function App() {
           <Route exact path={"/contact"} component={Contact} />
         </div>
       </Router>
-    </>
+    </ThemeProvider>
   );
 }
 

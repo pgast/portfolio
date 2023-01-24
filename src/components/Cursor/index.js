@@ -44,7 +44,7 @@ export default function Cursor() {
     };
 
     const addLinkEvents = () => {
-      document.querySelectorAll('a').forEach((el) => {
+      document.querySelectorAll('a, input, textarea').forEach((el) => {
         el.addEventListener('mouseover', () => setLinkHover(true));
         el.addEventListener('mouseout', () => setLinkHover(false));
       });
@@ -53,6 +53,10 @@ export default function Cursor() {
         el.addEventListener('mouseout', () => setLinkHover(false));
       });
       document.querySelectorAll('button').forEach((el) => {
+        el.addEventListener('mouseover', () => setLinkHover(true));
+        el.addEventListener('mouseout', () => setLinkHover(false));
+      });
+      document.querySelectorAll('#btn').forEach((el) => {
         el.addEventListener('mouseover', () => setLinkHover(true));
         el.addEventListener('mouseout', () => setLinkHover(false));
       });
@@ -65,7 +69,6 @@ export default function Cursor() {
 
   return (
     <div
-      // id="invertedcursor" 
       className={
         'cursor ' +
         (hidden ? 'c--hidden ' : ' ') + 

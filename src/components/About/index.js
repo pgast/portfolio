@@ -10,10 +10,16 @@ import {
   workHistory,
 } from '../../constants/about'
 
+import {
+  Container,
+  Scroll,
+  Button
+} from './styled'
+
 const renderBtns = (btns) => {
   return btns.map(btn => {
     return (
-      <div className="btn">
+      <Button>
         <a 
           target="_blank" 
           rel="noreferrer"
@@ -21,14 +27,14 @@ const renderBtns = (btns) => {
         >
           <h3>{btn.text}</h3>
         </a>
-      </div>
+      </Button>
     )
   })
 }
 
 const About = () => {
   return (
-    <div className="about">
+    <Container>
       <div className="aboutMain">
         <div className="aboutPhoto"></div>
         <div className="aboutMain_desc">
@@ -42,8 +48,8 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="aboutScroll">
-      <div className="aboutSection">
+      <Scroll>
+        <div className="aboutSection">
           <h3>{skillTech.title}</h3>
           <div className="skillsTech">
             <ul>
@@ -125,9 +131,8 @@ const About = () => {
             )}
           </div>
         </div>
-        <div/>
-      </div>
-    </div>
+      </Scroll>
+    </Container>
   );
 };
 
