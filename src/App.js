@@ -29,9 +29,7 @@ function App() {
   
   return (
     <ThemeProvider theme={theme}>
-      {/* <Cursor />  */}
       <Router>
-        {/* <Cursor /> */}
         <div id="container">
           <Cursor />
           <Navigation 
