@@ -39,6 +39,21 @@ export const btnPop = keyframes`
   }
 `
 
+export const btnPopHome = keyframes`
+  from {
+    -webkit-box-shadow: 0 0 black, 0 0 black, 0 0 black, 0 0 black, 0 0 black, 0 0 black, 0 0 black, 0 0 black;
+    box-shadow: 0 0 black, 0 0 black, 0 0 black, 0 0 black, 0 0 black, 0 0 black, 0 0 black, 0 0 black;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  to {
+    -webkit-box-shadow: -1px 1px #ffc448, -2px 2px #ffc448, -3px 3px #ffc448, -4px 4px #ffc448, -5px 5px #ffc448, -6px 6px #ffc448, -7px 7px #ffc448, -8px 8px #ffc448;
+    box-shadow: -1px 1px #ffc448, -2px 2px #ffc448, -3px 3px #ffc448, -4px 4px #ffc448, -5px 5px #ffc448, -6px 6px #ffc448, -7px 7px #ffc448, -8px 8px #ffc448;
+    -webkit-transform: translateX(8px) translateY(-8px);
+    transform: translateX(8px) translateY(-8px);
+  }
+`
+
 export const showInfo = keyframes`
   0% {
     letter-spacing: -0.5em;

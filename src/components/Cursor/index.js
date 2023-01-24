@@ -44,7 +44,7 @@ export default function Cursor() {
     };
 
     const addLinkEvents = () => {
-      document.querySelectorAll('a').forEach((el) => {
+      document.querySelectorAll('a, input, textarea').forEach((el) => {
         el.addEventListener('mouseover', () => setLinkHover(true));
         el.addEventListener('mouseout', () => setLinkHover(false));
       });

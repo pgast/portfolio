@@ -26,12 +26,13 @@ export const HeaderTitle = styled.h3`
 `
 
 export const ContactButton = styled.div`
-  border-radius: 1rem; 
-  padding:  0.4rem 0.7rem;
+  border-radius: 3rem; 
+  padding:  0.7rem;
   margin: 11px 22px;
   cursor: none;
   text-align: center;
   font-size: 0.6rem;
+  width: 200px;
   background: ${({ theme, color = 'yellow' }) => theme.colors[color]};
   color: black;
 
