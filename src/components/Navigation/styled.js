@@ -82,14 +82,14 @@ export const MobileMenu = styled.div`
     display: ${({ $isVisible }) => $isVisible ? 'flex' : 'none'};
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding-top: 8rem;
+    justify-content: flex-end;
     position: fixed;
     left: 0;
     top: 0;
     height: 100vh;
     width: 100vw;
     z-index: 888;
+    font-size: 100px;
     background: ${({ theme }) => theme.colors.yellow};
     -webkit-animation: ${menuEntrance} 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: ${menuEntrance} 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -101,22 +101,29 @@ export const MobileMenu = styled.div`
 `
 
 export const MobileMenuSectionLinks = styled.div`
-  & > p {
-    font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 80%;
+
+  & p {
     color: ${({ theme }) => theme.colors.black};
     font-weight: 600;
-    text-align: center;
-    margin-bottom: 1.5rem;
+    font-size: 100px;
+    padding: 1rem 0;
+    padding-left: 0.8rem;
+    border-bottom: 1px solid black;
   }
 `
 
 export const MobileMenuContactLinks = styled.div`
-  position: fixed;
-  bottom: 6rem;
-  font-size: 1.7rem;
+  font-size: 44px;
   display: flex;
-  justify-content: space-between;
-  width: 6rem;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 20%;
 `
 
 export const MobileMenuIcon = styled.i`
