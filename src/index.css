@@ -9,6 +9,43 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: 1.2px;
+  background: #121212;
+}
+
+body {
+  cursor: none !important;
+}
+
+.cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  top: var(--y, 0);
+  left: var(--x, 0);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  mix-blend-mode: difference;
+  transition: transform .2s;
+  pointer-events: none;
+  transition: all 100ms ease;
+  transition-property: opacity, background-color, transform;
+}
+
+.c--click {
+  transform: translate(-50%, -50%) scale(0.5);
+  background-color: white;
+}
+
+.c--hidden {
+  opacity: 0;
+}
+
+.c--hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  cursor: default;
 }
 
 #root {
@@ -16,20 +53,18 @@ html {
   height: 100vh;
 }
 
-#root > div:first-child {
+#container {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: center;
   height: 100%;
-  padding: 3rem;
 }
 
+a,
+.btn,
+.project,
+.navLink,
 #logo {
-  position: fixed;
-  top: 2.3rem;
-  left: 3rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #121212;
+  cursor: none !important;
 }
 
 @media screen and (max-width: 480px) {

@@ -10,10 +10,16 @@ import {
   workHistory,
 } from '../../constants/about'
 
+import {
+  Container,
+  Scroll,
+  Button
+} from './styled'
+
 const renderBtns = (btns) => {
   return btns.map(btn => {
     return (
-      <div className="btn">
+      <Button>
         <a 
           target="_blank" 
           rel="noreferrer"
@@ -21,14 +27,14 @@ const renderBtns = (btns) => {
         >
           <h3>{btn.text}</h3>
         </a>
-      </div>
+      </Button>
     )
   })
 }
 
 const About = () => {
   return (
-    <div className="about">
+    <Container>
       <div className="aboutMain">
         <div className="aboutPhoto"></div>
         <div className="aboutMain_desc">
@@ -42,8 +48,8 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="aboutScroll">
-      <div className="aboutSection">
+      <Scroll>
+        <div className="aboutSection">
           <h3>{skillTech.title}</h3>
           <div className="skillsTech">
             <ul>
@@ -55,7 +61,9 @@ const About = () => {
           </div>
         </div>
         <div className="aboutSection">
-          <h3>{skills.title}</h3>          
+          <h3>
+            {skills.title}
+          </h3>          
           <div className="skillsTech">
             <ul>
               {skills.columns[0].map(el => <li>{el}</li>)}
@@ -67,7 +75,9 @@ const About = () => {
         </div>
         <div id="awardsEducation">
           <div className="aboutSection">
-            <h3>{awards.title}</h3>
+            <h3>
+              {awards.title}
+            </h3>
             <div>
               <div>
                 {awards.columns[0].map(el => <p>{el}</p>)}
@@ -78,7 +88,9 @@ const About = () => {
             </div>
           </div>
           <div className="aboutSection">
-            <h3>{education.title}</h3>
+            <h3>
+              {education.title}
+            </h3>
             <div>
               <div>
                 {education.school.map(el => <p>{el}</p>)}
@@ -103,11 +115,15 @@ const About = () => {
           </div>
         </div>
         <div className="aboutSection" id="experience">
-          <h3>{workHistory.title}</h3>
+          <h3>
+            {workHistory.title}
+          </h3>
           <div>
             {workHistory.jobs.map(el => 
               <div>
-                <p>{el.title}</p>
+                <p>
+                  {el.title}
+                </p>
                 <ul>
                   {el.items.map(item => <li>{item}</li>)}
                 </ul>
@@ -115,9 +131,8 @@ const About = () => {
             )}
           </div>
         </div>
-        <div/>
-      </div>
-    </div>
+      </Scroll>
+    </Container>
   );
 };
 
