@@ -57,7 +57,7 @@ const Work = () => {
         {renderProject(projects[2])}
       </ProjectsContainer>
       <ProjectsContainer>
-        {renderProject(projects[4])}
+        {renderProject(projects[1])}
         {renderProject(projects[3])}
       </ProjectsContainer>
     </Container>

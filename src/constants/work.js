@@ -11,10 +11,10 @@ export const projects = [
   {
     name: 'bitechoice',
     info: 'Find great places to eat near you or anywhere in the world',
-    stack: ['React', 'Node.js', 'Express.js', 'API'],
+    stack: ['NextJS', 'Serverless backend', 'API'],
     links: {
-      live: 'http://bite-choice.herokuapp.com/',
-      code: 'https://github.com/pgast/bite-choice' 
+      live: 'https://bite-choice-v2.vercel.app/',
+      code: 'https://github.com/pgast/bite-choice-v2' 
     }
   },
   {
