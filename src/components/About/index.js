@@ -101,9 +101,9 @@ const About = () => {
                   {education.certifications.links.map(el => 
                     <li>
                       <a
-                        target="_blank"
+                        target={el.href === '' ? '' : "_blank"}
                         rel="noreferrer"
-                        href={el.href}
+                        href={el.href === '' ? 'javascript:void(0);' : el.href}
                       >
                         {el.title}
                       </a>

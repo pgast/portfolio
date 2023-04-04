@@ -72,6 +72,10 @@ export const education = {
     title: "Over 700 hours of online learning and 6 certifications spanning",
     links: [
       {
+        href: '',
+        title: '- AWS Certified Cloud Practitioner'
+      },
+      {
         href: 'https://udemy-certificate.s3.amazonaws.com/pdf/UC-32236e40-565f-46e0-a24a-5a0275d8b99e.pdf',
         title: '- Python'
       },
