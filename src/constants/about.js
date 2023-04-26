@@ -1,5 +1,5 @@
 export const buttons = [
-  { text: 'Resume', href: 'https://drive.google.com/uc?export=download&id=1BaHbD6dtRw9dFAJQXUE_yWqIVYKTYuVx' },
+  { text: 'Download CV', href: 'https://drive.google.com/file/d/1s-YPNvuP8EfznHkT7hVZjbTMCFr1ejhr/view?usp=share_lin' },
   { text: 'LinkedIn', href: 'https://www.linkedin.com/in/pablogastelum'},
   { text: 'Github', href: 'https://github.com/pgast' },
 ]

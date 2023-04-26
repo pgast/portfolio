@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { MobileContact } from '../Contact';
+
 import {
   Container,
   DesktopNavbar,
@@ -15,7 +17,7 @@ import {
   LinkedInIcon,
 } from './styled'
 
-const Navigation = ({ setView, view, labelId }) => {
+const Navigation = ({ setView, view, setDrawerOpen }) => {
   const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
   const setMobileView = (view) => {
     setView(view);
@@ -37,7 +39,7 @@ const Navigation = ({ setView, view, labelId }) => {
           </NavLogo>
         </Link>
         <NavLinks>
-          {['work', 'about', 'contact'].map(el => (
+          {['work', 'about'].map(el => (
             <Link 
               key={el}
               to={`/${el}`} 
@@ -49,6 +51,7 @@ const Navigation = ({ setView, view, labelId }) => {
               </NavLink>
             </Link>
           ))}
+          <NavLink onClick={() => setDrawerOpen(true)}>contact</NavLink>
         </NavLinks>
       </DesktopNavbar>
 
@@ -58,8 +61,8 @@ const Navigation = ({ setView, view, labelId }) => {
       />
 
       <MobileMenu $isVisible={mobileMenuOpen}>
-        <MobileMenuSectionLinks>
-          {['work', 'about', 'contact'].map(el => (
+        <MobileMenuSectionLinks $isVisible={view !== 'contact'}>
+          {['work', 'about'].map(el => (
             <Link 
               key={el}
               to={`/${el}`} 
@@ -68,9 +71,18 @@ const Navigation = ({ setView, view, labelId }) => {
             >
               <p>{el}</p>
             </Link>
-          ))}   
+          ))}  
+          <p onClick={() => setView('contact')}>contact</p> 
         </MobileMenuSectionLinks>
-        <MobileMenuContactLinks>
+
+
+        <MobileContact 
+          show={view === 'contact'} 
+          goToMobileMenuMain={() => setView(null)}
+        />
+
+
+        {/* <MobileMenuContactLinks>
           <a 
             target="_blank" 
             rel="noreferrer"
@@ -81,7 +93,7 @@ const Navigation = ({ setView, view, labelId }) => {
           <a href="mailto: pablo.g.leyva@gmail.com">
             <ContactIcon className="fas fa-envelope" />
           </a>
-        </MobileMenuContactLinks>
+        </MobileMenuContactLinks> */}
       </MobileMenu>
     </Container>
   );

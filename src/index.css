@@ -26,7 +26,7 @@ body {
   top: var(--y, 0);
   left: var(--x, 0);
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 300;
   mix-blend-mode: difference;
   transition: transform .2s;
   pointer-events: none;

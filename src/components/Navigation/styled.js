@@ -101,7 +101,7 @@ export const MobileMenu = styled.div`
 `
 
 export const MobileMenuSectionLinks = styled.div`
-  display: flex;
+  display: ${({ $isVisible }) => $isVisible ? 'flex' : 'none'};
   flex-direction: column;
   justify-content: flex-end;
   width: 100%;

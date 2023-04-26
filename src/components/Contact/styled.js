@@ -57,3 +57,7 @@ export const ContactBtnsContainer = styled.div`
     flex-direction: column;
   }
 `
+
+export const MobileContainer = styled.div`
+  display: ${({ show }) => show ? 'block' : 'none'};
+`

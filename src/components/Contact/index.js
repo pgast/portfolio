@@ -6,9 +6,10 @@ import {
   ContactButton,
   EmailButton,
   ContactBtnsContainer,
+  MobileContainer,
 } from './styled'
 
-const Contact = () => (
+export const Contact = () => (
   <Container>
     <div>
       {contact.headers.map(header => <HeaderTitle>{header}</HeaderTitle>)}
@@ -28,4 +29,9 @@ const Contact = () => (
   </Container>
 );
 
-export default Contact;
+export const MobileContact = ({ show, goToMobileMenuMain }) => (
+  <MobileContainer show={show}>
+    Mobile Contact
+    <button onClick={goToMobileMenuMain}>back</button>
+  </MobileContainer>
+)
