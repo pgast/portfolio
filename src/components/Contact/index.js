@@ -15,7 +15,7 @@ const Contact = () => (
     </div>
     <ContactBtnsContainer>
       <a href={contact.emailHref}>
-        <EmailButton color="green">
+        <EmailButton color="blue">
           <h3>{contact.emailBtnText}</h3>
         </EmailButton>
       </a>

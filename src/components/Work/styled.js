@@ -41,21 +41,21 @@ const projectAnimation = css`
 `
 
 export const Project = styled.div`
-  border-left: ${({ theme, $isSelected }) => `3px solid ${$isSelected ? theme.colors.green : theme.colors.yellow}`};
+  border-left: ${({ theme, $isSelected }) => `3px solid ${$isSelected ? theme.colors.blue : theme.colors.black}`};
   padding-left: 0.5rem;
   width: 15.5rem;
   height: ${({ $isSelected }) => $isSelected ? 'auto' : '4rem'};
   cursor: default;
   transform: ${({ $isSelected }) => $isSelected ? "translateZ(20px) translateY(-6px)" : "none"};
   
-  &:hover > h3 {
-    color: ${({ theme }) => theme.colors.green};
+  &:hover > h4 {
+    color: ${({ theme }) => theme.colors.red};
   }
   
   &:hover {
     -webkit-animation: ${projectHover} 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: ${({ $isSelected }) => $isSelected ? 'none' : projectAnimation};
-    border-left: ${({ theme }) => `3px solid ${theme.colors.green}`};
+    border-left: ${({ theme }) => `3px solid ${theme.colors.red}`};
     cursor: none;
   }
 
@@ -71,11 +71,11 @@ export const Project = styled.div`
 
 export const ProjectTitle = styled.h4`
   font-weight: 600;
-  color: ${({ theme, $isSelected }) => $isSelected ? theme.colors.green : theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.blue};
 `
 
 export const Description = styled.p`
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   font-size: 0.8rem;
 
   @media screen and (max-width: 1025px) {
@@ -108,7 +108,7 @@ export const ProjectStack = styled.div`
 export const StackTitle = styled.h3`
   margin-right: 1.3rem;
   font-weight: lighter;
-  color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.blue};
 
   @media screen and (max-width: 1025px) {
     margin-right: 1rem;

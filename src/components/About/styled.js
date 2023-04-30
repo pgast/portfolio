@@ -10,7 +10,7 @@ export const Container = styled.div`
   justify-content: flex-end;
   margin-top: 70px;
   overflow-y: none;
-  font-weight: lighter;
+  font-weight: light;
 
   & ul {
     list-style-type: none;
@@ -19,7 +19,7 @@ export const Container = styled.div`
   & li,
   & p {
     font-size: 0.7rem;
-    color: white;
+    color: black;
     text-decoration: none!important;
   }
 

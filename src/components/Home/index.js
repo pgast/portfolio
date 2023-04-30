@@ -44,7 +44,7 @@ const Home = ({ setView }) => {
     return (
       <AnimatedLetter
         key={index}
-        $color={letterColor || 'white'}
+        $color={letterColor || 'gray'}
         onMouseEnter={() => changeLetterColor(index, name)}
       >
         {letter}
@@ -76,7 +76,7 @@ const Home = ({ setView }) => {
           </DescriptionTextRow>
           <DescriptionTextRow>
             <p>that</p>
-            <TextColorLabel $color="blue">&nbsp;{labels.verb[labelsIdx.verb]}&nbsp;</TextColorLabel>
+            <TextColorLabel $color="blue" $fontColor="white">&nbsp;{labels.verb[labelsIdx.verb]}&nbsp;</TextColorLabel>
             <p>web and mobile experiences.</p>
           </DescriptionTextRow>
         </Description>

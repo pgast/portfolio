@@ -75,7 +75,7 @@ export const Description = styled.div`
   margin-bottom: 2.5rem;
   font-weight: 600;
   font-size: 1.3rem;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
 
   @media screen and (max-width: 1025px) {
     margin-top: 2rem;
@@ -94,7 +94,7 @@ export const DescriptionTextRow = styled.div`
 `
 
 export const TextColorLabel = styled.p`
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme, $fontColor = 'black' }) => theme.colors[$fontColor]};
   margin: 0 0.2rem;
   background: ${({ $color, theme }) => theme.colors[$color]};
 `
@@ -122,7 +122,8 @@ export const Button = styled.div`
   width: 200px;
   text-align: center;
   font-size: 0.6rem;
-  background: ${({ theme }) => theme.colors.green};
+  color: ${({ theme, $color = 'white' }) => theme.colors[$color]};
+  background: ${({ theme, $color = 'blue' }) => theme.colors[$color]};
 
   &:hover {
     -webkit-animation: ${btnPopHome} 0.2s ease-in-out alternate both;
