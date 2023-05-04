@@ -6,7 +6,7 @@ import {
 } from '../../constants/animations'
 
 export const Container = styled.div`
-  border-bottom: 1px solid white;
+  border-bottom: 1.5px solid black;
   height: 70px;
   width: 100%;
   position: fixed;
@@ -14,7 +14,7 @@ export const Container = styled.div`
   align-items: center;
   z-index: 2;
   justify-content: center;
-  background: ${({ theme }) => theme.colors.black};
+  background: ${({ theme }) => theme.colors.white};
 
   @media screen and (max-width: 480px) {
     border-bottom: none;
@@ -44,7 +44,7 @@ export const NavLogo = styled.div`
   overflow: hidden;
   height: 1.6rem;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.blue};
 
   @media screen and (max-width: 480px) {
     top: 2rem;
@@ -55,7 +55,7 @@ export const NavLogo = styled.div`
   &:hover {
     -webkit-animation: ${shadowDrop} 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: ${shadowDrop} 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    color: ${({ theme }) => theme.colors.yellow};
+    color: ${({ theme }) => theme.colors.red};
   }
 `
 
@@ -66,12 +66,12 @@ export const NavLinks = styled.div`
 `
 
 export const NavLink = styled.h5`
-  color: ${({ theme, $isSelected }) => $isSelected ? theme.colors.green : theme.colors.white};
+  color: ${({ theme, $isSelected }) => $isSelected ? theme.colors.blue : theme.colors.black};
 
   &:hover {
     -webkit-animation: ${shadowDrop} 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: ${shadowDrop} 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    color: ${({ theme }) => theme.colors.yellow};
+    color: ${({ theme }) => theme.colors.red};
   }
 `
 
@@ -136,7 +136,7 @@ export const MobileMenuIcon = styled.i`
     right: 2rem;
     z-index: 890;
     font-size: 1.3rem;
-    color: ${({ theme }) => theme.colors.white};  
+    color: ${({ theme }) => theme.colors.black};  
   }
 `
 

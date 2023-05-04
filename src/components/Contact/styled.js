@@ -22,7 +22,7 @@ export const HeaderTitle = styled.h3`
   text-align: center;
   font-size: 0.95rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.black};
 `
 
 export const ContactButton = styled.div`

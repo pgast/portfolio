@@ -32,8 +32,8 @@ export const btnPop = keyframes`
     transform: translateX(0) translateY(0);
   }
   to {
-    -webkit-box-shadow: -1px 1px #03ca9f, -2px 2px #03ca9f, -3px 3px #03ca9f, -4px 4px #03ca9f, -5px 5px #03ca9f, -6px 6px #03ca9f, -7px 7px #03ca9f, -8px 8px #03ca9f;
-    box-shadow: -1px 1px #03ca9f, -2px 2px #03ca9f, -3px 3px #03ca9f, -4px 4px #03ca9f, -5px 5px #03ca9f, -6px 6px #03ca9f, -7px 7px #03ca9f, -8px 8px #03ca9f;
+    -webkit-box-shadow: -1px 1px #ff1f25, -2px 2px #ff1f25, -3px 3px #ff1f25, -4px 4px #ff1f25, -5px 5px #ff1f25, -6px 6px #ff1f25, -7px 7px #ff1f25, -8px 8px #ff1f25;
+    box-shadow: -1px 1px #ff1f25, -2px 2px #ff1f25, -3px 3px #ff1f25, -4px 4px #ff1f25, -5px 5px #ff1f25, -6px 6px #ff1f25, -7px 7px #ff1f25, -8px 8px #ff1f25;
     -webkit-transform: translateX(8px) translateY(-8px);
     transform: translateX(8px) translateY(-8px);
   }
@@ -47,8 +47,8 @@ export const btnPopHome = keyframes`
     transform: translateX(0) translateY(0);
   }
   to {
-    -webkit-box-shadow: -1px 1px #ffc448, -2px 2px #ffc448, -3px 3px #ffc448, -4px 4px #ffc448, -5px 5px #ffc448, -6px 6px #ffc448, -7px 7px #ffc448, -8px 8px #ffc448;
-    box-shadow: -1px 1px #ffc448, -2px 2px #ffc448, -3px 3px #ffc448, -4px 4px #ffc448, -5px 5px #ffc448, -6px 6px #ffc448, -7px 7px #ffc448, -8px 8px #ffc448;
+    -webkit-box-shadow: -1px 1px #003286, -2px 2px #003286, -3px 3px #003286, -4px 4px #003286, -5px 5px #003286, -6px 6px #003286, -7px 7px #003286, -8px 8px #003286;
+    box-shadow: -1px 1px #003286, -2px 2px #003286, -3px 3px #003286, -4px 4px #003286, -5px 5px #003286, -6px 6px #003286, -7px 7px #003286, -8px 8px #003286;
     -webkit-transform: translateX(8px) translateY(-8px);
     transform: translateX(8px) translateY(-8px);
   }

@@ -1,4 +1,4 @@
-export const letterIds = ["green", "yellow", "blue"];
+export const letterIds = ["red", "yellow", "blue"];
 
 export const labels = {
   dev: ['front-end', 'self-taught', 'react', 'creative'],
