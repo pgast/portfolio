@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { MobileContact } from '../Contact';
 
 import {
   Container,
@@ -11,10 +10,7 @@ import {
   NavLink,
   MobileMenu,
   MobileMenuSectionLinks,
-  MobileMenuContactLinks,
   MobileMenuIcon,
-  ContactIcon,
-  LinkedInIcon,
 } from './styled'
 
 const Navigation = ({ setView, view, setDrawerOpen }) => {
@@ -74,26 +70,6 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
           ))}  
           <p onClick={() => setView('contact')}>contact</p> 
         </MobileMenuSectionLinks>
-
-
-        <MobileContact 
-          show={view === 'contact'} 
-          goToMobileMenuMain={() => setView(null)}
-        />
-
-
-        {/* <MobileMenuContactLinks>
-          <a 
-            target="_blank" 
-            rel="noreferrer"
-            href="https://www.linkedin.com/in/pablogastelum" 
-          >
-            <LinkedInIcon className="fab fa-linkedin" />
-          </a>
-          <a href="mailto: pablo.g.leyva@gmail.com">
-            <ContactIcon className="fas fa-envelope" />
-          </a>
-        </MobileMenuContactLinks> */}
       </MobileMenu>
     </Container>
   );

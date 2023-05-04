@@ -117,15 +117,6 @@ export const MobileMenuSectionLinks = styled.div`
   }
 `
 
-export const MobileMenuContactLinks = styled.div`
-  font-size: 44px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  height: 20%;
-`
-
 export const MobileMenuIcon = styled.i`
   display: none;
 
@@ -138,10 +129,4 @@ export const MobileMenuIcon = styled.i`
     font-size: 1.3rem;
     color: ${({ theme }) => theme.colors.black};  
   }
-`
-
-export const ContactIcon = styled.i``
-
-export const LinkedInIcon = styled(ContactIcon)`
-  margin-right: 1rem;
 `

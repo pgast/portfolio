@@ -7,7 +7,6 @@ import { theme } from '../src/constants/theme'
 import Work from './components/Work';
 import Home from './components/Home';
 import About from './components/About';
-import { Contact } from './components/Contact';
 import Navigation from './components/Navigation';
 import Cursor from './components/Cursor';
 import SideDrawer from './components/SideDrawer'
@@ -19,8 +18,6 @@ const setLabelId = (view) => {
       return 'workLabel';
     case 'about':
       return 'aboutLabel';
-    case 'contact':
-      return 'contactLabel';
     default:
       return null;
   }
