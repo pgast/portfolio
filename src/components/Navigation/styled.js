@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { LinkButton, ContactEmail } from '../SideDrawer/styled'
+
 import {
   shadowDrop,
   menuEntrance
@@ -79,7 +81,7 @@ export const MobileMenu = styled.div`
   display: none;
 
   @media screen and (max-width: 480px) {
-    display: ${({ $isVisible }) => $isVisible ? 'flex' : 'none'};
+    display: ${({ $isVisible = true }) => $isVisible ? 'flex' : 'none'};
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
@@ -101,19 +103,28 @@ export const MobileMenu = styled.div`
 `
 
 export const MobileMenuSectionLinks = styled.div`
-  display: ${({ $isVisible }) => $isVisible ? 'flex' : 'none'};
+  display: ${({ $isVisible = true }) => $isVisible ? 'flex' : 'none'};
   flex-direction: column;
-  justify-content: flex-end;
   width: 100%;
-  height: 80%;
+  height: 100%;
 
   & p {
     color: ${({ theme }) => theme.colors.black};
     font-weight: 600;
-    font-size: 100px;
-    padding: 1rem 0;
-    padding-left: 0.8rem;
+    font-size: 80px;
+    padding: 10px 0;
+    padding-left: 33px;
     border-bottom: 1px solid black;
+  }
+`
+
+export const Contact = styled.div`
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+
+  & p {
+    border: none;
   }
 `
 
@@ -129,4 +140,20 @@ export const MobileMenuIcon = styled.i`
     font-size: 1.3rem;
     color: ${({ theme }) => theme.colors.black};  
   }
+`
+
+export const ContactContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 33px;
+`
+
+export const ContactLink = styled(LinkButton)`
+  font-size: 16px;
+`
+
+export const EmailLink = styled(ContactEmail)`
+  margin: 50px 0;
+  margin-top: 10px;
+  font-size: 25px;
 `

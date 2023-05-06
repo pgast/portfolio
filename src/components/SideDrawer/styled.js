@@ -8,9 +8,7 @@ export const SideDrawerContainer = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  /* width: 40%; */
   width: 480px;
-  /* width: 540px; */
   z-index: 200;
   box-shadow: 1px 0px 7px rgba(0,0,0,0.5); 
   transition: transform 0.3s ease-out;
@@ -19,7 +17,6 @@ export const SideDrawerContainer = styled.div`
   flex-direction: row-reverse;
   padding-right: calc((100vw - 1200px) / 2);
 
-  /* @media screen and (max-width: 540px) { */
   @media screen and (max-width: 480px) {
     display: none;
   }
@@ -36,7 +33,6 @@ export const Backdrop = styled.div`
   right: 0;
 
   @media screen and (max-width: 480px) {
-  /* @media screen and (max-width: 540px) { */
     display: none;
   }
 `
