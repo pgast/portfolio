@@ -48,15 +48,12 @@ export const Links = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: fit-content;
 `
 
 export const ContactEmail = styled.h2`
   font-size: 1.3rem;
   margin: 50px 0px 100px 52px;
-
-  @media screen and (max-width: 970px) {
-    font-size: 0.9rem;
-  }
 
   &:hover {
     color: white;
@@ -103,5 +100,9 @@ export const LinkButton = styled(Button)`
 
   & > i {
     margin-left: 11px;
+  }
+
+  @media screen and (max-width: 1025px) {
+    margin-bottom: 0.55rem;
   }
 `

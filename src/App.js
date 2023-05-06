@@ -25,7 +25,7 @@ const setLabelId = (view) => {
 
 function App() {
   const [view, setView] = useState(null);
-  const [drawerOpen, setDrawerOpen] = useState(true);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const closeSideDrawer = () => setDrawerOpen(false);
   
