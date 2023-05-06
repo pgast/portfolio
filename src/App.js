@@ -7,9 +7,10 @@ import { theme } from '../src/constants/theme'
 import Work from './components/Work';
 import Home from './components/Home';
 import About from './components/About';
-import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 import Cursor from './components/Cursor';
+import SideDrawer from './components/SideDrawer'
+import { Backdrop } from './components/SideDrawer/styled'
 
 const setLabelId = (view) => {
   switch(view) {
@@ -17,8 +18,6 @@ const setLabelId = (view) => {
       return 'workLabel';
     case 'about':
       return 'aboutLabel';
-    case 'contact':
-      return 'contactLabel';
     default:
       return null;
   }
@@ -26,16 +25,22 @@ const setLabelId = (view) => {
 
 function App() {
   const [view, setView] = useState(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const closeSideDrawer = () => setDrawerOpen(false);
   
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <div id="container">
+          <SideDrawer show={drawerOpen} closeSideDrawer={closeSideDrawer}/>
+          <Backdrop show={drawerOpen} onClick={closeSideDrawer}/>
           <Cursor />
           <Navigation 
             view={view} 
             setView={setView} 
             labelId={setLabelId(view)}
+            setDrawerOpen={setDrawerOpen}
           />
           <Route 
             exact 
@@ -46,7 +51,6 @@ function App() {
           />
           <Route exact path={"/work"} component={Work} />
           <Route exact path={"/about"} component={About} />
-          <Route exact path={"/contact"} component={Contact} />
         </div>
       </Router>
     </ThemeProvider>

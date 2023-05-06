@@ -1,28 +1,90 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { buttons } from '../../constants/about'
+import { contact } from '../../constants/contact'
+
 import {
-  Container,
-  DesktopNavbar,
   NavLogo,
-  NavLinks,
   NavLink,
+  Contact,
+  NavLinks,
+  Container,
+  EmailLink,
   MobileMenu,
-  MobileMenuSectionLinks,
-  MobileMenuContactLinks,
+  ContactLink,
+  DesktopNavbar,
   MobileMenuIcon,
-  ContactIcon,
-  LinkedInIcon,
+  ContactContent,
+  MobileMenuSectionLinks,
 } from './styled'
 
-const Navigation = ({ setView, view, labelId }) => {
+const Navigation = ({ setView, view, setDrawerOpen }) => {
   const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
   const setMobileView = (view) => {
     setView(view);
     setMobileMenuOpen(false);
   };
 
-  // TODO Separate render for mobile menu and desktop
+  if (mobileMenuOpen) return (
+    <MobileMenu>
+      <MobileMenuIcon 
+        className={`fas fa-times`}
+        onClick={() => setMobileMenuOpen(false)}
+      />
+      <MobileMenuSectionLinks>
+        {['work', 'about'].map(el => (
+          <Link 
+            key={el}
+            to={`/${el}`} 
+            onClick={() => setMobileView(el)} 
+            style={{ textDecoration: "none" }} 
+          >
+            <p>{el}</p>
+          </Link>
+        ))}  
+        <Contact>
+          <p>
+            contact
+          </p>
+          <ContactContent>
+            <a 
+              href={contact.emailHref} 
+              style={{ color: 'inherit' }}
+            >
+              <EmailLink>
+                {contact.email}
+              </EmailLink>
+            </a>
+            <ContactLink>
+              <a href={contact.pdfHref}>
+                <h3>{buttons[0].text}</h3>
+              </a>
+              <i className="fas fa-regular fa-download" />
+            </ContactLink>
+            <ContactLink>
+              <a 
+                target="_blank" 
+                rel="noreferrer"
+                href={buttons[1].href}
+              >
+                <h3>{buttons[1].text}</h3>
+              </a>
+            </ContactLink>
+            <ContactLink>
+              <a 
+                target="_blank" 
+                rel="noreferrer"
+                href={buttons[2].href}
+              >
+                <h3>{buttons[2].text}</h3>
+              </a>
+            </ContactLink>
+          </ContactContent>
+        </Contact> 
+      </MobileMenuSectionLinks>
+    </MobileMenu>
+  )
 
   return (
     <Container>
@@ -37,7 +99,7 @@ const Navigation = ({ setView, view, labelId }) => {
           </NavLogo>
         </Link>
         <NavLinks>
-          {['work', 'about', 'contact'].map(el => (
+          {['work', 'about'].map(el => (
             <Link 
               key={el}
               to={`/${el}`} 
@@ -49,40 +111,13 @@ const Navigation = ({ setView, view, labelId }) => {
               </NavLink>
             </Link>
           ))}
+          <NavLink onClick={() => setDrawerOpen(true)}>contact</NavLink>
         </NavLinks>
       </DesktopNavbar>
-
       <MobileMenuIcon 
         className={`fas fa-${mobileMenuOpen ? "times" : "bars"}`}
         onClick={() => setMobileMenuOpen(mobileMenuOpen ? false : true)}
       />
-
-      <MobileMenu $isVisible={mobileMenuOpen}>
-        <MobileMenuSectionLinks>
-          {['work', 'about', 'contact'].map(el => (
-            <Link 
-              key={el}
-              to={`/${el}`} 
-              onClick={() => setMobileView(el)} 
-              style={{ textDecoration: "none" }} 
-            >
-              <p>{el}</p>
-            </Link>
-          ))}   
-        </MobileMenuSectionLinks>
-        <MobileMenuContactLinks>
-          <a 
-            target="_blank" 
-            rel="noreferrer"
-            href="https://www.linkedin.com/in/pablogastelum" 
-          >
-            <LinkedInIcon className="fab fa-linkedin" />
-          </a>
-          <a href="mailto: pablo.g.leyva@gmail.com">
-            <ContactIcon className="fas fa-envelope" />
-          </a>
-        </MobileMenuContactLinks>
-      </MobileMenu>
     </Container>
   );
 };
