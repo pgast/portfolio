@@ -16,18 +16,20 @@ export const skillTech = {
   title: "tech / years",
   columns: [
     [
-      "HTML-CSS / 7",
-      "Javascript / 7",
-      "React / 6",
-      "Redux / 5",
-      "React-Query / 1"
+      "HTML-CSS / 8",
+      "Javascript / 8",
+      "React / 7",
+      "Redux / 6",
+      "React-Query / 2",
+      "Styled-Components / 2",
     ],
     [
       "Node.js / 3",
       "Express.js / 3",
       "MongoDB / 1",
       "Python / 1",
-      "NextJS / 1",
+      "NextJS / 2",
+      "Tailwind / 1", 
     ]
   ]
 }
