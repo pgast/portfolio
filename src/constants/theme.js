@@ -9,5 +9,6 @@ export const theme = {
     darkerBlue: '#0048bc',
     red: '#ff1f25',
     yellow: '#ffdd18',
+    darkYellow: '#9c8711',
   }
 }

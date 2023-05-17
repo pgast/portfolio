@@ -35,13 +35,13 @@ export const projects = [
       code: 'https://github.com/pgast/quick-weather#QuickWeather' 
     }
   },
-  {
-    name: 'job application manager',
-    info: 'Helps you keep track of job applications',
-    stack: ['MongoDB', 'Express.js', 'React', 'Node.js'],
-    links: {
-      live: 'https://jobapplication-manager.herokuapp.com/home',
-      code: 'https://github.com/pgast/job-applications-manager' 
-    }
-  }
+  // {
+  //   name: 'job application manager',
+  //   info: 'Helps you keep track of job applications',
+  //   stack: ['MongoDB', 'Express.js', 'React', 'Node.js'],
+  //   links: {
+  //     live: 'https://jobapplication-manager.herokuapp.com/home',
+  //     code: 'https://github.com/pgast/job-applications-manager' 
+  //   }
+  // }
 ]
