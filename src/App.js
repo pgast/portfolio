@@ -49,7 +49,13 @@ function App() {
               <Home {...props} setView={setView} />
             )}
           />
-          <Route exact path={"/work"} component={Work} />
+          <Route 
+            exact 
+            path={"/work"} 
+            render={(props) => (
+              <Work {...props} setView={setView} />
+            )} 
+          />
           <Route exact path={"/about"} component={About} />
         </div>
       </Router>

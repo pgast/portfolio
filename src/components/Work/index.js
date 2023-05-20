@@ -1,27 +1,59 @@
 import React, { useEffect } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { projects } from '../../constants/work'
+import { buttons } from '../../constants/about'
 
 import { 
-  Container,
-  ProjectsContainer, 
+  Title,
+  Button,
+  Header,
   Project,
-  ProjectTitle, 
+  Container,
+  StackTitle,
   Description,
   ProjectInfo,
+  ProjectTitle, 
   ProjectStack,
-  StackTitle,
-  Button,
   ProjectsColumn,
-  Header,
 } from './styled'
 
-const Work = () => {
+const Work = ({ setView }) => {
+  const changeView = () => setView('about')
+
   const renderProject = project => {
   if (!project.hasOwnProperty('stack')) {
+    const isToAbout = project.url === "/about"
+
     return (
-      <Project color={project.color} id={project.projectId}>
-        hola
+      <Project
+        $isProject={false}
+        color={project.color} 
+        id={project.projectId}
+      >
+        { !isToAbout ? (
+            <a 
+              target="_blank" 
+              rel="noreferrer"
+              href={project.url}
+              style={{ textDecoration: "none", color: "none" }} 
+            >
+              <Title $color={"darkGray"}>
+                {project.name}
+              </Title>
+            </a>
+        ) : (
+          <Link 
+            to={project.url} 
+            onClick={changeView}
+            style={{ textDecoration: "none", color: "black" }} 
+          >
+            <Title $color={"darkGray"}>
+              {project.name}
+            </Title>
+          </Link>
+        )}
       </Project>
     )
   }
@@ -69,26 +101,26 @@ const Work = () => {
 
     const addEventListeners = () => {
       topLeft.addEventListener('mouseenter', function(){
+        if (window.innerWidth < 716) return
         bottomLeft.setAttribute("style", "height: 20%");
-
-        leftColumn.setAttribute("style", "width: 50%")
+        leftColumn.setAttribute("style", "width: 50%");
         middleColumn.setAttribute("style", "width: 25%");
         rightColumn.setAttribute("style", "width: 25%");
-
       })
 
       bottomLeft.addEventListener('mouseenter', function(){
-        topLeft.setAttribute("style", "height: 20%");
+        if (window.innerWidth < 716) return
 
+        topLeft.setAttribute("style", "height: 20%");
         rightColumn.setAttribute("style", "width: 25%");
         leftColumn.setAttribute("style", "width: 50%");
         middleColumn.setAttribute("style", "width: 25%");
       })
 
-
       topMiddle.addEventListener('mouseenter', function(){
-        bottomMiddle.setAttribute("style", "height: 20%");
+        if (window.innerWidth < 716) return
 
+        bottomMiddle.setAttribute("style", "height: 20%");
         leftColumn.setAttribute("style", "width: 25%")
         middleColumn.setAttribute("style", "width: 50%");
         rightColumn.setAttribute("style", "width: 25%");
@@ -96,8 +128,9 @@ const Work = () => {
       })
 
       bottomMiddle.addEventListener('mouseenter', function(){
-        topMiddle.setAttribute("style", "height: 20%");
+        if (window.innerWidth < 716) return
 
+        topMiddle.setAttribute("style", "height: 20%");
         rightColumn.setAttribute("style", "width: 25%");
         leftColumn.setAttribute("style", "width: 25%");
         middleColumn.setAttribute("style", "width: 50%");
@@ -122,7 +155,16 @@ const Work = () => {
       middleColumn.setAttribute("style","width: 100%");
     }
 
-    addEventListeners();
+    function checkWindowSize() {
+      if (window.innerWidth < 716) {
+        reset()
+      } else {
+        addEventListeners()
+      }
+    }
+    
+    window.onresize = checkWindowSize;
+    checkWindowSize();
   }, [])
 
   const displayProjects = [
@@ -164,11 +206,14 @@ const Work = () => {
       columnId: "rightColumn",
       projects: [
         { 
-          label: "Github",
+          name: "more projects",
+          url: buttons[2].href,
           color: "blue",
           projectId: "topRightProject" 
         },
         { 
+          name: "about me",
+          url: '/about',
           color: "yellow",
           projectId: "bottomRightProject" 
         },

@@ -2,7 +2,7 @@ export const projects = [
   {
     name: 'dashtabs',
     info: 'QR based order management tool for food businesses',
-    stack: ['React', 'Authentication', 'Backend db'],
+    stack: ['React', 'Authentication', 'Firebase backend database'],
     links: {
       live: 'http://dashtabs.surge.sh/',
       code: 'https://github.com/pgast/dash-tabs'
