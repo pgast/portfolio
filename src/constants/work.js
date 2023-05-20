@@ -2,7 +2,7 @@ export const projects = [
   {
     name: 'dashtabs',
     info: 'QR based order management tool for food businesses',
-    stack: ['React', 'Authentication', 'Backend db'],
+    stack: ['React', 'Authentication', 'Firebase backend database'],
     links: {
       live: 'http://dashtabs.surge.sh/',
       code: 'https://github.com/pgast/dash-tabs'
@@ -35,13 +35,13 @@ export const projects = [
       code: 'https://github.com/pgast/quick-weather#QuickWeather' 
     }
   },
-  {
-    name: 'job application manager',
-    info: 'Helps you keep track of job applications',
-    stack: ['MongoDB', 'Express.js', 'React', 'Node.js'],
-    links: {
-      live: 'https://jobapplication-manager.herokuapp.com/home',
-      code: 'https://github.com/pgast/job-applications-manager' 
-    }
-  }
+  // {
+  //   name: 'job application manager',
+  //   info: 'Helps you keep track of job applications',
+  //   stack: ['MongoDB', 'Express.js', 'React', 'Node.js'],
+  //   links: {
+  //     live: 'https://jobapplication-manager.herokuapp.com/home',
+  //     code: 'https://github.com/pgast/job-applications-manager' 
+  //   }
+  // }
 ]

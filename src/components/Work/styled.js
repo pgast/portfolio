@@ -1,77 +1,20 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import { fadeInBottom, projectHover, btnPop, showInfo } from '../../constants/animations';
+import { fadeInBottom, btnPopWork, showInfo } from '../../constants/animations';
 
-export const Container = styled.div`
-  margin-top: 3.4rem;
-  width: 1200px;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-evenly;
-  -webkit-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-
-  @media screen and (max-width: 1025px) {
-    margin-right: 0rem;
-    margin-left: 0rem;
-  }
-
-  @media screen and (max-width: 716px) {
-    margin: 0rem;
-    margin-top: 4rem;
-    justify-content: center;
-    flex-direction: column;
-  }
+export const ProjectTitle = styled.h3`
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  color: ${({ theme, $color = 'blue' }) => theme.colors[$color]};
 `
 
-export const ProjectsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+export const Title = styled(ProjectTitle)`
+  transition: all 0.2s ease;
+  margin-bottom: 0;
 
-  @media screen and (max-width: 716px) {
-    flex-direction: column;
-    height: auto;
+  :hover {
+    color: white!important;
   }
-`
-
-const projectAnimation = css`
-  animation: ${projectHover} 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-`
-
-export const Project = styled.div`
-  border-left: ${({ theme, $isSelected }) => `3px solid ${$isSelected ? theme.colors.blue : theme.colors.black}`};
-  padding-left: 0.5rem;
-  width: 15.5rem;
-  height: ${({ $isSelected }) => $isSelected ? 'auto' : '4rem'};
-  cursor: default;
-  transform: ${({ $isSelected }) => $isSelected ? "translateZ(20px) translateY(-6px)" : "none"};
-  
-  &:hover > h4 {
-    color: ${({ theme }) => theme.colors.red};
-  }
-  
-  &:hover {
-    -webkit-animation: ${projectHover} 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: ${({ $isSelected }) => $isSelected ? 'none' : projectAnimation};
-    border-left: ${({ theme }) => `3px solid ${theme.colors.red}`};
-    cursor: none;
-  }
-
-  @media screen and (max-width: 1025px) {
-    width: 11rem;
-  }
-
-  @media screen and (max-width: 716px) {
-    height: auto;
-    margin: 1.5rem;
-  }
-`
-
-export const ProjectTitle = styled.h4`
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.blue};
 `
 
 export const Description = styled.p`
@@ -84,15 +27,11 @@ export const Description = styled.p`
   }
 `
 
-export const ProjectInfo = styled.div`
-  -webkit-animation: ${showInfo} 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-  animation: ${showInfo} 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-`
-
 export const ProjectStack = styled.div`
   font-size: 0.6rem;
-  display: flex;
-  margin: 1rem 0;
+  display: none;
+  flex-direction: column;
+  margin-top: 33px;
   justify-content: flex-start;
 
   @media screen and (max-width: 1025px) {
@@ -101,43 +40,149 @@ export const ProjectStack = styled.div`
   }
 
   @media screen and (max-width: 716px) {
-    flex-wrap: wrap;    
+    flex-wrap: wrap;  
+    display: flex;  
+  }
+`
+
+export const ProjectInfo = styled.div`
+  display: none;
+  -webkit-animation: ${showInfo} 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  animation: ${showInfo} 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+
+  @media screen and (max-width: 716px) {
+    display: flex;
   }
 `
 
 export const StackTitle = styled.h3`
-  margin-right: 1.3rem;
-  font-weight: lighter;
-  color: ${({ theme }) => theme.colors.blue};
+  margin-bottom: 8px;
+  font-weight: light;
 
   @media screen and (max-width: 1025px) {
     margin-right: 1rem;
   }
 `
 
-export const ProjectBtnRow = styled.div`
+export const Header = styled.div``
+
+export const Project = styled.div`
   display: flex;
-  margin-top: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 6px 0;
+  background: ${({ theme }) => theme.colors.gray};
+  transition: all 0.2s ease;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  overflow: hidden;
+
+  :hover ${Title} {
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+
+  :hover ${ProjectStack} {
+    display: flex;
+  }
+
+  :hover ${StackTitle} {
+    color: ${({ color, theme }) => color === 'blue' ? theme.colors.darkBlue : theme.colors.darkYellow};
+  }
+
+  :hover ${ProjectInfo} {
+    display: flex;
+  }
+
+  :hover ${ProjectTitle} {
+    color: ${({ color, theme }) => color === 'blue' ? theme.colors.darkBlue : theme.colors.darkYellow};
+  }
+
+  :hover ${Description} {
+    color: ${({ color, theme }) => color === 'blue' ? theme.colors.white : theme.colors.black};
+  }
+
+  :hover {
+    background: ${({ theme, color }) => theme.colors[color]};
+    justify-content: ${({ $isProject = true }) => $isProject ? 'space-between' : 'center'};
+    align-items: ${({ $isProject = true }) => $isProject ? '' : 'center'};
+  }
+
+  @media screen and (max-width: 716px) {
+    color: ${({ theme }) => theme.colors.darkGray};
+  }
+`
+
+export const ProjectsColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: calc(100% / 3);
+  transition: all 0.2s ease;
+`
+
+export const Container = styled.div`
+display: flex;
+padding-top: 30px;
+padding-bottom: 30px;
+margin-top: 3.4rem;
+width: 1200px;
+max-width: 1200px;
+justify-content: space-evenly;
+-webkit-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+& > div:nth-child(2) {
+  margin: 0 12px;
+}
+
+@media screen and (max-width: 1200px) {
+  border: '1px dashed green';
+  color: red!important;
+  width: 80%;
+}
+
+@media screen and (max-width: 1025px) {
+  margin-right: 0rem;
+  margin-left: 0rem;
+}
+
+@media screen and (max-width: 716px) {
+  margin: 0rem;
+  margin-top: 45px;
+  justify-content: center;
+  flex-direction: column;
+  height: fit-content;
+
+  & > div:nth-child(2) {
+    margin: 0;
+  }
+}
 `
 
 export const Button = styled.div.attrs(props => ({
   id: 'btn'
 }))`
   border-radius: 1rem; 
-  background: ${({ theme }) => theme.colors.yellow};
+  background: ${({ theme, $background }) => theme.colors[$background]};
   font-size: 0.55rem;
   padding:  0.4rem 0.7rem;
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme, $color = 'black' }) => theme.colors[$color]};
   margin-right: 0.6rem;
 
   &:hover {
-    -webkit-animation: ${btnPop} 0.2s ease-in-out alternate both;
-    animation: ${btnPop} 0.2s ease-in-out alternate both;
+    -webkit-animation: ${btnPopWork} 0.2s ease-in-out alternate both;
+    animation: ${btnPopWork} 0.2s ease-in-out alternate both;
     cursor: none;
   }
 
   @media screen and (max-width: 1025px) {
     font-size: 0.45rem;
+  }
+
+  @media screen and (max-width: 716px) {
+    background: ${({ theme }) => theme.colors.blue};
+    color: ${({ theme }) => theme.colors.white};
   }
 `

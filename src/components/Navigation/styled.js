@@ -8,7 +8,6 @@ import {
 } from '../../constants/animations'
 
 export const Container = styled.div`
-  border-bottom: 1.5px solid black;
   height: 70px;
   width: 100%;
   position: fixed;
@@ -25,6 +24,8 @@ export const Container = styled.div`
 `
 
 export const DesktopNavbar = styled.div`
+  border-bottom: 1.5px solid black;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
