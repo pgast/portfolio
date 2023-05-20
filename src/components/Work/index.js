@@ -19,6 +19,60 @@ import {
   ProjectsColumn,
 } from './styled'
 
+const displayProjects = [
+  {
+    columnId: "leftColumn",
+    projects: [
+      { 
+        ...projects[0],
+        color: "blue",
+        btnColor: "yellow",
+        projectId: "topLeftProject" 
+      },
+      { 
+        ...projects[1],
+        color: "yellow",
+        btnColor: "blue",
+        projectId: "bottomLeftProject" 
+      },
+    ]
+  },
+  {
+    columnId: "middleColumn",
+    projects: [
+      { 
+        ...projects[2],
+        color: "yellow",
+        btnColor: "blue",
+        projectId: "topMiddleProject" 
+      },
+      { 
+        ...projects[3],
+        color: "blue",
+        btnColor: "yellow",
+        projectId: "bottomMiddleProject" 
+      },
+    ]
+  },
+  {
+    columnId: "rightColumn",
+    projects: [
+      { 
+        name: "more projects",
+        url: buttons[2].href,
+        color: "blue",
+        projectId: "topRightProject" 
+      },
+      { 
+        name: "about me",
+        url: '/about',
+        color: "yellow",
+        projectId: "bottomRightProject" 
+      },
+    ]
+  }
+]
+
 const Work = ({ setView }) => {
   const changeView = () => setView('about')
 
@@ -166,60 +220,6 @@ const Work = ({ setView }) => {
     window.onresize = checkWindowSize;
     checkWindowSize();
   }, [])
-
-  const displayProjects = [
-    {
-      columnId: "leftColumn",
-      projects: [
-        { 
-          ...projects[0],
-          color: "blue",
-          btnColor: "yellow",
-          projectId: "topLeftProject" 
-        },
-        { 
-          ...projects[1],
-          color: "yellow",
-          btnColor: "blue",
-          projectId: "bottomLeftProject" 
-        },
-      ]
-    },
-    {
-      columnId: "middleColumn",
-      projects: [
-        { 
-          ...projects[2],
-          color: "yellow",
-          btnColor: "blue",
-          projectId: "topMiddleProject" 
-        },
-        { 
-          ...projects[3],
-          color: "blue",
-          btnColor: "yellow",
-          projectId: "bottomMiddleProject" 
-        },
-      ]
-    },
-    {
-      columnId: "rightColumn",
-      projects: [
-        { 
-          name: "more projects",
-          url: buttons[2].href,
-          color: "blue",
-          projectId: "topRightProject" 
-        },
-        { 
-          name: "about me",
-          url: '/about',
-          color: "yellow",
-          projectId: "bottomRightProject" 
-        },
-      ]
-    }
-  ]
 
   return (
     <Container>
