@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { fadeInBottom, btnPopWork, showInfo } from '../../constants/animations';
 
-export const ProjectTitle = styled.h3`
+export const ProjectTitle = styled.h5`
   font-size: 0.95rem;
   margin-bottom: 20px;
   color: ${({ theme, $color = 'blue' }) => theme.colors[$color]};
@@ -19,7 +19,7 @@ export const Title = styled(ProjectTitle)`
 
 export const Description = styled.p`
   color: ${({ theme }) => theme.colors.black};
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 
   @media screen and (max-width: 1025px) {
     font-size: 0.7rem;
