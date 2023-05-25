@@ -38,7 +38,7 @@ export const Backdrop = styled.div`
 `
 
 export const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1.3rem;
   margin: 50px 0px 50px 52px;
 `
 
@@ -52,7 +52,7 @@ export const Links = styled.div`
 `
 
 export const ContactEmail = styled.h2`
-  font-size: 1.3rem;
+  font-size: 0.95rem;
   margin: 50px 0px 100px 52px;
 
   &:hover {
