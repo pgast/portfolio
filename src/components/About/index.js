@@ -13,7 +13,14 @@ import {
 import {
   Container,
   Scroll,
-  Button
+  NameTitle,
+  Button, 
+  ButtonRow,
+  Section,
+  SideSection,
+  SkillsTech,
+  Description,
+  ExperienceSection,
 } from './styled'
 
 const renderBtns = (btns) => {
@@ -35,7 +42,7 @@ const renderBtns = (btns) => {
 const About = () => {
   return (
     <Container>
-      <div className="aboutMain">
+      {/* <div className="aboutMain">
         <div className="aboutPhoto"></div>
         <div className="aboutMain_desc">
           <div>
@@ -47,34 +54,62 @@ const About = () => {
             {renderBtns(buttons)}
           </div>
         </div>
-      </div>
-      <Scroll>
-        <div className="aboutSection">
+      </div> */}
+
+      <SideSection>
+        <ButtonRow>
+          {renderBtns(buttons)}
+        </ButtonRow>
+        <Section>
           <h3>{skillTech.title}</h3>
-          <div className="skillsTech">
+          <SkillsTech>
             <ul>
               {skillTech.columns[0].map(el => <li>{el}</li>)}
-            </ul>
-            <ul>
               {skillTech.columns[1].map(el => <li>{el}</li>)}
             </ul>
-          </div>
-        </div>
-        <div className="aboutSection">
+          </SkillsTech>
+        </Section>
+        <Section>
           <h3>
             {skills.title}
           </h3>          
-          <div className="skillsTech">
+          <SkillsTech>
             <ul>
               {skills.columns[0].map(el => <li>{el}</li>)}
-            </ul>
-            <ul>
               {skills.columns[1].map(el => <li>{el}</li>)}
             </ul>
+          </SkillsTech>
+        </Section>
+      </SideSection>
+      <Scroll>
+        <NameTitle>
+          Pablo
+        </NameTitle>
+        <NameTitle>
+          Gastelum
+        </NameTitle>
+        <Description>
+          <p>{about.mainDescription.description}</p>
+        </Description>
+        <ExperienceSection>
+          <h3>
+            {workHistory.title}
+          </h3>
+          <div>
+            {workHistory.jobs.map(el => 
+              <div>
+                <p>
+                  {el.title}
+                </p>
+                <ul>
+                  {el.items.map(item => <li>{item}</li>)}
+                </ul>
+              </div>
+            )}
           </div>
-        </div>
+        </ExperienceSection>
         <div id="awardsEducation">
-          <div className="aboutSection">
+          <Section>
             <h3>
               {awards.title}
             </h3>
@@ -86,8 +121,8 @@ const About = () => {
                 {awards.columns[1].map(el => <p>{el}</p>)}
               </div>
             </div>
-          </div>
-          <div className="aboutSection">
+          </Section>
+          <Section>
             <h3>
               {education.title}
             </h3>
@@ -112,24 +147,7 @@ const About = () => {
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="aboutSection" id="experience">
-          <h3>
-            {workHistory.title}
-          </h3>
-          <div>
-            {workHistory.jobs.map(el => 
-              <div>
-                <p>
-                  {el.title}
-                </p>
-                <ul>
-                  {el.items.map(item => <li>{item}</li>)}
-                </ul>
-              </div>
-            )}
-          </div>
+          </Section>
         </div>
       </Scroll>
     </Container>

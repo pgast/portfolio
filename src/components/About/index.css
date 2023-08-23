@@ -1,11 +1,4 @@
-.aboutSection {
-  border-left: 3px solid black;
-  padding-left: 0.5rem;
-  padding-top: 0;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2rem;
-}
+.aboutSection {}
 
 .aboutScroll > div:last-of-type > div > div,
 #awardsEducation .aboutSection > div div:first-of-type {
@@ -17,18 +10,6 @@
   font-weight: 600;
 }
 
-#experience ul {
-  margin-bottom: 2rem;
-}
-
-#experience div div:last-of-type ul {
-  margin-bottom: 0;
-}
-
-.aboutMain_desc p {
-  text-align: justify;
-}
-
 .aboutSection > h3 {
   color: #005cef
 }
@@ -37,12 +18,6 @@
   color: #ff1f25;
 }
 
-.aboutMain_desc > div:first-of-type h3 {
-  margin-bottom: 0.3rem;
-  color: #005cef;
-}
-
-.aboutMain_desc > div:first-of-type h3,
 .aboutSection h3 {
   font-size: 0.95rem;
 }
@@ -50,15 +25,6 @@
 .aboutSection > div {
   display: flex;
   flex-direction: column;
-}
-
-.aboutSection .skillsTech {
-  display: flex;
-  flex-direction: row;
-}
-
-.skillsTech ul {
-  margin-right: 3rem;
 }
 
 .aboutMain {
@@ -86,10 +52,6 @@
   background-size: 120%;
 }
 
-.aboutMain_desc div:first-of-type p:last-of-type {
-  margin-top: 1rem;
-}
-
 a:visited, a:link, a:active
 {
   text-decoration: none;
@@ -100,20 +62,12 @@ li > a:hover {
   font-weight: bold;
 }
 
-.aboutMain_btnRow {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
-}
+.aboutMain_btnRow {}
 
 .aboutMain_btnRow .btn {
-  margin-right: 0.4rem;
-  background: #ffdd18;
 }
 
 .aboutMain_btnRow a {
-  text-decoration: none;
-  color: black;
 }
 
 .aboutScroll > div:last-of-type {
@@ -129,14 +83,6 @@ li > a:hover {
     margin-top: 0rem;
     width: 33vw;
     height: 100%;
-  }
-
-  .aboutMain_desc {
-    width: 100%;
-  }
-
-  .skillsTech ul {
-    margin-right: 1.3rem;
   }
 }
 
@@ -159,30 +105,5 @@ li > a:hover {
     margin-left: 0rem;
     margin-top: 0rem;
     left: 13rem;
-  }
-
-  .aboutSection .skillsTech {
-    flex-wrap: wrap;
-  }
-
-  .aboutMain_desc {
-    margin-right: 1rem;
-    margin-left: 1rem;
-    text-align: center;
-    width: 50vw;
-  }
-
-  .skillsTech ul {
-    margin-right: 1.5rem;
-  }
-
-  .skillsTech ul:last-of-type {
-    margin-right: 0;
-  }
-}
-
-@media screen and (max-width: 490px) {
-  .aboutMain_desc {
-    width: 100%;
   }
 }

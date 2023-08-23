@@ -6,9 +6,7 @@ export const buttons = [
 
 export const about = {
   mainDescription: {
-    h3: "Pablo Gastelum Leyva",
-    description: "Hi! I'm a web developer with a product design background. After years building real physical objects (and the occasional venture into graphic design) I took my side hobby of web development and decided to focus full time on creating digital experiences.",
-    greet: "Feel free to contact me, I'd love to hear from you."
+    description: "Hi! I'm a web developer with a product design background. After years building real physical objects (and the occasional venture into graphic design) I took my side hobby of web development and decided to focus full time on creating digital experiences."
   }
 }
 
@@ -103,7 +101,7 @@ export const workHistory = {
     {
       title: "2021-Now / Frontend Developer / Apli",
       items: [
-        "Planned, developed and implemented client-facing frontend products used by internal recruiteres in international companies.",
+        "Planned, developed and implemented client-facing frontend products used by internal recruiters in international companies.",
         "Streamlined an internal tool used by conversation architects improving bot building timeframes and reducing errors.",
         "Worked with internal microservices APIs guaranteeing a smooth interaction with the frontend stack."
       ]
