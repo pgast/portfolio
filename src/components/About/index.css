@@ -1,79 +1,7 @@
-.aboutSection {}
-
-.aboutScroll > div:last-of-type > div > div,
-#awardsEducation .aboutSection > div div:first-of-type {
-  margin-bottom: 0.9rem;
-}
-
-.aboutScroll > div > div p:first-of-type,
-#awardsEducation .aboutSection > div > div p:first-of-type {
-  font-weight: 600;
-}
-
-.aboutSection > h3 {
-  color: #005cef
-}
-
-.aboutSection > h3:hover {
-  color: #ff1f25;
-}
-
-.aboutSection h3 {
-  font-size: 0.95rem;
-}
-
-.aboutSection > div {
-  display: flex;
-  flex-direction: column;
-}
-
-.aboutMain {
-  width: 400px;
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-right: 2rem;
-  margin-top: 2rem;
-  align-self: flex-start;
-  -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
-.aboutPhoto {
-  width: 9rem;
-  height: 9rem;
-  margin-bottom: 2.3rem;
-  border-radius: 100%;
-  background: blue;
-  background-image: url("../../assets/myphoto.jpg");
-  background-position: 50% 0%;
-  background-size: 120%;
-}
-
 a:visited, a:link, a:active
 {
   text-decoration: none;
 }
-
-li > a:hover {
-  color: #ff1f25;
-  font-weight: bold;
-}
-
-.aboutMain_btnRow {}
-
-.aboutMain_btnRow .btn {
-}
-
-.aboutMain_btnRow a {
-}
-
-.aboutScroll > div:last-of-type {
-  height: 3rem;
-}
-
 
 /* Tablet Landscape */
 @media screen and (max-width: 1200px) {

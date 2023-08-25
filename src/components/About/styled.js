@@ -46,8 +46,8 @@ export const SideSection = styled.div`
   width: calc(100% / 3);
   height: 100%;
   display: flex;
-  padding-left: 44px;
-  padding-top: 44px;
+  justify-content: space-between;
+  padding: 44px;
   flex-direction: column;
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -55,7 +55,9 @@ export const SideSection = styled.div`
 
 export const Scroll = styled.div`
   max-height: 100%;
+  /* border-left: 1px solid white; */
   padding-right: 44px;
+  /* padding-left: 44px; */
   padding-top: 44px;
   overflow-y: auto;
   width: calc((100% / 3) * 2);
@@ -91,16 +93,13 @@ export const Scroll = styled.div`
   }
 `
 
-export const Button = styled.div.attrs(props => ({
-  id: 'btn'
-}))`
+export const Button = styled.div`
   border-radius: 1rem; 
   background: ${({ theme }) => theme.colors.yellow};
   font-size: 0.55rem;
   padding:  0.4rem 0.7rem;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.black};
-  margin-right: 0.6rem;
 
   &:hover {
     -webkit-animation: ${btnPop} 0.2s ease-in-out alternate both;
@@ -139,15 +138,19 @@ export const SkillsTech = styled.div`
   display: flex;
   flex-direction: column;
 
+  & li {
+    color: white;
+  }
+
   @media screen and (max-width: 750px) {
     flex-wrap: wrap;
   }
 `
 
 export const NameTitle = styled.h1`
-  font-size: 5rem;
+  font-size: 3.7rem;
   color: ${({ theme }) => theme.colors.darkerBlue};
-  line-height: 4rem;
+  line-height: 3.5rem;
 
   @media screen and (max-width: 1025px) {
     font-size: 3rem; 
@@ -160,10 +163,9 @@ export const NameTitle = styled.h1`
 
 export const Description = styled.div`
   text-align: justify;
-  margin-bottom: 44px;
   
   & p {
-    font-size: 0.95rem;
+    font-size: 0.7rem;
     color: ${({ theme }) => theme.colors.white};
   }
 
@@ -188,15 +190,42 @@ export const Description = styled.div`
 `
 export const ButtonRow = styled.div`
   display: flex;
-  margin-bottom: 44px;
+  justify-content: space-between;
 
   & > * {
-    margin-right: 0.4rem;
     background: #ffdd18;
   }
 
   & > a {
     text-decoration: none;
     color: black;
+  }
+`
+
+export const EducationLevel = styled.div`
+  color: red;
+`
+
+export const WorkExperience = styled.div`
+  margin-bottom: 18px;
+
+  & ul {
+    list-style-type: 'disc';
+  }
+`
+
+export const WorkExperienceHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+`
+
+export const NameContainer = styled.div``
+
+export const SkillsSection = styled.div`
+  display: flex;
+
+  & div {
+    width: 50%;
   }
 `
