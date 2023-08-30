@@ -11,17 +11,21 @@ export const Container = styled.div`
   margin-bottom: 36px;
   overflow-y: none;
   font-weight: light;
-  background: ${({ theme }) => theme.colors.blue };
+  background: ${({ theme }) => theme.colors.gray };
 
   & ul {
-    list-style-type: none;
+    padding-left: 0;
+  }
+
+  & li {
+    list-style-type: disc;
+    list-style-position: inside;
   }
 
   & li,
   & p {
     font-size: 0.7rem;
     color: black;
-    text-decoration: none!important;
   }
 
   @media screen and (max-width: 1200px) {
@@ -46,18 +50,19 @@ export const SideSection = styled.div`
   width: calc(100% / 3);
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   padding: 44px;
   flex-direction: column;
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  background: ${({ theme }) => theme.colors.blue };
 `
 
 export const Scroll = styled.div`
   max-height: 100%;
   /* border-left: 1px solid white; */
   padding-right: 44px;
-  /* padding-left: 44px; */
+  padding-left: 44px;
   padding-top: 44px;
   overflow-y: auto;
   width: calc((100% / 3) * 2);
@@ -119,7 +124,7 @@ export const Section = styled.div`
   margin-bottom: 2rem;
 
   & > h3 {
-    color: ${({ theme }) => theme.colors.darkBlue};
+    color: ${({ theme }) => theme.colors.blue};
     font-size: 0.95rem;
   }
 `
@@ -129,7 +134,7 @@ export const ExperienceSection = styled(Section)`
     margin-bottom: 2rem;
   }
 
-  & div div:last-of-type ul {
+  & > div:last-of-type {
     margin-bottom: 0;
   }
 `
@@ -139,7 +144,7 @@ export const SkillsTech = styled.div`
   flex-direction: column;
 
   & li {
-    color: white;
+    color: black;
   }
 
   @media screen and (max-width: 750px) {
@@ -170,7 +175,7 @@ export const Description = styled.div`
   }
 
   & p:last-of-type {
-    margin-top: 1rem;
+    margin: 30px 0;
   }
 
   @media screen and (max-width: 1200px) {
@@ -203,15 +208,11 @@ export const ButtonRow = styled.div`
 `
 
 export const EducationLevel = styled.div`
-  color: red;
+  margin-bottom: 32px;
 `
 
 export const WorkExperience = styled.div`
-  margin-bottom: 18px;
-
-  & ul {
-    list-style-type: 'disc';
-  }
+  margin-bottom: 32px;
 `
 
 export const WorkExperienceHeader = styled.div`

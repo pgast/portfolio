@@ -24,7 +24,6 @@ export const Container = styled.div`
 `
 
 export const DesktopNavbar = styled.div`
-  border-bottom: 1.5px solid black;
   height: 100%;
   display: flex;
   justify-content: space-between;

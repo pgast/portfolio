@@ -5,6 +5,7 @@ import { Button } from '../About/styled'
 export const SideDrawerContainer = styled.div`
   height: 100%;
   background: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.darkYellow};
   position: fixed;
   top: 0;
   right: 0;
@@ -84,7 +85,7 @@ export const CloseIcon = styled.i`
 `
 
 export const LinkButton = styled(Button)`
-  background: black;
+  background: ${({ theme }) => theme.colors.blue};
   width: fit-content;
   display: flex;
   align-items: center;
@@ -92,10 +93,6 @@ export const LinkButton = styled(Button)`
 
   & > a {
     color: inherit;
-  }
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.red};
   }
 
   & > i {

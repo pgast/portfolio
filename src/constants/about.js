@@ -71,23 +71,23 @@ export const education = {
     links: [
       {
         href: '',
-        title: '- AWS Certified Cloud Practitioner'
+        title: 'AWS Certified Cloud Practitioner'
       },
       {
         href: 'https://udemy-certificate.s3.amazonaws.com/pdf/UC-32236e40-565f-46e0-a24a-5a0275d8b99e.pdf',
-        title: '- Python'
+        title: 'Python'
       },
       {
         href: 'http://ude.my/UC-CJJEMRIW',
-        title: '- React / Redux'
+        title: 'React / Redux'
       },
       {
         href: 'https://www.freecodecamp.org/certification/pabl-o/javascript-algorithms-and-data-structures',
-        title: '- Data Structures'
+        title: 'Data Structures'
       },
       {
         href: 'https://www.freecodecamp.org/certification/pabl-o/legacy-front-end',
-        title: '- Front end development'
+        title: 'Front end development'
       }
     ]
   }
