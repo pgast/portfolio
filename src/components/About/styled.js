@@ -60,7 +60,6 @@ export const SideSection = styled.div`
 
 export const Scroll = styled.div`
   max-height: 100%;
-  /* border-left: 1px solid white; */
   padding-right: 44px;
   padding-left: 44px;
   padding-top: 44px;
@@ -80,14 +79,6 @@ export const Scroll = styled.div`
 
   & p:first-of-type {
     font-weight: 600;
-  }
-
-  @media screen and (max-width: 1200px) {
-    width: 50%;
-  }
-
-  @media screen and (max-width: 888px) {
-    padding-right: 0rem;
   }
 
   @media screen and (max-width: 750px) {
@@ -110,6 +101,16 @@ export const Button = styled.div`
     -webkit-animation: ${btnPop} 0.2s ease-in-out alternate both;
     animation: ${btnPop} 0.2s ease-in-out alternate both;
     cursor: none;
+  }
+
+  & a {
+    text-decoration: none;
+    color: black;
+  }
+
+  @media screen and (max-width: 1200px) {
+    width: fit-content;
+    margin-bottom: 5px;
   }
 
   @media screen and (max-width: 1025px) {
@@ -157,8 +158,19 @@ export const NameTitle = styled.h1`
   color: ${({ theme }) => theme.colors.darkerBlue};
   line-height: 3.5rem;
 
-  @media screen and (max-width: 1025px) {
-    font-size: 3rem; 
+  @media screen and (max-width: 1200px) {
+    font-size: 2.6rem;
+    line-height: 2.2rem;
+  }
+
+  @media screen and (max-width: 1190px) {
+    font-size: 2rem;
+    line-height: 1.8rem;
+  }
+
+  @media screen and (max-width: 985px) {
+    font-size: 1.5rem;
+    line-height: 1.3rem;
   }
 
   @media screen and (max-width: 740px) {
@@ -205,6 +217,10 @@ export const ButtonRow = styled.div`
     text-decoration: none;
     color: black;
   }
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+  }
 `
 
 export const EducationLevel = styled.div`
@@ -221,7 +237,9 @@ export const WorkExperienceHeader = styled.div`
   font-weight: 600;
 `
 
-export const NameContainer = styled.div``
+export const NameContainer = styled.div`
+  overflow-x: hidden;
+`
 
 export const SkillsSection = styled.div`
   display: flex;

@@ -151,7 +151,7 @@ animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 
 @media screen and (max-width: 716px) {
   margin: 0rem;
-  margin-top: 45px;
+  margin-top: 70px;
   justify-content: center;
   flex-direction: column;
   height: fit-content;

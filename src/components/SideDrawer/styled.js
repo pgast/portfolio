@@ -55,6 +55,7 @@ export const Links = styled.div`
 export const ContactEmail = styled.h2`
   font-size: 0.95rem;
   margin: 50px 0px 100px 52px;
+  text-decoration: none;
 
   &:hover {
     color: white;
