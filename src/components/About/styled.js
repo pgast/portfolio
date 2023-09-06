@@ -37,12 +37,14 @@ export const Container = styled.div`
   }
 
   @media screen and (max-width: 750px) {
-    margin: 0rem;
-    margin-top: 5rem;
-    flex-direction: column;
     align-items: center;
-    justify-content: start;
     height: fit-content;
+    flex-direction: column;
+    justify-content: start;
+
+    & li {
+      text-align: left;
+    }
   }
 `
 
@@ -56,6 +58,10 @@ export const SideSection = styled.div`
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   background: ${({ theme }) => theme.colors.blue };
+
+  @media screen and (max-width: 750px) { 
+    width: 100%;
+  }
 `
 
 export const Scroll = styled.div`
@@ -82,9 +88,6 @@ export const Scroll = styled.div`
   }
 
   @media screen and (max-width: 750px) {
-    margin-top: 3rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
     width: 100%;
   }
 `
@@ -115,6 +118,10 @@ export const Button = styled.div`
 
   @media screen and (max-width: 1025px) {
     margin-bottom: 0.4rem;
+  }
+
+  @media screen and (max-width: 750px) { 
+    margin-right: 11px;
   }
 `
 
@@ -173,8 +180,9 @@ export const NameTitle = styled.h1`
     line-height: 1.3rem;
   }
 
-  @media screen and (max-width: 740px) {
+  @media screen and (max-width: 750px) {
     font-size: 2.4rem;
+    line-height: 2.2rem;
   }
 `
 
@@ -193,18 +201,8 @@ export const Description = styled.div`
   @media screen and (max-width: 1200px) {
     width: 100%;
   }
-
-  @media screen and (max-width: 750px) {
-    margin-right: 1rem;
-    margin-left: 1rem;
-    text-align: center;
-    width: 50vw;
-  }
-
-  @media screen and (max-width: 490px) {
-    width: 100%;
-  }
 `
+
 export const ButtonRow = styled.div`
   display: flex;
   justify-content: space-between;
@@ -219,6 +217,15 @@ export const ButtonRow = styled.div`
   }
 
   @media screen and (max-width: 1200px) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 750px) { 
+    flex-direction: row;
+    width: fit-content;
+  }
+
+  @media screen and (max-width: 500px) { 
     flex-direction: column;
   }
 `
@@ -244,7 +251,7 @@ export const NameContainer = styled.div`
 export const SkillsSection = styled.div`
   display: flex;
 
-  & div {
+  & > div {
     width: 50%;
   }
 `

@@ -134,7 +134,7 @@ export const MobileMenuIcon = styled.i`
   @media screen and (max-width: 480px) {
     display: block;
     position: fixed;
-    top: 2.6rem;
+    top: 2.4rem;
     right: 2rem;
     z-index: 890;
     font-size: 1.3rem;
