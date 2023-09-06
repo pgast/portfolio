@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+
 import {
   about,
   awards,
@@ -11,21 +11,21 @@ import {
 } from '../../constants/about'
 
 import {
-  Container,
   Scroll,
-  NameTitle,
   Button, 
-  ButtonRow,
   Section,
-  SkillsSection,
-  SideSection,
-  NameContainer,
+  Container,
+  NameTitle,
+  ButtonRow,
   SkillsTech,
+  SideSection,
   Description,
+  SkillsSection,
+  NameContainer,
   EducationLevel,
   WorkExperience,
-  WorkExperienceHeader,
   ExperienceSection,
+  WorkExperienceHeader,
 } from './styled'
 
 const renderBtns = (btns) => {
@@ -63,8 +63,6 @@ const About = () => {
           {renderBtns(buttons)}
         </ButtonRow>
       </SideSection>
-
-
       <Scroll>
         <ExperienceSection>
           <h3>
@@ -86,7 +84,6 @@ const About = () => {
             </WorkExperience>
           )}
         </ExperienceSection>
-
         <Section>
           <h3>
             {education.title}
@@ -113,8 +110,6 @@ const About = () => {
             </div>
           </div>
         </Section>
-
-
         <SkillsSection>
           <Section>
             <h3>{skillTech.title}</h3>
@@ -136,7 +131,6 @@ const About = () => {
             </SkillsTech>
           </Section>
         </SkillsSection>
-
         <Section>
           <h3>
             {awards.title}

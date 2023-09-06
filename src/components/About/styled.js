@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { btnPop } from '../../constants/animations';
-import { theme } from '../../constants/theme'
 
 export const Container = styled.div`
   width: 1200px;
