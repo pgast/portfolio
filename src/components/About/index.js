@@ -24,7 +24,9 @@ import {
   NameContainer,
   EducationLevel,
   WorkExperience,
+  EducationTitle,
   ExperienceSection,
+  ExperienceTitle,
   WorkExperienceHeader,
 } from './styled'
 
@@ -65,9 +67,9 @@ const About = () => {
       </SideSection>
       <Scroll>
         <ExperienceSection>
-          <h3>
+          <ExperienceTitle>
             {workHistory.title}
-          </h3>
+          </ExperienceTitle>
           {workHistory.jobs.map(el => 
             <WorkExperience>
               <WorkExperienceHeader>
@@ -85,9 +87,11 @@ const About = () => {
           )}
         </ExperienceSection>
         <Section>
-          <h3>
-            {education.title}
-          </h3>
+          <EducationTitle>
+            <h3>
+              {education.title}
+            </h3>
+          </EducationTitle>
           <div>
             <EducationLevel>
               {education.school.map(el => <p>{el}</p>)}

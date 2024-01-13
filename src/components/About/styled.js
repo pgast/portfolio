@@ -254,3 +254,16 @@ export const SkillsSection = styled.div`
     width: 50%;
   }
 `
+
+export const ExperienceTitle = styled.div`
+  border: "1px solid red";
+  width: "100%";
+  color: green;
+  background: red;
+  font-size: 12px;
+  position: -webkit-sticky; /* Safari & IE */
+  position: sticky;
+  top: 0;
+`
+
+export const EducationTitle = styled(ExperienceTitle)``
