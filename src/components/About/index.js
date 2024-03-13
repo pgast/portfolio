@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+
 import {
   about,
   awards,
@@ -11,9 +11,21 @@ import {
 } from '../../constants/about'
 
 import {
-  Container,
   Scroll,
-  Button
+  Button, 
+  Section,
+  Container,
+  NameTitle,
+  ButtonRow,
+  SkillsTech,
+  SideSection,
+  Description,
+  SkillsSection,
+  NameContainer,
+  EducationLevel,
+  WorkExperience,
+  ExperienceSection,
+  WorkExperienceHeader,
 } from './styled'
 
 const renderBtns = (btns) => {
@@ -35,102 +47,103 @@ const renderBtns = (btns) => {
 const About = () => {
   return (
     <Container>
-      <div className="aboutMain">
-        <div className="aboutPhoto"></div>
-        <div className="aboutMain_desc">
-          <div>
-            <h3>{about.mainDescription.h3}</h3>
+      <SideSection>
+        <NameContainer>
+          <NameTitle>
+            Pablo
+          </NameTitle>
+          <NameTitle>
+            Gastelum
+          </NameTitle>
+          <Description>
             <p>{about.mainDescription.description}</p>
-            <p>{about.mainDescription.greet}</p>
-          </div>
-          <div className="aboutMain_btnRow">
-            {renderBtns(buttons)}
-          </div>
-        </div>
-      </div>
+          </Description>
+        </NameContainer>
+        <ButtonRow>
+          {renderBtns(buttons)}
+        </ButtonRow>
+      </SideSection>
       <Scroll>
-        <div className="aboutSection">
-          <h3>{skillTech.title}</h3>
-          <div className="skillsTech">
-            <ul>
-              {skillTech.columns[0].map(el => <li>{el}</li>)}
-            </ul>
-            <ul>
-              {skillTech.columns[1].map(el => <li>{el}</li>)}
-            </ul>
-          </div>
-        </div>
-        <div className="aboutSection">
-          <h3>
-            {skills.title}
-          </h3>          
-          <div className="skillsTech">
-            <ul>
-              {skills.columns[0].map(el => <li>{el}</li>)}
-            </ul>
-            <ul>
-              {skills.columns[1].map(el => <li>{el}</li>)}
-            </ul>
-          </div>
-        </div>
-        <div id="awardsEducation">
-          <div className="aboutSection">
-            <h3>
-              {awards.title}
-            </h3>
-            <div>
-              <div>
-                {awards.columns[0].map(el => <p>{el}</p>)}
-              </div>
-              <div>
-                {awards.columns[1].map(el => <p>{el}</p>)}
-              </div>
-            </div>
-          </div>
-          <div className="aboutSection">
-            <h3>
-              {education.title}
-            </h3>
-            <div>
-              <div>
-                {education.school.map(el => <p>{el}</p>)}
-              </div>
-              <div>
-                <p>{education.certifications.title}</p>
-                <ul>
-                  {education.certifications.links.map(el => 
-                    <li>
-                      <a
-                        target={el.href === '' ? '' : "_blank"}
-                        rel="noreferrer"
-                        href={el.href === '' ? 'javascript:void(0);' : el.href}
-                      >
-                        {el.title}
-                      </a>
-                    </li>
-                  )}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="aboutSection" id="experience">
+        <ExperienceSection>
           <h3>
             {workHistory.title}
           </h3>
-          <div>
-            {workHistory.jobs.map(el => 
-              <div>
+          {workHistory.jobs.map(el => 
+            <WorkExperience>
+              <WorkExperienceHeader>
                 <p>
-                  {el.title}
+                  {el.header.title}
                 </p>
-                <ul>
-                  {el.items.map(item => <li>{item}</li>)}
-                </ul>
-              </div>
-            )}
+                <p>
+                  {el.header.duration}
+                </p>
+              </WorkExperienceHeader>
+              <ul>
+                {el.items.map(item => <li>{item}</li>)}
+              </ul>
+            </WorkExperience>
+          )}
+        </ExperienceSection>
+        <Section>
+          <h3>
+            {education.title}
+          </h3>
+          <div>
+            <EducationLevel>
+              {education.school.map(el => <p>{el}</p>)}
+            </EducationLevel>
+            <div>
+              <p>{education.certifications.title}</p>
+              <ul>
+                {education.certifications.links.map(el => 
+                  <li>
+                    <a
+                      target={el.href === '' ? '' : "_blank"}
+                      rel="noreferrer"
+                      href={el.href === '' ? 'javascript:void(0);' : el.href}
+                    >
+                      {el.title}
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
           </div>
-        </div>
+        </Section>
+        <SkillsSection>
+          <Section>
+            <h3>{skillTech.title}</h3>
+            <SkillsTech>
+              <ul>
+                {skillTech.skills.map(el => <li>{el}</li>)}
+              </ul>
+            </SkillsTech>
+          </Section>
+          <Section>
+            <h3>
+              {skills.title}
+            </h3>          
+            <SkillsTech>
+              <ul>
+                {skills.columns[0].map(el => <li>{el}</li>)}
+                {skills.columns[1].map(el => <li>{el}</li>)}
+              </ul>
+            </SkillsTech>
+          </Section>
+        </SkillsSection>
+        <Section>
+          <h3>
+            {awards.title}
+          </h3>
+          <div>
+            <div>
+              {awards.columns[0].map(el => <p>{el}</p>)}
+            </div>
+            <div>
+              {awards.columns[1].map(el => <p>{el}</p>)}
+            </div>
+          </div>
+        </Section>
       </Scroll>
     </Container>
   );
