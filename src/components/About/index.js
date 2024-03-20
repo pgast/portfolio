@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   about,
@@ -13,21 +13,22 @@ import {
 import {
   Scroll,
   Button, 
-  Section,
   Container,
   NameTitle,
   ButtonRow,
-  SkillsTech,
   SideSection,
   Description,
-  SkillsSection,
   NameContainer,
-  EducationLevel,
-  WorkExperience,
-  EducationTitle,
-  ExperienceSection,
-  ExperienceTitle,
   WorkExperienceHeader,
+
+
+  Content,
+  WorkExperience,
+  Education,
+  Skills,
+  Awards,
+  Bulletpoint,
+  Title,
 } from './styled'
 
 const renderBtns = (btns) => {
@@ -47,6 +48,17 @@ const renderBtns = (btns) => {
 }
 
 const About = () => {
+  const [expandedSection, setExpandedSection] = useState(null);
+
+  const handleSectionHover = (section) => {
+    setExpandedSection(section);
+  };
+
+  const resetHover = () => {
+    setExpandedSection(null);
+  };
+
+
   return (
     <Container>
       <SideSection>
@@ -66,88 +78,63 @@ const About = () => {
         </ButtonRow>
       </SideSection>
       <Scroll>
-        <ExperienceSection>
-          <ExperienceTitle>
-            {workHistory.title}
-          </ExperienceTitle>
-          {workHistory.jobs.map(el => 
-            <WorkExperience>
-              <WorkExperienceHeader>
-                <p>
-                  {el.header.title}
-                </p>
-                <p>
-                  {el.header.duration}
-                </p>
-              </WorkExperienceHeader>
-              <ul>
-                {el.items.map(item => <li>{item}</li>)}
-              </ul>
-            </WorkExperience>
-          )}
-        </ExperienceSection>
-        <Section>
-          <EducationTitle>
-            <h3>
-              {education.title}
-            </h3>
-          </EducationTitle>
-          <div>
-            <EducationLevel>
-              {education.school.map(el => <p>{el}</p>)}
-            </EducationLevel>
-            <div>
-              <p>{education.certifications.title}</p>
-              <ul>
-                {education.certifications.links.map(el => 
-                  <li>
-                    <a
-                      target={el.href === '' ? '' : "_blank"}
-                      rel="noreferrer"
-                      href={el.href === '' ? 'javascript:void(0);' : el.href}
-                    >
-                      {el.title}
-                    </a>
-                  </li>
-                )}
-              </ul>
-            </div>
-          </div>
-        </Section>
-        <SkillsSection>
-          <Section>
-            <h3>{skillTech.title}</h3>
-            <SkillsTech>
-              <ul>
-                {skillTech.skills.map(el => <li>{el}</li>)}
-              </ul>
-            </SkillsTech>
-          </Section>
-          <Section>
-            <h3>
-              {skills.title}
-            </h3>          
-            <SkillsTech>
-              <ul>
-                {skills.columns[0].map(el => <li>{el}</li>)}
-                {skills.columns[1].map(el => <li>{el}</li>)}
-              </ul>
-            </SkillsTech>
-          </Section>
-        </SkillsSection>
-        <Section>
-          <h3>
-            {awards.title}
-          </h3>
-          <div>
-            <div>
-              {awards.columns[0].map(el => <p>{el}</p>)}
-            </div>
-            <div>
-              {awards.columns[1].map(el => <p>{el}</p>)}
-            </div>
-          </div>
-        </Section>
+        <WorkExperience
+          onMouseEnter={() => handleSectionHover('work')}
+          onMouseLeave={resetHover}
+          expanded={expandedSection === 'work'}
+          otherIsExpanded={expandedSection !== 'work' && expandedSection !== null}
+        >
+          <Title expanded={expandedSection === 'work'}>
+            Work Experience
+          </Title>
+          <Content expanded={expandedSection === 'work'}>
+            {workHistory.jobs.map(el => 
+              <div>
+                <WorkExperienceHeader>
+                  <h3>
+                    {el.header.title}
+                  </h3>
+                  <h3>
+                    {el.header.duration}
+                  </h3>
+                </WorkExperienceHeader>
+                <ul>
+                  {el.items.map(item => <Bulletpoint>{item}</Bulletpoint>)}
+                </ul>
+              </div>
+            )}
+          </Content>
+        </WorkExperience>
+        <Education
+          onMouseEnter={() => handleSectionHover('education')}
+          onMouseLeave={resetHover}
+          expanded={expandedSection === 'education'}
+          otherIsExpanded={expandedSection !== 'education' && expandedSection !== null}
+        >
+          <Title expanded={expandedSection === 'education'}>
+            Education
+          </Title>
+        </Education>
+        <Skills
+          onMouseEnter={() => handleSectionHover('skills')}
+          onMouseLeave={resetHover}
+          expanded={expandedSection === 'skills'}
+          otherIsExpanded={expandedSection !== 'skills' && expandedSection !== null}
+        >
+          <Title expanded={expandedSection === 'skills'}>
+            skills
+          </Title>
+        </Skills>
+        <Awards
+          onMouseEnter={() => handleSectionHover('recognition')}
+          onMouseLeave={resetHover}
+          expanded={expandedSection === 'recognition'}
+          otherIsExpanded={expandedSection !== 'recognition' && expandedSection !== null}
+        >
+          <Title expanded={expandedSection === 'recognition'}>
+            awards recognition
+          </Title>
+        </Awards>
       </Scroll>
     </Container>
   );

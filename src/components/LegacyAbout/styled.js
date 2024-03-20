@@ -9,11 +9,31 @@ export const Container = styled.div`
   margin-top: 70px;
   margin-bottom: 36px;
   overflow-y: none;
+  font-weight: light;
+  background: ${({ theme }) => theme.colors.gray };
   -webkit-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 
+  & ul {
+    padding-left: 0;
+  }
+
+  & li {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+
+  & li,
+  & p {
+    font-size: 0.7rem;
+  }
+
   @media screen and (max-width: 1200px) {
     width: 80%;
+
+    & li {
+      text-align: justify;
+    }
   }
 
   @media screen and (max-width: 750px) {
@@ -21,6 +41,10 @@ export const Container = styled.div`
     height: fit-content;
     flex-direction: column;
     justify-content: start;
+
+    & li {
+      text-align: left;
+    }
   }
 `
 
@@ -42,9 +66,7 @@ export const SideSection = styled.div`
 
 export const Scroll = styled.div`
   max-height: 100%;
-  height: 100%;
-  overflow-y: hidden;
-  /* overflow-y: auto; */
+  overflow-y: auto;
   width: calc((100% / 3) * 2);
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -59,12 +81,8 @@ export const Scroll = styled.div`
     scrollbar-width: none;
   }
 
-  & div:first-of-type {
-    margin-top: 0;
-  }
-
-  & div:last-of-type {
-    margin-bottom: 0;
+  & p:first-of-type {
+    font-weight: 600;
   }
 
   @media screen and (max-width: 750px) {
@@ -109,29 +127,20 @@ export const Section = styled.div`
   padding-top: 0;
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 2rem; */
-  /* padding-right: 44px;
-  padding-left: 44px; */
 
   & > h3 {
-    color: ${({ theme }) => theme.colors.blue};
     font-size: 0.95rem;
   }
 `
 
 export const ExperienceSection = styled(Section)`
-  & > ul {
-    margin-bottom: 2rem;
-  }
-
-  & > div:last-of-type {
-    margin-bottom: 0;
-  }
+  background: ${({ theme }) => theme.colors.gray }; 
 `
 
 export const SkillsTech = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0 40px 40px;
 
   & li {
     color: black;
@@ -216,16 +225,15 @@ export const EducationLevel = styled.div`
   margin-bottom: 32px;
 `
 
-
+export const BulletPointsContent = styled.div`
+  padding: 0 40px 40px;
+`
 
 export const WorkExperienceHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 0.6rem;
-
-  & > h3 {
-    font-weight: light;
-  }
+  font-weight: 600;
+  margin-bottom: 8px;
 `
 
 export const NameContainer = styled.div`
@@ -233,21 +241,21 @@ export const NameContainer = styled.div`
 `
 
 export const ExperienceTitle = styled.div`
-  border: "1px solid red";
   display: flex;
   align-items: center;
 
   & > h5 {
     font-size: 0.95rem;
-    color: white;
   }
 
   height: 70px;
-  color: green;
-  background: ${({ theme }) => theme.colors.blue };
+  color: ${({ theme }) => theme.colors.darkGray };
+  /* color: ${({ theme }) => theme.colors.blue }; */
+  background: ${({ theme }) => theme.colors.gray };
   position: -webkit-sticky; /* Safari & IE */
   position: sticky;
   top: 0;
+  padding-left: 40px;
 `
 
 export const EducationTitle = styled(ExperienceTitle)``
@@ -255,58 +263,3 @@ export const EducationTitle = styled(ExperienceTitle)``
 export const TechSkillsTitle = styled(ExperienceTitle)``
 
 export const SkillsTitle = styled(ExperienceTitle)``
-
-
-
-export const WorkExperience = styled.div`
-  height: ${({ expanded, otherIsExpanded }) => {
-    if (otherIsExpanded) return '7%'
-    if (expanded) return '79%'
-    return '25%'
-  }};
-
-  color: ${({ theme }) => theme.colors.blue};
-  background: ${({ theme }) => theme.colors.gray};
-  display: flex;
-  flex-direction: ${({ expanded }) => expanded ? "column" : "row"};
-  align-items: ${({ expanded }) => expanded ? 'none' : 'center'};
-  margin: 1px 0;
-  padding: ${({ otherIsExpanded }) => otherIsExpanded ? 'none' : '20px' }};
-  padding-left: ${({ otherIsExpanded }) => otherIsExpanded ? '20px' : '20px' }};
-  overflow-y: scroll;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.blue };
-  }
-
-  &:hover > div {
-    flex-direction: column;
-  }
-`
-
-export const Education = styled(WorkExperience)``
-export const Skills = styled(WorkExperience)``
-export const Awards = styled(WorkExperience)``
-
-
-export const Title = styled.h5`
-  font-size: ${({ expanded }) => !expanded ? '0.7rem' : ''};
-  margin-bottom: ${({ expanded }) => expanded ? '20px' : '0'};
-`
-
-export const Content = styled.div`
-  display: ${({ expanded }) => expanded ? 'flex' : 'none'};
-  flex-direction: column;
-
-  & > div {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 22px;
-  }
-`
-
-export const Bulletpoint = styled.li`
-  color: ${({ theme }) => theme.colors.black};
-  font-size: 0.7rem;
-  margin-left: 20px;
-`

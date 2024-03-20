@@ -102,9 +102,10 @@ export const workHistory = {
         title: "Frontend Developer / Apli",
       },
       items: [
-        "Played a key role in strategizing, developing, and launching new features on a SaaS product utilized by recruiters in both international and national companies. Enhancements significantly improved product functionality and user experience.",
-        "Optimized an internal tool used by conversation architects, significantly reducing bot building timeframes and increasing accuracy.",
-        "Seamlessly integrated frontend stack with internal microservices APIs. Ensured smooth interactions, efficient data fetching, and caching, enhancing overall performance and user satisfaction.",
+        "Led cross-functional teams to plan and execute innovative feature launches for a global SaaS startup specializing in AI-powered recruitment solutions, catering to a diverse clientele of international and national companies. ",
+        "Stategically optimized internal tools for conversation architects, reducing bot building timeframes by 40%. This efficiency gain improved workflow productivity and reduced time for client bot implementations.",
+        "Integrated the frontend stack seamlessly with microservices APIs, achieving a 15% reduction in data fetching times. Implemented caching strategies, contributing to an improvement in overall system responsiveness.",
+        "Consistently contributed to the development and programming of responsive user interfaces for various projects, showcasing expertise in both UI and UX development. Actively provided valuable inputs and expertise, ensuring an enhanced user experience across diverse projects and platforms.",     
       ]
     },
     {
@@ -127,17 +128,6 @@ export const workHistory = {
         "Conceptualization of commercial interior design concepts.",
         "Worked with construction team to achieve project deadlines.",
         "Generated 3D visualizations of concepts and product engineering."
-      ]
-    },
-    {
-      header: {
-        title: "Design Intern / Jorge Diego Etienne Design",
-        duration: "2016 (6 Mo.)",
-      },
-      items: [
-        "Collaborated in user research execution and analysis.",
-        "Generated computer models and visualizations.",
-        "Built physical models and mockups for idea validation."
       ]
     },
     {
