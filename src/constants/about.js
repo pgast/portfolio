@@ -11,38 +11,56 @@ export const about = {
 }
 
 export const skillTech = {
-  title: "tech / years",
-  skills: [
-    "HTML-CSS / 8",
-    "Javascript / 8",
-    "React / 7",
-    "Redux / 6",
-    "React-Query / 2",
-    "Styled-Components / 2",
-    "Node.js / 3",
-    "Express.js / 3",
-    "MongoDB / 1",
-    "Python / 1",
-    "NextJS / 2",
-    "Tailwind / 1", 
-    "Chakra UI / 1",
-    "Storybook / 2",
-  ]
+  title: "tech",
+  skills: {
+    languages: [
+      "Javascript (ES6)",
+      "HTML-CSS",
+      "Typescript",
+      "Python"
+    ],
+    frameworks: [
+      "React",
+      "Redux",
+      "React-Query",
+      "NextJS",
+      "ExpressJS",
+      "NodeJS",
+      "Django"
+    ],
+    styling: [
+      "Styled-Components",
+      "TailwindCSS",
+      "ChakraUI",
+    ],
+    database: [
+      "MongoDB",
+      "PostgreSQL",
+      "Firebase"
+    ],
+    tools: [
+      "Git",
+      "CI/CD",
+      "AWS (Basic Cloud Expertise)",
+      "Sentry",
+      "VS Code",
+      "Storybook",
+      "Mixpanel",
+      "Docker"
+    ]
+  }
 }
 
 export const skills = {
   title: "skills",
   columns: [
-    [
-      "Graphic design",
-      "Product design",
-      "UX/UI design"
-    ],
-    [
-      "Adobe (AI, PS)",
-      "3D Modeling",
-      "Rendering"
-    ]
+    "Prompt engineering",
+    "Graphic design",
+    "Product design",
+    "UX/UI design",
+    "Adobe (AI, PS)",
+    "3D Modeling",
+    "Rendering"
   ]
 }
 
