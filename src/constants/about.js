@@ -6,47 +6,62 @@ export const buttons = [
 
 export const about = {
   mainDescription: {
-    h3: "Pablo Gastelum Leyva",
-    description: "Hi! I'm a web developer with a product design background. After years building real physical objects (and the occasional venture into graphic design) I took my side hobby of web development and decided to focus full time on creating digital experiences.",
-    greet: "Feel free to contact me, I'd love to hear from you."
+    description: "Hi! I'm a web developer with a product design background. After years building real physical objects (and the occasional venture into graphic design) I took my side hobby of web development and decided to focus full time on creating digital experiences."
   }
 }
 
 export const skillTech = {
-  title: "tech / years",
-  columns: [
-    [
-      "HTML-CSS / 8",
-      "Javascript / 8",
-      "React / 7",
-      "Redux / 6",
-      "React-Query / 2",
-      "Styled-Components / 2",
+  title: "tech",
+  skills: {
+    languages: [
+      "Javascript (ES6)",
+      "HTML-CSS",
+      "Typescript",
+      "Python"
     ],
-    [
-      "Node.js / 3",
-      "Express.js / 3",
-      "MongoDB / 1",
-      "Python / 1",
-      "NextJS / 2",
-      "Tailwind / 1", 
+    frameworks: [
+      "React",
+      "Redux",
+      "React-Query",
+      "NextJS",
+      "ExpressJS",
+      "NodeJS",
+      "Django"
+    ],
+    styling: [
+      "Styled-Components",
+      "TailwindCSS",
+      "ChakraUI",
+      "Bootstrap",
+    ],
+    database: [
+      "MongoDB",
+      "PostgreSQL",
+      "Firebase"
+    ],
+    tools: [
+      "Git",
+      "CI/CD",
+      "AWS (Basic Cloud Expertise)",
+      "Sentry",
+      "VS Code",
+      "Storybook",
+      "Mixpanel",
+      "Docker"
     ]
-  ]
+  }
 }
 
 export const skills = {
   title: "skills",
   columns: [
-    [
-      "Graphic design",
-      "Product design",
-      "UX/UI design"
-    ],
-    [
-      "Adobe (AI, PS)",
-      "3D Modeling",
-      "Rendering"
-    ]
+    "Prompt engineering",
+    "Graphic design",
+    "Product design",
+    "UX/UI design",
+    "Adobe (AI, PS)",
+    "3D Modeling",
+    "Rendering"
   ]
 }
 
@@ -75,23 +90,23 @@ export const education = {
     links: [
       {
         href: '',
-        title: '- AWS Certified Cloud Practitioner'
+        title: 'AWS Certified Cloud Practitioner'
       },
       {
         href: 'https://udemy-certificate.s3.amazonaws.com/pdf/UC-32236e40-565f-46e0-a24a-5a0275d8b99e.pdf',
-        title: '- Python'
+        title: 'Python'
       },
       {
         href: 'http://ude.my/UC-CJJEMRIW',
-        title: '- React / Redux'
+        title: 'React / Redux'
       },
       {
         href: 'https://www.freecodecamp.org/certification/pabl-o/javascript-algorithms-and-data-structures',
-        title: '- Data Structures'
+        title: 'Data Structures'
       },
       {
         href: 'https://www.freecodecamp.org/certification/pabl-o/legacy-front-end',
-        title: '- Front end development'
+        title: 'Front end development'
       }
     ]
   }
@@ -101,15 +116,22 @@ export const workHistory = {
   title: "work experience",
   jobs: [
     {
-      title: "2021-Now / Frontend Developer / Apli",
+      header: {
+        duration: "2021-Now", 
+        title: "Frontend Developer / Apli",
+      },
       items: [
-        "Planned, developed and implemented client-facing frontend products used by internal recruiteres in international companies.",
-        "Streamlined an internal tool used by conversation architects improving bot building timeframes and reducing errors.",
-        "Worked with internal microservices APIs guaranteeing a smooth interaction with the frontend stack."
+        "Led cross-functional teams to plan and execute innovative feature launches for a global SaaS startup specializing in AI-powered recruitment solutions, catering to a diverse clientele of international and national companies. ",
+        "Stategically optimized internal tools for conversation architects, reducing bot building timeframes by 40%. This efficiency gain improved workflow productivity and reduced time for client bot implementations.",
+        "Integrated the frontend stack seamlessly with microservices APIs, achieving a 15% reduction in data fetching times. Implemented caching strategies, contributing to an improvement in overall system responsiveness.",
+        "Consistently contributed to the development and programming of responsive user interfaces for various projects, showcasing expertise in both UI and UX development. Actively provided valuable inputs and expertise, ensuring an enhanced user experience across diverse projects and platforms.",     
       ]
     },
     {
-      title: "2018-2021 / Designer / Macizo Carpinteria",
+      header: {
+        duration: "2018-2021",
+        title: "Designer / Macizo Carpinteria",
+      },
       items: [
         "Developed web app that calculates wood wastage.",
         "Worked in new user-friendly redesign of production blueprints.",
@@ -117,7 +139,10 @@ export const workHistory = {
       ]
     },
     {
-      title: "2017 (10 Mo.) / Product Designer / G3 Fabricación",
+      header: {
+        title: "Product Designer / G3 Fabricación",
+        duration: "2017 (10 Mo.)",
+      },
       items: [
         "Conceptualization of commercial interior design concepts.",
         "Worked with construction team to achieve project deadlines.",
@@ -125,15 +150,10 @@ export const workHistory = {
       ]
     },
     {
-      title: "2016 (6 Mo.) / Design Intern / Jorge Diego Etienne Design",
-      items: [
-        "Collaborated in user research execution and analysis.",
-        "Generated computer models and visualizations.",
-        "Built physical models and mockups for idea validation."
-      ]
-    },
-    {
-      title: "2011-2013 / Junior Designer / Marley Industrial Supply",
+      header: {
+        title: "Junior Designer / Marley Industrial Supply",
+        duration: "2011-2013",
+      },
       items: [
         "Conceptualization of promotional graphics.",
         "Delivered industrial safety signage.",

@@ -70,7 +70,7 @@ export const Project = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 6px 0;
+  margin: 1px 0;
   background: ${({ theme }) => theme.colors.gray};
   transition: all 0.2s ease;
   height: 100%;
@@ -119,13 +119,16 @@ export const ProjectsColumn = styled.div`
   flex-direction: column;
   width: calc(100% / 3);
   transition: all 0.2s ease;
+
+  & > div:first-child {
+    margin-top: 0px;
+  }
 `
 
 export const Container = styled.div`
 display: flex;
-padding-top: 30px;
 padding-bottom: 30px;
-margin-top: 3.4rem;
+margin-top: 70px;
 width: 1200px;
 max-width: 1200px;
 justify-content: space-evenly;
@@ -133,11 +136,10 @@ justify-content: space-evenly;
 animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 
 & > div:nth-child(2) {
-  margin: 0 12px;
+  margin: 0 2px;
 }
 
 @media screen and (max-width: 1200px) {
-  border: '1px dashed green';
   color: red!important;
   width: 80%;
 }
@@ -149,7 +151,7 @@ animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 
 @media screen and (max-width: 716px) {
   margin: 0rem;
-  margin-top: 45px;
+  margin-top: 70px;
   justify-content: center;
   flex-direction: column;
   height: fit-content;

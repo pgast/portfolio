@@ -6,11 +6,11 @@
 
 html {
   font-size: 20px;
-  box-sizing: border-box;
   overflow-x: hidden;
-  font-family: 'Source Sans Pro', sans-serif;
   letter-spacing: 1.2px;
   background: #ffffff;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
@@ -27,7 +27,6 @@ body {
   left: var(--x, 0);
   transform: translate(-50%, -50%);
   z-index: 201;
-  /* mix-blend-mode: difference; */
   transition: transform .2s;
   pointer-events: none;
   transition: all 100ms ease;
