@@ -20,17 +20,17 @@ import {
   SkillsTech,
   SideSection,
   Description,
+  SkillsTitle,
+  SkillSubtitle,
+  AwardsContent,
   NameContainer,
   EducationLevel,
-  BulletPointsContent,
   EducationTitle,
   TechSkillsTitle,
-  SkillsTitle,
-  ExperienceSection,
   ExperienceTitle,
+  ExperienceSection,
+  BulletPointsContent,
   WorkExperienceHeader,
-  AwardsContent,
-  SkillSubtitle,
 } from './styled'
 
 const renderBtns = (btns) => {
