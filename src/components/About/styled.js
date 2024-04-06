@@ -10,7 +10,6 @@ export const Container = styled.div`
   margin-bottom: 36px;
   overflow-y: none;
   font-weight: light;
-  background: ${({ theme }) => theme.colors.gray };
   -webkit-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 
@@ -52,12 +51,12 @@ export const SideSection = styled.div`
   width: calc(100% / 3);
   height: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   padding: 44px;
   flex-direction: column;
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  background: ${({ theme }) => theme.colors.blue };
+  background: ${({ theme }) => theme.colors.gray };
 
   @media screen and (max-width: 750px) { 
     width: 100%;
@@ -71,6 +70,7 @@ export const Scroll = styled.div`
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   margin-left: 2px;
+  background: ${({ theme }) => theme.colors.gray };
 
   &::-webkit-scrollbar {
     display: none;
@@ -87,6 +87,8 @@ export const Scroll = styled.div`
 
   @media screen and (max-width: 750px) {
     width: 100%;
+    margin-left: none;
+    margin-top: 2px;
   }
 `
 
@@ -161,9 +163,9 @@ export const SkillsTech = styled.div`
 `
 
 export const NameTitle = styled.h1`
-  font-size: 3.7rem;
-  color: ${({ theme }) => theme.colors.darkerBlue};
-  line-height: 3.5rem;
+  font-size: 3rem;
+  color: ${({ theme }) => theme.colors.blue};
+  line-height: 3rem;
 
   @media screen and (max-width: 1200px) {
     font-size: 2.6rem;
@@ -191,7 +193,7 @@ export const Description = styled.div`
   
   & p {
     font-size: 0.7rem;
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black};
   }
 
   & p:last-of-type {
@@ -218,15 +220,19 @@ export const ButtonRow = styled.div`
 
   @media screen and (max-width: 1200px) {
     flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
   @media screen and (max-width: 750px) { 
     flex-direction: row;
-    width: fit-content;
+    width: 100%;
   }
 
   @media screen and (max-width: 500px) { 
     flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 `
 

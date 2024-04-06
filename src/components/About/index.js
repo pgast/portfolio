@@ -151,7 +151,7 @@ const About = () => {
             </div>
             <div>
               <SkillSubtitle>
-                Database
+                Databases
               </SkillSubtitle>
               <ul>
                 {skillTech.skills.database.map(el => <li>{el}</li>)}

@@ -32,6 +32,7 @@ export const skillTech = {
       "Styled-Components",
       "TailwindCSS",
       "ChakraUI",
+      "Bootstrap",
     ],
     database: [
       "MongoDB",
