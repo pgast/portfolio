@@ -117,8 +117,8 @@ export const workHistory = {
   jobs: [
     {
       header: {
-        duration: "2021-Now", 
-        title: "Frontend Developer / Apli",
+        duration: "2021-2024(April)", 
+        title: "Frontend Engineer / Apli",
       },
       items: [
         "Led cross-functional teams to plan and execute innovative feature launches for a global SaaS startup specializing in AI-powered recruitment solutions, catering to a diverse clientele of international and national companies. ",
