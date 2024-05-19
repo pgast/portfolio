@@ -76,6 +76,16 @@ const About = () => {
               {workHistory.title}
             </h5>
           </ExperienceTitle>
+          <BulletPointsContent>
+            <WorkExperienceHeader>
+              <p>
+                Senior Frontend Engineer / Apli
+              </p>
+              <p>
+                2024(April) - Current
+              </p>
+            </WorkExperienceHeader>
+          </BulletPointsContent>
           {workHistory.jobs.map(el => 
             <BulletPointsContent>
               <WorkExperienceHeader>
