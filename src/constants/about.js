@@ -6,7 +6,7 @@ export const buttons = [
 
 export const about = {
   mainDescription: {
-    description: "Hi! I'm a web developer with a product design background. After years building real physical objects (and the occasional venture into graphic design) I took my side hobby of web development and decided to focus full time on creating digital experiences."
+    description: "Hi! I'm a full stack developer with a product design background. After years building real physical objects (and the occasional venture into graphic design) I took my side hobby of web development and decided to focus full time on creating digital experiences."
   }
 }
 
@@ -26,7 +26,8 @@ export const skillTech = {
       "NextJS",
       "ExpressJS",
       "NodeJS",
-      "Django"
+      "Django",
+      "Serverless"
     ],
     styling: [
       "Styled-Components",
@@ -115,6 +116,18 @@ export const education = {
 export const workHistory = {
   title: "work experience",
   jobs: [
+    {
+      header: {
+        duration: "2024(April)-Current", 
+        title: "Senior Frontend Engineer / Apli",
+      },
+      items: [
+        "Designed and implemented a serverless API microservice leveraging generative AI, reducing document validation task implementation time.",
+        "Developed and maintained scalable backend services with Django and PostgreSQL, delivering new API endpoints that support a high volume of daily users.",
+        "Led full stack development projects, producing detailed technical documentation and clear requirements that guided junior engineers and ensured alignment across teams.",
+        "Adapted and integrated a Role-Based Access Control (RBAC) system into existing services, leading the migration from a legacy permissions system to enhance security and streamline user role management."
+      ]
+    },
     {
       header: {
         duration: "2021-2024(April)", 
