@@ -6,7 +6,7 @@ export const buttons = [
 
 export const about = {
   mainDescription: {
-    description: "Hi! I'm a full stack developer with a product design background. After years building real physical objects (and the occasional venture into graphic design) I took my side hobby of web development and decided to focus full time on creating digital experiences."
+    description: "Hi! I'm a Senior software engineer with a strong frontend/design foundation and extensive experience owning end-to-end product features. Specializing in bridging technical architecture and product delivery, I drive initiatives from concept to production across frontend and backend systems. Beyond writing code, I also lead high-priority features and projects, navigate technical trade-offs, and ensure solutions are scalable, maintainable, and aligned with business and stakeholder goals."
   }
 }
 
@@ -14,9 +14,7 @@ export const skillTech = {
   title: "tech",
   skills: {
     languages: [
-      "Javascript (ES6)",
-      "HTML-CSS",
-      "Typescript",
+      "Javascript/Typescript",
       "Python"
     ],
     frameworks: [
@@ -118,8 +116,17 @@ export const workHistory = {
   jobs: [
     {
       header: {
-        duration: "2024(April)-Current", 
-        title: "Senior Frontend Engineer / Apli",
+        duration: "2025-Current", 
+        title: "Senior Software Engineer / iCims",
+      },
+      items: [
+        "Part of the Frontline AI team.",
+      ]
+    },
+    {
+      header: {
+        duration: "2024-2025", 
+        title: "Senior Frontend Engineer / Apli (acquired by iCims)",
       },
       items: [
         "Designed and implemented a serverless API microservice leveraging generative AI, reducing document validation task implementation time.",
@@ -130,7 +137,7 @@ export const workHistory = {
     },
     {
       header: {
-        duration: "2021-2024(April)", 
+        duration: "2021-2024", 
         title: "Frontend Engineer / Apli",
       },
       items: [
@@ -154,23 +161,12 @@ export const workHistory = {
     {
       header: {
         title: "Product Designer / G3 Fabricación",
-        duration: "2017 (10 Mo.)",
+        duration: "2017",
       },
       items: [
         "Conceptualization of commercial interior design concepts.",
         "Worked with construction team to achieve project deadlines.",
         "Generated 3D visualizations of concepts and product engineering."
-      ]
-    },
-    {
-      header: {
-        title: "Junior Designer / Marley Industrial Supply",
-        duration: "2011-2013",
-      },
-      items: [
-        "Conceptualization of promotional graphics.",
-        "Delivered industrial safety signage.",
-        "Responsible for project blueprints."
       ]
     }
   ]
