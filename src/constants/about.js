@@ -6,7 +6,7 @@ export const buttons = [
 
 export const about = {
   mainDescription: {
-    description: "Hi! I'm a Senior software engineer with a strong frontend/design foundation and extensive experience owning end-to-end product features. Specializing in bridging technical architecture and product delivery, I drive initiatives from concept to production across frontend and backend systems. Beyond writing code, I also lead high-priority features and projects, navigate technical trade-offs, and ensure solutions are scalable, maintainable, and aligned with business and stakeholder goals."
+    description: "Hi! I'm a Senior software engineer with a strong frontend/design foundation and extensive experience owning end-to-end product features."
   }
 }
 
