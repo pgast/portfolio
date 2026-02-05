@@ -1,8 +1,8 @@
 export const letterIds = ["red", "yellow", "blue"];
 
 export const labels = {
-  dev: ['full-stack', 'front-end', 'self-taught', 'react', 'creative'],
-  verb: ['builds', 'codes', 'designs', 'creates', 'delivers']
+  dev: ['full-stack', 'front-end', 'self-taught', 'senior', 'creative'],
+  verb: ['builds', 'codes', 'designs', 'creates', 'delivers', 'plans', 'architects']
 }
 
 export const letters = {

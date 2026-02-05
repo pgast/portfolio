@@ -66,8 +66,8 @@ const Home = ({ setView }) => {
         <Description onMouseEnter={changeLabels}>
           <MobileDescription>
             is a <MobileTextLabel $color="yellow">&nbsp;{labels.dev[labelsIdx.dev]}&nbsp;</MobileTextLabel>
-            developer and product designer that <MobileTextLabel $color="blue">&nbsp;{labels.verb[labelsIdx.verb]}&nbsp;</MobileTextLabel>
-            web and mobile experiences.
+            developer that <MobileTextLabel $color="blue">&nbsp;{labels.verb[labelsIdx.verb]}&nbsp;</MobileTextLabel>
+            software projects.
           </MobileDescription>
           <DescriptionTextRow $marginBottom={"0.2rem"}>
             <p>is a</p>
@@ -77,7 +77,7 @@ const Home = ({ setView }) => {
           <DescriptionTextRow>
             <p>that</p>
             <TextColorLabel $color="blue" $fontColor="white">&nbsp;{labels.verb[labelsIdx.verb]}&nbsp;</TextColorLabel>
-            <p>web and mobile experiences.</p>
+            <p>software projects.</p>
           </DescriptionTextRow>
         </Description>
         <Link 
