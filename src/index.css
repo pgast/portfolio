@@ -88,16 +88,6 @@ a,
   }
 }
 
-/* Progress Bar at the top of the screen */
-#scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  background: #ff1f25; /* Your theme red */
-  z-index: 999;
-}
-
 /* Custom minimal scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
