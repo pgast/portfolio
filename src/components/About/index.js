@@ -9,195 +9,151 @@ import {
 } from '../../constants/about'
 
 import {
-  Scroll,
-  Button, 
-  Section,
+  Tag,
+  Bio,
+  Hero,
+  Button,
+  TagsRow,
+  TechGrid,
+  JobBlock,
+  JobTitle,
+  JobHeader,
+  JobDuration,
   Container,
   NameTitle,
   ButtonRow,
-  SkillsTech,
-  SideSection,
-  Description,
-  SkillsTitle,
-  SkillSubtitle,
-  AwardsContent,
-  NameContainer,
-  EducationLevel,
-  EducationTitle,
-  TechSkillsTitle,
-  ExperienceTitle,
-  ExperienceSection,
-  BulletPointsContent,
-  WorkExperienceHeader,
+  CertTitle,
+  AwardBlock,
+  TechCategory,
+  SectionBlock,
+  SectionLabel,
+  EducationSchool,
+  TechCategoryLabel,
 } from './styled'
 
 import ScrollableSection from '../section'
-
-const renderBtns = (btns) => {
-  return btns.map(btn => {
-    return (
-      <Button>
-        <a 
-          target="_blank" 
-          rel="noreferrer"
-          href={btn.href}
-        >
-          <h3>{btn.text}</h3>
-        </a>
-      </Button>
-    )
-  })
-}
 
 const About = () => {
   return (
     <ScrollableSection>
       <Container>
-        <SideSection>
-          <NameContainer>
-            <NameTitle>
-              Pablo
-            </NameTitle>
-            <NameTitle>
-              Gastelum
-            </NameTitle>
-            <Description>
-              <p>{about.mainDescription.description}</p>
-            </Description>
-          </NameContainer>
+
+        {/* Hero */}
+        <Hero>
+          <SectionLabel>about</SectionLabel>
+          <NameTitle>Pablo<br />Gastelum</NameTitle>
+          <Bio>
+            <p>{about.mainDescription.description}</p>
+          </Bio>
           <ButtonRow>
-            {renderBtns(buttons)}
+            {buttons.map(btn => (
+              <Button key={btn.text}>
+                <a target="_blank" rel="noreferrer" href={btn.href}>
+                  <h3>{btn.text}</h3>
+                </a>
+              </Button>
+            ))}
           </ButtonRow>
-        </SideSection>
-        <Scroll>
-          {/* Work Experience */}
-          <ExperienceSection>
-            <ExperienceTitle>
-              <h5>
-                {workHistory.title}
-              </h5>
-            </ExperienceTitle>
-            {workHistory.jobs.map(el => 
-              <BulletPointsContent>
-                <WorkExperienceHeader>
-                  <p>
-                    {el.header.title}
-                  </p>
-                  <p>
-                    {el.header.duration}
-                  </p>
-                </WorkExperienceHeader>
-                <ul>
-                  {el.items.map(item => <li>{item}</li>)}
-                </ul>
-              </BulletPointsContent>
-            )}
-          </ExperienceSection>
+        </Hero>
 
-          {/* Education */}
-          <Section>
-            <EducationTitle>
-              <h5>
-                {education.title}
-              </h5>
-            </EducationTitle>
-            <BulletPointsContent>
-              <EducationLevel>
-                {education.school.map(el => <p>{el}</p>)}
-              </EducationLevel>
-              <div>
-                <p>{education.certifications.title}</p>
-                <ul>
-                  {education.certifications.links.map(el => 
-                    <li>
-                      <a
-                        target={el.href === '' ? '' : "_blank"}
-                        rel="noreferrer"
-                        href={el.href === '' ? 'javascript:void(0);' : el.href}
-                      >
-                        {el.title}
-                      </a>
-                    </li>
-                  )}
-                </ul>
-              </div>
-            </BulletPointsContent>
-          </Section>
-
-          {/* Tech skills */}
-          <Section>
-            <TechSkillsTitle>
-              <h5>{skillTech.title}</h5>
-            </TechSkillsTitle>
-            <SkillsTech>
-              <div>
-                <SkillSubtitle>
-                  Languages
-                </SkillSubtitle>
-                <ul>
-                  {skillTech.skills.languages.map(el => <li>{el}</li>)}
-                </ul>
-                <SkillSubtitle>
-                  Frameworks and Libraries
-                </SkillSubtitle>
-                <ul>
-                  {skillTech.skills.frameworks.map(el => <li>{el}</li>)}
-                </ul>
-                <SkillSubtitle>
-                  Styling
-                </SkillSubtitle>
-                <ul>
-                  {skillTech.skills.styling.map(el => <li>{el}</li>)}
-                </ul>
-              </div>
-              <div>
-                <SkillSubtitle>
-                  Databases
-                </SkillSubtitle>
-                <ul>
-                  {skillTech.skills.database.map(el => <li>{el}</li>)}
-                </ul>
-                <SkillSubtitle>
-                  Tools
-                </SkillSubtitle>
-                <ul>
-                  {skillTech.skills.tools.map(el => <li>{el}</li>)}
-                </ul>
-              </div>
-            </SkillsTech>
-          </Section>
-
-          {/* Skills */}
-          <Section>
-            <SkillsTitle>
-              <h5>
-                {skills.title}
-              </h5>          
-            </SkillsTitle>
-            <SkillsTech>
+        {/* Work Experience */}
+        <SectionBlock>
+          <SectionLabel>{workHistory.title}</SectionLabel>
+          {workHistory.jobs.map(job => (
+            <JobBlock key={job.header.title}>
+              <JobHeader>
+                <JobTitle>{job.header.title}</JobTitle>
+                <JobDuration>{job.header.duration}</JobDuration>
+              </JobHeader>
               <ul>
-                {skills.columns.map(el => <li>{el}</li>)}
+                {job.items.map(item => <li key={item}>{item}</li>)}
               </ul>
-            </SkillsTech>
-          </Section>
+            </JobBlock>
+          ))}
+        </SectionBlock>
 
-          {/* Awards */}
-          <Section>
-            <SkillsTitle>
-              <h5>
-                {awards.title}
-              </h5>
-            </SkillsTitle>
-            <AwardsContent>
-              <div>
-                {awards.columns[0].map(el => <p>{el}</p>)}
-              </div>
-              <div>
-                {awards.columns[1].map(el => <p>{el}</p>)}
-              </div>
-            </AwardsContent>
-          </Section>
-        </Scroll>
+        {/* Education */}
+        <SectionBlock>
+          <SectionLabel>{education.title}</SectionLabel>
+          <EducationSchool>
+            {education.school.map(el => <p key={el}>{el}</p>)}
+          </EducationSchool>
+          <CertTitle>{education.certifications.title}</CertTitle>
+          <ul>
+            {education.certifications.links.map(el => (
+              <li key={el.title}>
+                <a
+                  target={el.href === '' ? '' : '_blank'}
+                  rel="noreferrer"
+                  href={el.href === '' ? 'javascript:void(0);' : el.href}
+                >
+                  {el.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </SectionBlock>
+
+        {/* Tech Skills */}
+        <SectionBlock>
+          <SectionLabel>{skillTech.title}</SectionLabel>
+          <TechGrid>
+            <div>
+              <TechCategory>
+                <TechCategoryLabel>Languages</TechCategoryLabel>
+                <TagsRow>
+                  {skillTech.skills.languages.map(el => <Tag key={el}>{el}</Tag>)}
+                </TagsRow>
+              </TechCategory>
+              <TechCategory>
+                <TechCategoryLabel>Frameworks &amp; Libraries</TechCategoryLabel>
+                <TagsRow>
+                  {skillTech.skills.frameworks.map(el => <Tag key={el}>{el}</Tag>)}
+                </TagsRow>
+              </TechCategory>
+              <TechCategory>
+                <TechCategoryLabel>Styling</TechCategoryLabel>
+                <TagsRow>
+                  {skillTech.skills.styling.map(el => <Tag key={el}>{el}</Tag>)}
+                </TagsRow>
+              </TechCategory>
+            </div>
+            <div>
+              <TechCategory>
+                <TechCategoryLabel>Databases</TechCategoryLabel>
+                <TagsRow>
+                  {skillTech.skills.database.map(el => <Tag key={el}>{el}</Tag>)}
+                </TagsRow>
+              </TechCategory>
+              <TechCategory>
+                <TechCategoryLabel>Tools</TechCategoryLabel>
+                <TagsRow>
+                  {skillTech.skills.tools.map(el => <Tag key={el}>{el}</Tag>)}
+                </TagsRow>
+              </TechCategory>
+            </div>
+          </TechGrid>
+        </SectionBlock>
+
+        {/* Skills */}
+        <SectionBlock>
+          <SectionLabel>{skills.title}</SectionLabel>
+          <TagsRow>
+            {skills.columns.map(el => <Tag key={el}>{el}</Tag>)}
+          </TagsRow>
+        </SectionBlock>
+
+        {/* Awards */}
+        <SectionBlock>
+          <SectionLabel>{awards.title}</SectionLabel>
+          {awards.columns.map(col => (
+            <AwardBlock key={col[0]}>
+              <p>{col[0]}</p>
+              <p>{col[1]}</p>
+            </AwardBlock>
+          ))}
+        </SectionBlock>
+
       </Container>
     </ScrollableSection>
   );

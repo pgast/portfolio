@@ -73,7 +73,8 @@ export const Project = styled.div`
   margin: 1px 0;
   background: ${({ theme }) => theme.colors.gray};
   transition: all 0.2s ease;
-  height: 100%;
+  flex: 1;
+  min-height: 200px;
   width: 100%;
   padding: 20px;
   overflow: hidden;
@@ -127,14 +128,15 @@ display: flex;
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  padding: 100px 0;
+  flex-direction: row;
   width: 100%;
   max-width: 1200px;
+  height: calc(100vh - 70px);
 
-  @media screen and (max-width: 1025px) {
-    flex-direction: row;
-    height: 80vh;
+  @media screen and (max-width: 716px) {
+    flex-direction: column;
+    height: auto;
+    padding-top: 70px;
   }
 `
 
