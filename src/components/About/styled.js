@@ -9,9 +9,6 @@ export const Container = styled.div`
   max-width: 1200px;
   padding: 100px 20px;
   justify-content: flex-end;
-  margin-top: 70px;
-  margin-bottom: 36px;
-  overflow-y: none;
   font-weight: light;
   -webkit-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -52,7 +49,6 @@ export const Container = styled.div`
 `
 
 export const SideSection = styled.div`
-  width: calc(100% / 3);
   height: fit-content;
   display: flex;
   justify-content: space-between;
@@ -290,7 +286,7 @@ export const ExperienceTitle = styled.div`
 
   position: -webkit-sticky; /* Safari & IE */
   position: sticky;
-  top: 0;
+  top: 70px;
   padding-left: 40px;
 `
 
