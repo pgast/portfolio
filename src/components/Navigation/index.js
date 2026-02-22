@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import { buttons } from '../../constants/about'
 import { contact } from '../../constants/contact'
@@ -19,10 +18,20 @@ import {
   MobileMenuSectionLinks,
 } from './styled'
 
+
 const Navigation = ({ setView, view, setDrawerOpen }) => {
   const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
-  const setMobileView = (view) => {
-    setView(view);
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setView(id);
+    }
+  };
+
+  const scrollAndClose = (id) => {
+    scrollToSection(id);
     setMobileMenuOpen(false);
   };
 
@@ -34,14 +43,13 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
       />
       <MobileMenuSectionLinks>
         {['work', 'about'].map(el => (
-          <Link 
+          <a
             key={el}
-            to={`/${el}`} 
-            onClick={() => setMobileView(el)} 
-            style={{ textDecoration: "none" }} 
+            onClick={() => scrollAndClose(el)}
+            style={{ textDecoration: "none" }}
           >
             <p>{el}</p>
-          </Link>
+          </a>
         ))}  
         <Contact>
           <p>
@@ -89,27 +97,25 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
   return (
     <Container>
       <DesktopNavbar>
-        <Link 
-          to='/' 
-          onClick={() => setView(null)}
-          style={{ textDecoration: "none", color: "black" }} 
+        <a
+          onClick={() => { scrollToSection('home'); }}
+          style={{ textDecoration: "none", color: "black", cursor: "none" }}
         >
           <NavLogo>
             pg
           </NavLogo>
-        </Link>
+        </a>
         <NavLinks>
           {['work', 'about'].map(el => (
-            <Link 
+            <a
               key={el}
-              to={`/${el}`} 
-              onClick={() => setView(el)} 
-              style={{ textDecoration: "none" }} 
+              onClick={() => scrollToSection(el)}
+              style={{ textDecoration: "none" }}
             >
               <NavLink $isSelected={view === el}>
                 {el}
               </NavLink>
-            </Link>
+            </a>
           ))}
           <NavLink onClick={() => setDrawerOpen(true)}>contact</NavLink>
         </NavLinks>

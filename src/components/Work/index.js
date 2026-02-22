@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 
-import { Link } from 'react-router-dom';
-
 import { projects } from '../../constants/work'
 import { buttons } from '../../constants/about'
 
@@ -18,6 +16,8 @@ import {
   ProjectStack,
   ProjectsColumn,
 } from './styled'
+
+import Section from '../section';
 
 const displayProjects = [
   {
@@ -73,8 +73,10 @@ const displayProjects = [
   }
 ]
 
-const Work = ({ setView }) => {
-  const changeView = () => setView('about')
+const Work = () => {
+  const scrollToAbout = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const renderProject = project => {
   if (!project.hasOwnProperty('stack')) {
@@ -98,15 +100,14 @@ const Work = ({ setView }) => {
               </Title>
             </a>
         ) : (
-          <Link 
-            to={project.url} 
-            onClick={changeView}
-            style={{ textDecoration: "none", color: "black" }} 
+          <a
+            onClick={scrollToAbout}
+            style={{ textDecoration: "none", color: "black" }}
           >
             <Title $color={"darkGray"}>
               {project.name}
             </Title>
-          </Link>
+          </a>
         )}
       </Project>
     )
@@ -222,13 +223,15 @@ const Work = ({ setView }) => {
   }, [])
 
   return (
-    <Container>
-      {displayProjects.map(column => (
-        <ProjectsColumn id={column.columnId}>
-          {column.projects.map(project => renderProject(project))}
-        </ProjectsColumn>
-      ))}
-    </Container>
+    <Section>
+      <Container>
+        {displayProjects.map(column => (
+          <ProjectsColumn id={column.columnId}>
+            {column.projects.map(project => renderProject(project))}
+          </ProjectsColumn>
+        ))}
+      </Container>
+    </Section>
   );
 };
 

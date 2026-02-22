@@ -115,51 +115,27 @@ export const Project = styled.div`
 `
 
 export const ProjectsColumn = styled.div`
-  display: flex;
+display: flex;
   flex-direction: column;
-  width: calc(100% / 3);
-  transition: all 0.2s ease;
-
-  & > div:first-child {
-    margin-top: 0px;
+  flex: 1;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    flex: 2;
   }
 `
 
 export const Container = styled.div`
-display: flex;
-padding-bottom: 30px;
-margin-top: 70px;
-width: 1200px;
-max-width: 1200px;
-justify-content: space-evenly;
--webkit-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-
-& > div:nth-child(2) {
-  margin: 0 2px;
-}
-
-@media screen and (max-width: 1200px) {
-  color: red!important;
-  width: 80%;
-}
-
-@media screen and (max-width: 1025px) {
-  margin-right: 0rem;
-  margin-left: 0rem;
-}
-
-@media screen and (max-width: 716px) {
-  margin: 0rem;
-  margin-top: 70px;
-  justify-content: center;
+  display: flex;
   flex-direction: column;
-  height: fit-content;
+  padding: 100px 0;
+  width: 100%;
+  max-width: 1200px;
 
-  & > div:nth-child(2) {
-    margin: 0;
+  @media screen and (max-width: 1025px) {
+    flex-direction: row;
+    height: 80vh;
   }
-}
 `
 
 export const Button = styled.div.attrs(props => ({

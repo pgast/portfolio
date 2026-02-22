@@ -2,9 +2,12 @@ import styled from 'styled-components';
 import { btnPop, fadeInBottom } from '../../constants/animations';
 
 export const Container = styled.div`
-  width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Name/Bio on left, Details on right */
+  gap: 40px;
+  width: 100%;
   max-width: 1200px;
-  display: flex;
+  padding: 100px 20px;
   justify-content: flex-end;
   margin-top: 70px;
   margin-bottom: 36px;
@@ -40,6 +43,7 @@ export const Container = styled.div`
     height: fit-content;
     flex-direction: column;
     justify-content: start;
+    grid-template-columns: 1fr;
 
     & li {
       text-align: left;
@@ -49,7 +53,7 @@ export const Container = styled.div`
 
 export const SideSection = styled.div`
   width: calc(100% / 3);
-  height: 100%;
+  height: fit-content;
   display: flex;
   justify-content: space-between;
   padding: 44px;
@@ -57,6 +61,8 @@ export const SideSection = styled.div`
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   background: ${({ theme }) => theme.colors.gray };
+  position: sticky;
+  top: 100px;
 
   @media screen and (max-width: 750px) { 
     width: 100%;
@@ -64,9 +70,7 @@ export const SideSection = styled.div`
 `
 
 export const Scroll = styled.div`
-  max-height: 100%;
-  overflow-y: auto;
-  width: calc((100% / 3) * 2);
+  width: 100%;
   -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   margin-left: 2px;
