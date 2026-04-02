@@ -73,7 +73,8 @@ export const Project = styled.div`
   margin: 1px 0;
   background: ${({ theme }) => theme.colors.gray};
   transition: all 0.2s ease;
-  height: 100%;
+  flex: 1;
+  min-height: 200px;
   width: 100%;
   padding: 20px;
   overflow: hidden;
@@ -115,51 +116,28 @@ export const Project = styled.div`
 `
 
 export const ProjectsColumn = styled.div`
-  display: flex;
+display: flex;
   flex-direction: column;
-  width: calc(100% / 3);
-  transition: all 0.2s ease;
-
-  & > div:first-child {
-    margin-top: 0px;
+  flex: 1;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    flex: 2;
   }
 `
 
 export const Container = styled.div`
-display: flex;
-padding-bottom: 30px;
-margin-top: 70px;
-width: 1200px;
-max-width: 1200px;
-justify-content: space-evenly;
--webkit-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+  height: calc(100vh - 70px);
 
-& > div:nth-child(2) {
-  margin: 0 2px;
-}
-
-@media screen and (max-width: 1200px) {
-  color: red!important;
-  width: 80%;
-}
-
-@media screen and (max-width: 1025px) {
-  margin-right: 0rem;
-  margin-left: 0rem;
-}
-
-@media screen and (max-width: 716px) {
-  margin: 0rem;
-  margin-top: 70px;
-  justify-content: center;
-  flex-direction: column;
-  height: fit-content;
-
-  & > div:nth-child(2) {
-    margin: 0;
+  @media screen and (max-width: 716px) {
+    flex-direction: column;
+    height: auto;
+    padding-top: 70px;
   }
-}
 `
 
 export const Button = styled.div.attrs(props => ({

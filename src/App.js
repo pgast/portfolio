@@ -1,64 +1,48 @@
-import { useState } from 'react';
 import { ThemeProvider } from 'styled-components'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
 import { theme } from '../src/constants/theme'
 
-import Work from './components/Work';
 import Home from './components/Home';
+import Work from './components/Work';
 import About from './components/About';
 import Navigation from './components/Navigation';
 import Cursor from './components/Cursor';
 import SideDrawer from './components/SideDrawer'
 import { Backdrop } from './components/SideDrawer/styled'
+import { useState } from 'react';
 
-const setLabelId = (view) => {
-  switch(view) {
-    case 'work':
-      return 'workLabel';
-    case 'about':
-      return 'aboutLabel';
-    default:
-      return null;
-  }
-};
 
 function App() {
-  const [view, setView] = useState(null);
+  const [view, setView] = useState('home');
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const closeSideDrawer = () => setDrawerOpen(false);
   
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <div id="container">
-          <SideDrawer show={drawerOpen} closeSideDrawer={closeSideDrawer}/>
-          <Backdrop show={drawerOpen} onClick={closeSideDrawer}/>
-          <Cursor />
-          <Navigation 
-            view={view} 
-            setView={setView} 
-            labelId={setLabelId(view)}
-            setDrawerOpen={setDrawerOpen}
-          />
-          <Route 
-            exact 
-            path={"/"} 
-            render={(props) => (
-              <Home {...props} setView={setView} />
-            )}
-          />
-          <Route 
-            exact 
-            path={"/work"} 
-            render={(props) => (
-              <Work {...props} setView={setView} />
-            )} 
-          />
-          <Route exact path={"/about"} component={About} />
-        </div>
-      </Router>
+      <div id="container" style={{ flexDirection: 'column', alignItems: 'center' }}>
+        <SideDrawer show={drawerOpen} closeSideDrawer={closeSideDrawer}/>
+        <Backdrop show={drawerOpen} onClick={closeSideDrawer}/>
+        <Cursor />
+
+        {/* Navigation now handles scroll-to-id instead of routing */}
+        <Navigation 
+          view={view} 
+          setView={setView} 
+          setDrawerOpen={setDrawerOpen}
+        />
+
+        <section id="home">
+          <Home setView={setView} />
+        </section>
+
+        <section id="work">
+          <Work />
+        </section>
+
+        <section id="about">
+          <About />
+        </section>
+      </div>
     </ThemeProvider>
   );
 }

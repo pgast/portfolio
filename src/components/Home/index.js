@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import {
   letterIds,
@@ -80,17 +79,19 @@ const Home = ({ setView }) => {
             <p>software projects.</p>
           </DescriptionTextRow>
         </Description>
-        <Link 
-          to={`/work`} 
-          onClick={() => setView('work')} 
-          style={{ textDecoration: "none", color: "black" }} 
+        <a
+          onClick={() => {
+            setView('work');
+            document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          style={{ textDecoration: "none", color: "black" }}
         >
           <Button>
             <h3>
               Discover them here
             </h3>
           </Button>
-        </Link>
+        </a>
       </Content>
     </Container>
   );
