@@ -14,6 +14,7 @@ const Section = ({ children }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
+      style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
     >
       {children}
     </motion.div>
