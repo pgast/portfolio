@@ -1,4 +1,3 @@
-// Use this inside About.js or Work.js
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
