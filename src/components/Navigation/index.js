@@ -118,7 +118,7 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
   return (
     <>
       <ScrollProgressBar ref={progressRef} />
-      <Container $scrolled={isScrolled}>
+      <Container $scrolled={isScrolled} $isHome={view === 'home'}>
         <DesktopNavbar>
           <a
             onClick={() => scrollToSection('home')}

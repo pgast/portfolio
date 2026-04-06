@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 import {
@@ -10,8 +10,6 @@ import {
   NameRow,
   Letter,
   SubText,
-  CtaRow,
-  CtaButton,
   ScrollIndicator,
   ScrollLine,
   ScrollText,
@@ -26,40 +24,54 @@ const BRAND_COLORS = ['#ff1f25', '#ffdd18', '#005cef'];
 // Four gradient blobs — different sizes, positions, parallax depths, and drift paths
 const BLOBS = [
   {
+    // Large blue anchor — top-left, fills that corner
     id: 'b0',
-    color: 'rgba(0, 92, 239, 0.26)',
-    size: 940,
-    left: '-10%', top: '-18%',
+    color: 'rgba(0, 92, 239, 0.38)',
+    size: 1200,
+    left: '-18%', top: '-28%',
     depth: 0.022,
-    drift: { x: [0, 50, 0], y: [0, 60, 0] },
+    drift: { x: [0, 55, 0], y: [0, 65, 0] },
     duration: 14, delay: 0,
   },
   {
+    // Yellow warm accent — bottom-right
     id: 'b1',
-    color: 'rgba(255, 221, 24, 0.38)',
-    size: 780,
-    left: '58%', top: '38%',
+    color: 'rgba(255, 221, 24, 0.32)',
+    size: 1000,
+    left: '55%', top: '40%',
     depth: 0.016,
-    drift: { x: [0, -40, 0], y: [0, -50, 0] },
+    drift: { x: [0, -45, 0], y: [0, -55, 0] },
     duration: 11, delay: 1.5,
   },
   {
+    // Red punch — top-right edge
     id: 'b2',
-    color: 'rgba(255, 31, 37, 0.20)',
-    size: 540,
-    left: '82%', top: '-14%',
+    color: 'rgba(255, 31, 37, 0.22)',
+    size: 700,
+    left: '78%', top: '-20%',
     depth: 0.036,
-    drift: { x: [0, -28, 0], y: [0, 70, 0] },
+    drift: { x: [0, -30, 0], y: [0, 75, 0] },
     duration: 9, delay: 0.8,
   },
   {
+    // Deep blue — bottom-center, bleeds into Work section transition
     id: 'b3',
-    color: 'rgba(0, 50, 200, 0.13)',
-    size: 640,
-    left: '28%', top: '70%',
+    color: 'rgba(0, 40, 180, 0.20)',
+    size: 950,
+    left: '22%', top: '65%',
     depth: 0.011,
-    drift: { x: [0, 44, 0], y: [0, -32, 0] },
+    drift: { x: [0, 48, 0], y: [0, -36, 0] },
     duration: 16, delay: 2.2,
+  },
+  {
+    // Soft blue highlight — mid-right
+    id: 'b4',
+    color: 'rgba(0, 92, 239, 0.16)',
+    size: 780,
+    left: '65%', top: '8%',
+    depth: 0.028,
+    drift: { x: [0, -38, 0], y: [0, 50, 0] },
+    duration: 12, delay: 3.0,
   },
 ];
 
@@ -101,20 +113,16 @@ const Home = ({ setView }) => {
   const b2y = useTransform(springY, v => v * BLOBS[2].depth);
   const b3x = useTransform(springX, v => v * BLOBS[3].depth);
   const b3y = useTransform(springY, v => v * BLOBS[3].depth);
+  const b4x = useTransform(springX, v => v * BLOBS[4].depth);
+  const b4y = useTransform(springY, v => v * BLOBS[4].depth);
 
   const blobMotions = [
     { x: b0x, y: b0y },
     { x: b1x, y: b1y },
     { x: b2x, y: b2y },
     { x: b3x, y: b3y },
+    { x: b4x, y: b4y },
   ];
-
-  // Magnetic CTA button
-  const btnRef = useRef(null);
-  const btnX   = useMotionValue(0);
-  const btnY   = useMotionValue(0);
-  const btnSX  = useSpring(btnX, { stiffness: 240, damping: 22 });
-  const btnSY  = useSpring(btnY, { stiffness: 240, damping: 22 });
 
   // All window calls are inside useEffect — SSR safe
   useEffect(() => {
@@ -125,31 +133,13 @@ const Home = ({ setView }) => {
       const cy = window.innerHeight / 2;
       mouseX.set(e.clientX - cx);
       mouseY.set(e.clientY - cy);
-
-      if (btnRef.current) {
-        const rect = btnRef.current.getBoundingClientRect();
-        const dx   = e.clientX - (rect.left + rect.width  / 2);
-        const dy   = e.clientY - (rect.top  + rect.height / 2);
-        const dist = Math.hypot(dx, dy);
-        if (dist < 80) {
-          btnX.set(dx * 0.42);
-          btnY.set(dy * 0.42);
-        } else {
-          btnX.set(0);
-          btnY.set(0);
-        }
-      }
     };
 
     window.addEventListener('mousemove', onMove);
     return () => window.removeEventListener('mousemove', onMove);
   }, []); // MotionValues are stable refs — safe to omit from deps
 
-  const randomColor  = () => BRAND_COLORS[Math.floor(Math.random() * BRAND_COLORS.length)];
-  const scrollToWork = () => {
-    setView('work');
-    document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const randomColor = () => BRAND_COLORS[Math.floor(Math.random() * BRAND_COLORS.length)];
 
   // ─── Render ───────────────────────────────────────────────────────────────
 
@@ -203,13 +193,7 @@ const Home = ({ setView }) => {
                   initial="hidden"
                   animate={isReady ? 'visible' : 'hidden'}
                   variants={letterVariants}
-                  whileHover={{
-                    y: -10,
-                    scale: 1.07,
-                    transition: { type: 'spring', stiffness: 400, damping: 14 },
-                  }}
                   onMouseEnter={() => setHoverColors(c => ({ ...c, [key]: randomColor() }))}
-                  onMouseLeave={() => setHoverColors(c => ({ ...c, [key]: null }))}
                 >
                   {letter}
                 </Letter>
@@ -229,13 +213,7 @@ const Home = ({ setView }) => {
                   initial="hidden"
                   animate={isReady ? 'visible' : 'hidden'}
                   variants={letterVariants}
-                  whileHover={{
-                    y: -10,
-                    scale: 1.07,
-                    transition: { type: 'spring', stiffness: 400, damping: 14 },
-                  }}
                   onMouseEnter={() => setHoverColors(c => ({ ...c, [key]: randomColor() }))}
-                  onMouseLeave={() => setHoverColors(c => ({ ...c, [key]: null }))}
                 >
                   {letter}
                 </Letter>
@@ -252,19 +230,6 @@ const Home = ({ setView }) => {
           <SubText>Senior Frontend Engineer &amp; Product Designer</SubText>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={isReady ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.08, duration: 0.55, ease: 'easeOut' }}
-        >
-          <CtaRow>
-            <motion.div ref={btnRef} style={{ x: btnSX, y: btnSY }}>
-              <CtaButton onClick={scrollToWork}>
-                Discover the work →
-              </CtaButton>
-            </motion.div>
-          </CtaRow>
-        </motion.div>
 
       </ContentArea>
 

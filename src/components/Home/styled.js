@@ -93,17 +93,18 @@ export const NameRow = styled.div`
 // Each letter is a framer-motion span — variants, custom, whileHover all pass through
 export const Letter = styled(motion.span)`
   display: inline-block;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 900;
-  font-size: clamp(50px, 10.8vw, 148px);
-  line-height: 0.9;
-  letter-spacing: -0.025em;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: clamp(72px, 14vw, 196px);
+  line-height: 0.88;
+  letter-spacing: 0.04em;
   cursor: default;
-  transition: color 0.1s ease;
+  transition: color 0.15s ease;
   color: ${({ $hoverColor }) => $hoverColor || '#005cef'};
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
 
   @media (max-width: 480px) {
-    font-size: clamp(38px, 9.5vw, 52px);
+    font-size: clamp(52px, 13vw, 72px);
   }
 `;
 
@@ -116,32 +117,6 @@ export const SubText = styled.p`
   text-transform: uppercase;
   color: #999999;
   margin-bottom: 36px;
-`;
-
-// ─── CTA ──────────────────────────────────────────────────────────────────────
-
-export const CtaRow = styled.div`
-  display: flex;
-`;
-
-export const CtaButton = styled.div`
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 1rem 2.4rem;
-  border-radius: 2rem;
-  cursor: none;
-  color: #ffffff;
-  background: #005cef;
-  border: 1.5px solid #005cef;
-  box-shadow: 0 8px 28px rgba(0, 92, 239, 0.22);
-  transition: box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 14px 36px rgba(0, 92, 239, 0.32);
-  }
 `;
 
 // ─── Scroll Indicator ─────────────────────────────────────────────────────────
