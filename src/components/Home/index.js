@@ -115,8 +115,8 @@ const hexToChannel = (hex) => {
   return null;
 };
 
-// Dormant opacity — barely perceptible at page load
-const BASE_OPACITY = 0.06;
+// Dormant opacity — fully hidden at page load
+const BASE_OPACITY = 0;
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
@@ -178,10 +178,13 @@ const Home = ({ setView }) => {
   }, [hoverColors]);
 
   // Each blob's rendered opacity:
-  //   dormant at BASE_OPACITY, scales up linearly as its channel fills up.
-  //   At 100% of one color → that channel's blobs hit full opacity (1.0).
-  const blobOpacity = (channel) =>
-    BASE_OPACITY + colorDist[channel] * (1 - BASE_OPACITY);
+  //   First hovered letter immediately jumps to 0.45 — clearly visible.
+  //   Each additional letter of the same color scales it toward 1.0.
+  const blobOpacity = (channel) => {
+    const dist = colorDist[channel];
+    if (dist === 0) return BASE_OPACITY;
+    return 0.45 + dist * 0.55;
+  };
 
   const randomColor = () => BRAND_COLORS[Math.floor(Math.random() * BRAND_COLORS.length)];
 
@@ -196,7 +199,7 @@ const Home = ({ setView }) => {
           <motion.div
             key={blob.id}
             animate={{ opacity: blobOpacity(blob.channel) }}
-            transition={{ duration: 1.6, ease: 'easeInOut' }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
             style={{
               position: 'absolute',
               left: blob.left,
