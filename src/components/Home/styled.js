@@ -156,11 +156,3 @@ export const ScrollLine = styled.div`
     animation: ${scanDown} 2.6s ease-in-out infinite;
   }
 `;
-
-export const ScrollText = styled.span`
-  font-size: 0.35rem;
-  font-weight: 700;
-  letter-spacing: 3.5px;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.28);
-`;

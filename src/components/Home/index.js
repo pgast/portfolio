@@ -11,8 +11,7 @@ import {
   Letter,
   SubText,
   ScrollIndicator,
-  ScrollLine,
-  ScrollText,
+  ScrollLine
 } from './styled';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -273,7 +272,7 @@ const Home = ({ setView }) => {
           animate={isReady ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.9, duration: 0.6, ease: 'easeOut' }}
         >
-          <SubText>Senior Frontend Engineer &amp; Product Designer</SubText>
+          <SubText>Senior Software Engineer</SubText>
         </motion.div>
 
       </ContentArea>
@@ -285,7 +284,6 @@ const Home = ({ setView }) => {
         transition={{ delay: 1.55, duration: 0.8 }}
       >
         <ScrollLine />
-        <ScrollText>Scroll to explore</ScrollText>
       </ScrollIndicator>
 
     </HeroWrapper>
