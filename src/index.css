@@ -6,7 +6,7 @@
 
 html {
   font-size: 20px;
-  overflow-x: hidden;
+  overflow-x: clip;
   letter-spacing: 1.2px;
   background: #ffffff;
   box-sizing: border-box;
@@ -25,7 +25,7 @@ section {
 }
 
 #container {
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 
