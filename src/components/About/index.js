@@ -8,8 +8,6 @@ import {
   workHistory,
 } from '../../constants/about'
 
-import { contact } from '../../constants/contact'
-
 import {
   Tag,
   Bio,
@@ -23,16 +21,13 @@ import {
   Container,
   LeftPanel,
   RightPanel,
-  NameTitle,
   ButtonRow,
   CertTitle,
   AwardBlock,
   PanelTitle,
-  LeftDivider,
   TechCategory,
   SectionBlock,
   SectionLabel,
-  ContactEmailButton,
   EducationSchool,
   TechCategoryLabel,
 } from './styled'
@@ -62,14 +57,6 @@ const About = () => {
             ))}
           </ButtonRow>
 
-          <LeftDivider />
-
-          {/* Contact block */}
-          <SectionLabel>contact</SectionLabel>
-          <PanelTitle>{contact.title}</PanelTitle>
-          <ContactEmailButton href={contact.emailHref}>
-            {contact.emailBtnText}
-          </ContactEmailButton>
         </LeftPanel>
 
         {/* Right: scrollable content */}

@@ -42,7 +42,7 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
       setIsScrolled(scrollTop > 20);
 
       // Active section: last section whose top edge is at or above 80px from viewport top
-      const sections = ['home', 'about'];
+      const sections = ['home', 'about', 'contact'];
       let active = 'home';
       for (const id of sections) {
         const el = document.getElementById(id);

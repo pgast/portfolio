@@ -3,6 +3,7 @@ import { theme } from '../src/constants/theme'
 
 import Home from './components/Home';
 import About from './components/About';
+import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 import Cursor from './components/Cursor';
 import SideDrawer from './components/SideDrawer'
@@ -36,6 +37,10 @@ function App() {
 
         <section id="about">
           <About />
+        </section>
+
+        <section id="contact">
+          <Contact />
         </section>
       </div>
     </ThemeProvider>
