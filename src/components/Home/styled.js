@@ -26,35 +26,6 @@ export const HeroWrapper = styled.div`
   background: #ffffff;
 `;
 
-// Clipping layer so blobs never create scrollbars
-export const GradientCanvas = styled.div`
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-`;
-
-// Individual gradient blob
-export const BlobShape = styled.div`
-  width: ${({ $size }) => $size}px;
-  height: ${({ $size }) => $size}px;
-  border-radius: 50%;
-  /*
-   * Radial gradient fades from the blob color to transparent.
-   * Using rgba transparent avoids the grey-banding artifact that
-   * occurs when interpolating from a colour to the CSS 'transparent'
-   * keyword in some browsers.
-   */
-  background: radial-gradient(
-    ellipse at center,
-    ${({ $color }) => $color} 0%,
-    ${({ $color }) => $color.replace(/[\d.]+\)$/, '0)')} 68%
-  );
-  /* Centered on its anchor point */
-  transform: translate(-50%, -50%);
-  will-change: transform;
-`;
-
 // ─── Content ──────────────────────────────────────────────────────────────────
 
 export const ContentArea = styled.div`

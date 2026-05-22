@@ -42,7 +42,7 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
       setIsScrolled(scrollTop > 20);
 
       // Active section: last section whose top edge is at or above 80px from viewport top
-      const sections = ['home', 'work', 'about'];
+      const sections = ['home', 'about'];
       let active = 'home';
       for (const id of sections) {
         const el = document.getElementById(id);
@@ -78,7 +78,7 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
         onClick={() => setMobileMenuOpen(false)}
       />
       <MobileMenuSectionLinks>
-        {['work', 'about'].map(el => (
+        {['about'].map(el => (
           <a
             key={el}
             onClick={() => scrollAndClose(el)}
@@ -127,7 +127,7 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
             <NavLogo>pg</NavLogo>
           </a>
           <NavLinks>
-            {['work', 'about'].map(el => (
+            {['about'].map(el => (
               <a
                 key={el}
                 onClick={() => scrollToSection(el)}

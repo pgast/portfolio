@@ -2,7 +2,6 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from '../src/constants/theme'
 
 import Home from './components/Home';
-import Work from './components/Work';
 import About from './components/About';
 import Navigation from './components/Navigation';
 import Cursor from './components/Cursor';
@@ -33,10 +32,6 @@ function App() {
 
         <section id="home">
           <Home setView={setView} />
-        </section>
-
-        <section id="work">
-          <Work />
         </section>
 
         <section id="about">
