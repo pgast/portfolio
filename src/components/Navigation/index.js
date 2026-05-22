@@ -21,7 +21,7 @@ import {
 } from './styled'
 
 
-const Navigation = ({ setView, view, setDrawerOpen }) => {
+const Navigation = ({ setView, view }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const progressRef = useRef(null);
@@ -136,7 +136,7 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
                 <NavLink $isSelected={view === el}>{el}</NavLink>
               </a>
             ))}
-            <ContactButton onClick={() => setDrawerOpen(true)}>
+            <ContactButton onClick={() => scrollToSection('contact')}>
               contact
             </ContactButton>
           </NavLinks>
