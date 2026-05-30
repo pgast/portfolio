@@ -12,7 +12,7 @@ import {
   EmailLink,
   MobileMenu,
   ContactLink,
-  TerracottaDot,
+  AccentDot,
   DesktopNavbar,
   MobileMenuIcon,
   ContactContent,
@@ -107,7 +107,7 @@ const Navigation = ({ setView, view }) => {
             onClick={() => scrollToSection('home')}
             style={{ textDecoration: 'none', cursor: 'none' }}
           >
-            <NavLogo>PG<TerracottaDot>.</TerracottaDot></NavLogo>
+            <NavLogo>PG<AccentDot>.</AccentDot></NavLogo>
           </a>
           <NavLinks>
             {NAV_SECTIONS.map(el => (

@@ -13,7 +13,7 @@ import {
   ContactRight,
   GetInTouchLabel,
   EmailDisplay,
-  TerracottaRule,
+  SignalRule,
   LinksList,
   LinkRow,
   LinkLeft,
@@ -48,7 +48,7 @@ const Contact = () => (
           {contact.email}
         </EmailDisplay>
 
-        <TerracottaRule />
+        <SignalRule />
 
         <LinksList>
           {LINKS.map(({ index, label, href, external }) => (

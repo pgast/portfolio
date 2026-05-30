@@ -1,30 +1,81 @@
 import styled from 'styled-components';
 
-export const WorkRight = styled.div`
-  flex: 1;
-  padding-top: 100px;
-  padding-bottom: 80px;
+export const WorkWrapper = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  background: ${({ theme }) => theme.colors.void};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
-  @media screen and (max-width: 900px) {
-    padding-top: 40px;
-    padding-bottom: 60px;
+export const WorkContent = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px clamp(24px, 6.5vw, 88px) 80px;
+`;
+
+export const WorkLabel = styled.p`
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-weight: 300;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #444444;
+  margin-bottom: 28px;
+`;
+
+export const WorkStatement = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: clamp(44px, 6vw, 64px);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.white};
+  margin-bottom: 64px;
+
+  @media (max-width: 480px) {
+    font-size: clamp(38px, 11vw, 52px);
+    margin-bottom: 48px;
   }
 `;
 
-export const ProjectRow = styled.div`
-  display: grid;
-  grid-template-columns: 32px 1fr auto;
-  gap: 0 24px;
-  align-items: start;
-  padding: 36px 0;
-  border-top: 0.5px solid ${({ theme }) => theme.colors.border};
+export const StatementBlue = styled.span`
+  color: ${({ theme }) => theme.colors.electricBlue};
+`;
 
-  &:last-child {
-    border-bottom: 0.5px solid ${({ theme }) => theme.colors.border};
+export const ProjectList = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ProjectRow = styled.a`
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: center;
+  gap: 0 24px;
+  padding: 24px 0;
+  border-bottom: 0.5px solid ${({ theme }) => theme.colors.borderDark};
+  text-decoration: none;
+  cursor: none;
+  transition: border-color 0.2s ease;
+
+  &:first-child {
+    border-top: 0.5px solid ${({ theme }) => theme.colors.borderDark};
   }
 
-  @media (max-width: 600px) {
-    grid-template-columns: 24px 1fr;
+  &:hover {
+    border-bottom-color: ${({ theme }) => theme.colors.electricBlue};
+  }
+
+  &:hover .project-title {
+    color: ${({ theme }) => theme.colors.electricBlue};
+  }
+
+  &:hover .project-arrow {
+    color: ${({ theme }) => theme.colors.white};
+    transform: translate(3px, -3px);
   }
 `;
 
@@ -32,79 +83,28 @@ export const ProjectIndex = styled.span`
   font-family: ${({ theme }) => theme.fonts.mono};
   font-weight: 300;
   font-size: 9px;
-  text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: ${({ theme }) => theme.colors.terracotta};
-  padding-top: 6px;
+  color: ${({ theme }) => theme.colors.signalRed};
 `;
 
-export const ProjectBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-`;
-
-export const ProjectName = styled.h3`
+export const ProjectName = styled.span`
   font-family: ${({ theme }) => theme.fonts.display};
   font-size: 28px;
   letter-spacing: 0.04em;
-  color: ${({ theme }) => theme.colors.tierra};
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.white};
   line-height: 1;
-  text-transform: uppercase;
+  transition: color 0.18s ease;
+
+  @media (max-width: 480px) {
+    font-size: 22px;
+  }
 `;
 
-export const ProjectDescription = styled.p`
-  font-family: ${({ theme }) => theme.fonts.body};
-  font-weight: 300;
+export const ProjectArrow = styled.span`
+  font-family: ${({ theme }) => theme.fonts.mono};
   font-size: 14px;
-  line-height: 1.65;
-  color: ${({ theme }) => theme.colors.secondary};
-  max-width: 480px;
-`;
-
-export const StackRow = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
-`;
-
-export const StackTag = styled.span`
-  font-family: ${({ theme }) => theme.fonts.mono};
-  font-weight: 300;
-  font-size: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: ${({ theme }) => theme.colors.secondary};
-  border: 0.5px solid ${({ theme }) => theme.colors.border};
-  padding: 4px 10px;
-`;
-
-export const ProjectLinks = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-end;
-  padding-top: 6px;
-
-  @media (max-width: 600px) {
-    display: none;
-  }
-`;
-
-export const ProjectLink = styled.a`
-  font-family: ${({ theme }) => theme.fonts.mono};
-  font-weight: 300;
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: ${({ theme }) => theme.colors.secondary};
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.15s ease;
-  cursor: none;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.signalBlue};
-  }
+  color: #333333;
+  transition: color 0.18s ease, transform 0.18s ease;
+  display: inline-block;
 `;

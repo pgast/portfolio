@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-// ─── Layout (shared with Work and Contact) ────────────────────────────────────
+// ─── Layout (shared with Contact) ─────────────────────────────────────────────
 
 export const Container = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ export const LeftPanel = styled.div`
     width: 100%;
     padding-top: 80px;
     padding-bottom: 40px;
-    border-bottom: 0.5px solid ${({ theme }) => theme.colors.border};
+    border-bottom: 0.5px solid ${({ theme }) => theme.colors.borderLight};
   }
 `
 
@@ -49,17 +49,15 @@ export const RightPanel = styled.div`
   padding-top: 100px;
   padding-bottom: 80px;
 
-  & ul {
-    padding-left: 0;
-  }
+  & ul { padding-left: 0; }
 
   & li {
     list-style-type: none;
     font-family: ${({ theme }) => theme.fonts.body};
     font-weight: 300;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.8;
-    color: ${({ theme }) => theme.colors.tierra};
+    color: ${({ theme }) => theme.colors.secondary};
     padding-left: 16px;
     position: relative;
 
@@ -67,17 +65,14 @@ export const RightPanel = styled.div`
       content: '—';
       position: absolute;
       left: 0;
-      color: ${({ theme }) => theme.colors.border};
+      color: ${({ theme }) => theme.colors.borderLight};
     }
   }
 
   & a {
-    color: ${({ theme }) => theme.colors.signalBlue};
+    color: ${({ theme }) => theme.colors.electricBlue};
     text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
+    &:hover { text-decoration: underline; }
   }
 
   @media screen and (max-width: 900px) {
@@ -86,7 +81,7 @@ export const RightPanel = styled.div`
   }
 `
 
-// ─── Left panel elements ──────────────────────────────────────────────────────
+// ─── Left panel ───────────────────────────────────────────────────────────────
 
 export const SectionLabel = styled.p`
   font-family: ${({ theme }) => theme.fonts.mono};
@@ -94,7 +89,7 @@ export const SectionLabel = styled.p`
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.muted};
   margin-bottom: 16px;
 `
 
@@ -102,7 +97,7 @@ export const PanelTitle = styled.h2`
   font-family: ${({ theme }) => theme.fonts.display};
   font-size: 40px;
   letter-spacing: 0.03em;
-  color: ${({ theme }) => theme.colors.signalBlue};
+  color: ${({ theme }) => theme.colors.electricBlue};
   line-height: 0.95;
   text-transform: uppercase;
   margin-bottom: 28px;
@@ -112,8 +107,8 @@ export const Bio = styled.div`
   & p {
     font-family: ${({ theme }) => theme.fonts.body};
     font-weight: 300;
-    font-size: 14px;
-    color: ${({ theme }) => theme.colors.tertiary};
+    font-size: 15px;
+    color: ${({ theme }) => theme.colors.secondary};
     line-height: 1.8;
     margin-bottom: 28px;
   }
@@ -132,8 +127,8 @@ export const Button = styled.a`
   font-size: 8px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: ${({ theme }) => theme.colors.tierra};
-  border: 0.5px solid ${({ theme }) => theme.colors.border};
+  color: ${({ theme }) => theme.colors.void};
+  border: 0.5px solid ${({ theme }) => theme.colors.borderLight};
   padding: 8px 14px;
   text-decoration: none;
   white-space: nowrap;
@@ -141,8 +136,8 @@ export const Button = styled.a`
   transition: border-color 0.15s ease, color 0.15s ease;
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.signalBlue};
-    color: ${({ theme }) => theme.colors.signalBlue};
+    border-color: ${({ theme }) => theme.colors.electricBlue};
+    color: ${({ theme }) => theme.colors.electricBlue};
     text-decoration: none;
   }
 `
@@ -155,12 +150,12 @@ export const ContactEmailButton = styled.a`
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: ${({ theme }) => theme.colors.white};
-  background: ${({ theme }) => theme.colors.signalBlue};
+  background: ${({ theme }) => theme.colors.electricBlue};
   padding: 10px 18px;
   text-decoration: none;
   cursor: none;
-  border: 0.5px solid ${({ theme }) => theme.colors.signalBlue};
-  transition: background 0.15s ease, color 0.15s ease;
+  border: 0.5px solid ${({ theme }) => theme.colors.electricBlue};
+  transition: background 0.15s ease;
 
   &:hover {
     background: ${({ theme }) => theme.colors.deepBlue};
@@ -168,34 +163,24 @@ export const ContactEmailButton = styled.a`
   }
 `
 
-// ─── Right panel elements ─────────────────────────────────────────────────────
+// ─── Right panel ──────────────────────────────────────────────────────────────
 
 export const SectionBlock = styled.div`
   padding: 48px 0;
-  border-bottom: 0.5px solid ${({ theme }) => theme.colors.border};
+  border-bottom: 0.5px solid ${({ theme }) => theme.colors.borderLight};
 
-  &:first-child {
-    padding-top: 0;
-  }
-
-  &:last-child {
-    border-bottom: none;
-  }
+  &:first-child { padding-top: 0; }
+  &:last-child  { border-bottom: none; }
 `
 
 export const JobBlock = styled.div`
   padding-left: 16px;
-  border-left: 1.5px solid ${({ theme }) => theme.colors.border};
+  border-left: 1.5px solid ${({ theme }) => theme.colors.borderLight};
   margin-bottom: 32px;
   transition: border-color 0.2s ease;
 
-  &:hover {
-    border-left-color: ${({ theme }) => theme.colors.signalBlue};
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  &:hover { border-left-color: ${({ theme }) => theme.colors.electricBlue}; }
+  &:last-child { margin-bottom: 0; }
 `
 
 export const JobHeader = styled.div`
@@ -212,7 +197,7 @@ export const JobTitle = styled.p`
   font-size: 18px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.tierra};
+  color: ${({ theme }) => theme.colors.void};
   line-height: 1;
 `
 
@@ -222,7 +207,7 @@ export const JobDuration = styled.p`
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.muted};
   white-space: nowrap;
 `
 
@@ -232,9 +217,9 @@ export const EducationSchool = styled.div`
   & p {
     font-family: ${({ theme }) => theme.fonts.body};
     font-weight: 300;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.7;
-    color: ${({ theme }) => theme.colors.tierra};
+    color: ${({ theme }) => theme.colors.secondary};
   }
 
   & p:first-child {
@@ -242,7 +227,7 @@ export const EducationSchool = styled.div`
     font-size: 18px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.signalBlue};
+    color: ${({ theme }) => theme.colors.electricBlue};
     line-height: 1;
     margin-bottom: 6px;
   }
@@ -254,7 +239,7 @@ export const CertTitle = styled.p`
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.muted};
   margin-bottom: 12px;
   margin-top: 20px;
 `
@@ -272,10 +257,7 @@ export const TechGrid = styled.div`
 
 export const TechCategory = styled.div`
   margin-bottom: 24px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  &:last-child { margin-bottom: 0; }
 `
 
 export const TechCategoryLabel = styled.p`
@@ -284,7 +266,7 @@ export const TechCategoryLabel = styled.p`
   font-size: 8px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.muted};
   margin-bottom: 12px;
 `
 
@@ -301,32 +283,30 @@ export const Tag = styled.span`
   text-transform: uppercase;
   letter-spacing: 0.14em;
   padding: 5px 12px;
-  border: 0.5px solid ${({ theme }) => theme.colors.border};
-  color: ${({ theme }) => theme.colors.tierra};
+  border: 0.5px solid ${({ theme }) => theme.colors.borderLight};
+  color: ${({ theme }) => theme.colors.secondary};
   transition: border-color 0.15s ease, color 0.15s ease;
   cursor: default;
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.signalBlue};
-    color: ${({ theme }) => theme.colors.signalBlue};
+    border-color: ${({ theme }) => theme.colors.electricBlue};
+    color: ${({ theme }) => theme.colors.electricBlue};
   }
 `
 
 export const AwardBlock = styled.div`
   margin-bottom: 20px;
   padding-left: 16px;
-  border-left: 1.5px solid ${({ theme }) => theme.colors.border};
+  border-left: 1.5px solid ${({ theme }) => theme.colors.borderLight};
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+  &:last-child { margin-bottom: 0; }
 
   & p:first-child {
     font-family: ${({ theme }) => theme.fonts.display};
     font-size: 16px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.tierra};
+    color: ${({ theme }) => theme.colors.void};
     margin-bottom: 4px;
     line-height: 1;
   }
@@ -337,6 +317,6 @@ export const AwardBlock = styled.div`
     font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.muted};
   }
 `

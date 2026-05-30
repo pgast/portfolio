@@ -8,7 +8,7 @@ html {
   font-size: 16px;
   overflow-x: clip;
   letter-spacing: 0;
-  background: #F0EDE6;
+  background: #F7F7F7;
   box-sizing: border-box;
   font-family: 'DM Sans', system-ui, sans-serif;
   scroll-behavior: smooth;
@@ -23,9 +23,17 @@ section {
   scroll-snap-align: start;
 }
 
+/* Section ground colors */
+section#work    { background: #0A0A0A; }
+section#about   { background: #FFFFFF; }
+section#contact { background: #FFFFFF; }
+
 #container {
   overflow-x: clip;
   width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 body {
@@ -34,9 +42,9 @@ body {
 
 .cursor {
   position: fixed;
-  width: 18px;
-  height: 18px;
-  background: #D95B2A;
+  width: 16px;
+  height: 16px;
+  background: #FF3D2E;
   border-radius: 50%;
   top: var(--y, 0);
   left: var(--x, 0);
@@ -48,7 +56,6 @@ body {
 
 .c--click {
   transform: translate(-50%, -50%) scale(0.5);
-  background-color: #D95B2A;
 }
 
 .c--hidden {
@@ -56,19 +63,12 @@ body {
 }
 
 .c--hover {
-  transform: translate(-50%, -50%) scale(1.5);
-  cursor: default;
+  transform: translate(-50%, -50%) scale(1.6);
 }
 
 #root {
   width: 100vw;
   min-height: 100vh;
-}
-
-#container {
-  min-height: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 a,
@@ -85,16 +85,7 @@ a,
   }
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #F0EDE6;
-}
-::-webkit-scrollbar-thumb {
-  background: #DDD6CA;
-  border-radius: 0;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #9A8A78;
-}
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: #0A0A0A; }
+::-webkit-scrollbar-thumb  { background: #0038FF; border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: #FF3D2E; }

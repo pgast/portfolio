@@ -7,7 +7,7 @@ export const ScrollProgressBar = styled.div`
   left: 0;
   height: 2px;
   width: 0%;
-  background: ${({ theme }) => theme.colors.terracotta};
+  background: ${({ theme }) => theme.colors.signalRed};
   z-index: 11;
 `
 
@@ -20,10 +20,10 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 10;
-  background: ${({ $isHome }) => $isHome ? 'transparent' : '#0035A0'};
+  background: ${({ $isHome }) => $isHome ? 'transparent' : '#0026CC'};
   border-bottom: 0.5px solid ${({ $scrolled, $isHome }) =>
-    (!$isHome && $scrolled) ? 'rgba(255,255,255,0.12)' : 'transparent'};
-  transition: background 0.35s ease, border-color 0.25s ease;
+    (!$isHome && $scrolled) ? 'rgba(255,255,255,0.1)' : 'transparent'};
+  transition: background 0.3s ease, border-color 0.25s ease;
 
   @media screen and (max-width: 480px) {
     background: transparent;
@@ -51,16 +51,16 @@ export const NavLogo = styled.div`
   line-height: 1;
   letter-spacing: 0.06em;
   color: #ffffff;
-  transition: opacity 0.15s ease;
   cursor: none;
+  transition: opacity 0.15s ease;
 
   &:hover {
     opacity: 0.7;
   }
 `
 
-export const TerracottaDot = styled.span`
-  color: ${({ theme }) => theme.colors.terracotta};
+export const AccentDot = styled.span`
+  color: ${({ theme }) => theme.colors.signalRed};
 `
 
 export const NavLinks = styled.div`
@@ -75,7 +75,7 @@ export const NavLink = styled.span`
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: ${({ $isSelected }) => $isSelected ? '#ffffff' : 'rgba(255,255,255,0.45)'};
+  color: ${({ $isSelected }) => $isSelected ? '#ffffff' : 'rgba(255,255,255,0.3)'};
   cursor: none;
   transition: color 0.2s ease;
 
@@ -112,7 +112,7 @@ export const MobileMenu = styled.div`
     height: 100vh;
     width: 100vw;
     z-index: 888;
-    background: #0035A0;
+    background: #0026CC;
     padding: 0 32px 60px;
     -webkit-animation: ${menuEntrance} 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: ${menuEntrance} 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -123,19 +123,17 @@ export const MobileMenuSectionLinks = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 8px;
+  gap: 0;
 
-  & a {
-    text-decoration: none;
-  }
+  & a { text-decoration: none; }
 
   & p {
     font-family: ${({ theme }) => theme.fonts.display};
     color: rgba(255,255,255,0.9);
-    font-size: 48px;
+    font-size: 52px;
     letter-spacing: 0.04em;
-    padding: 8px 0;
-    border-bottom: 0.5px solid rgba(255,255,255,0.15);
+    padding: 10px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.12);
   }
 `
 
@@ -148,31 +146,26 @@ export const Contact = styled.div`
 export const ContactContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 16px 0;
+  gap: 14px;
+  padding: 20px 0;
 `
 
 export const EmailLink = styled.p`
   font-family: ${({ theme }) => theme.fonts.mono} !important;
   font-weight: 300 !important;
-  font-size: 13px !important;
+  font-size: 12px !important;
   letter-spacing: 0.04em !important;
   border-bottom: none !important;
-  color: rgba(255,255,255,0.7) !important;
+  color: rgba(255,255,255,0.6) !important;
 `
 
 export const ContactLink = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
   font-family: ${({ theme }) => theme.fonts.mono};
   font-weight: 300;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.5);
 
-  & a {
-    color: inherit;
-  }
+  & a { color: inherit; text-decoration: none; }
 `
