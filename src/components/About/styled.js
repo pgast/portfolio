@@ -3,12 +3,52 @@ import { btnPop, fadeInBottom } from '../../constants/animations';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
   width: 1200px;
   max-width: 1200px;
-  padding: 100px 0 80px;
+  gap: 80px;
   -webkit-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+  @media screen and (max-width: 1200px) {
+    width: 88%;
+    gap: 60px;
+  }
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+    width: 88%;
+    gap: 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    padding: 0 1.5rem;
+  }
+`
+
+export const LeftPanel = styled.div`
+  position: sticky;
+  top: 90px;
+  width: 280px;
+  flex-shrink: 0;
+  padding-top: 100px;
+  padding-bottom: 80px;
+
+  @media screen and (max-width: 900px) {
+    position: static;
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
+  }
+`
+
+export const RightPanel = styled.div`
+  flex: 1;
+  padding-top: 100px;
+  padding-bottom: 80px;
 
   & ul {
     padding-left: 0;
@@ -31,63 +71,45 @@ export const Container = styled.div`
     }
   }
 
-  @media screen and (max-width: 1200px) {
-    width: 80%;
-    margin: 0 auto;
+  @media screen and (max-width: 900px) {
+    padding-top: 40px;
+    padding-bottom: 60px;
   }
-
-  @media screen and (max-width: 768px) {
-    width: 90%;
-    padding: 80px 0 60px;
-  }
-
-  @media screen and (max-width: 480px) {
-    width: 100%;
-    padding: 70px 1.5rem 50px;
-  }
-`
-
-export const Hero = styled.div`
-  padding-bottom: 56px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
 `
 
 export const SectionLabel = styled.p`
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.blue};
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
+`
+
+export const PanelTitle = styled.h2`
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: ${({ theme }) => theme.colors.blue};
+  line-height: 1;
+  margin-bottom: 28px;
 `
 
 export const SectionBlock = styled.div`
   padding: 52px 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
 
-  &:last-of-type {
-    border-bottom: none;
-    padding-bottom: 0;
+  &:first-child {
+    padding-top: 0;
   }
 `
 
-export const NameTitle = styled.h1`
-  font-size: 2.5rem;
-  color: ${({ theme }) => theme.colors.blue};
-  line-height: 1.1;
-  margin-bottom: 28px;
-
-  @media screen and (max-width: 750px) {
-    font-size: 2rem;
-  }
-`
 
 export const Bio = styled.div`
   & p {
     font-size: 0.75rem;
     color: ${({ theme }) => theme.colors.black};
     line-height: 1.9;
-    max-width: 620px;
     margin-bottom: 32px;
   }
 `
@@ -245,5 +267,31 @@ export const AwardBlock = styled.div`
   & p:last-child {
     font-size: 0.65rem;
     color: ${({ theme }) => theme.colors.darkGray};
+  }
+`
+
+export const LeftDivider = styled.div`
+  width: 100%;
+  height: 1px;
+  background: ${({ theme }) => theme.colors.gray};
+  margin: 40px 0;
+`
+
+export const ContactEmailButton = styled.a`
+  display: inline-block;
+  background: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.white} !important;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.7rem 1.4rem;
+  border-radius: 2rem;
+  text-decoration: none !important;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.darkBlue};
+    text-decoration: none !important;
   }
 `

@@ -9,7 +9,7 @@ export const ScrollProgressBar = styled.div`
   left: 0;
   height: 3px;
   width: 0%;
-  background: ${({ theme }) => theme.colors.blue};
+  background: ${({ theme }) => theme.colors.red};
   z-index: 11;
 `
 
@@ -22,9 +22,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 10;
-  background: ${({ theme }) => theme.colors.white};
-  border-bottom: 1px solid ${({ $scrolled, theme }) => $scrolled ? theme.colors.gray : 'transparent'};
-  transition: border-color 0.3s ease;
+  background: ${({ $isHome, theme }) => $isHome ? 'transparent' : theme.colors.white};
+  border-bottom: 1px solid ${({ $scrolled, $isHome, theme }) => (!$isHome && $scrolled) ? theme.colors.gray : 'transparent'};
+  transition: background 0.4s ease, border-color 0.3s ease;
 
   @media screen and (max-width: 480px) {
     background: none;

@@ -1,99 +1,123 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 import {
-  letterIds,
-  labels,
-  letters,
-  blankLetters,
-} from '../../constants/home'
+  HeroWrapper,
+  ContentArea,
+  NameSection,
+  NameRow,
+  Letter,
+  SubText,
+  ScrollIndicator,
+  ScrollLine
+} from './styled';
 
-import {
-  Button,
-  Content,
-  Container,
-  Description,
-  TitleTextRow,
-  TitleContainer,
-  AnimatedLetter,
-  TextColorLabel,
-  MobileTextLabel,
-  MobileDescription,
-  DescriptionTextRow,
-} from './styled'
+// ─── Constants ────────────────────────────────────────────────────────────────
+
+const PABLO    = ['P','A','B','L','O'];
+const GASTELUM = ['G','A','S','T','E','L','U','M'];
+
+const BRAND_COLORS = ['#ff1f25', '#ffdd18', '#005cef'];
+
+// ─── Animation Variants ───────────────────────────────────────────────────────
+
+const letterVariants = {
+  hidden: { opacity: 0, y: 70, scale: 0.22 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      delay: i * 0.062,
+      type: 'spring',
+      stiffness: 370,
+      damping: 16,
+    },
+  }),
+};
+
+// ─── Component ────────────────────────────────────────────────────────────────
 
 const Home = ({ setView }) => {
-  const [labelsIdx, setLabelsIdx] = useState({ dev: 0, verb: 0 });
-  const [lettersIds, setLettersIds] = useState(blankLetters);
+  const [isReady, setIsReady]         = useState(false);
+  const [hoverColors, setHoverColors] = useState({});
 
-  const changeLabels = () => {
-    setLabelsIdx({
-      dev: Math.floor(Math.random() * Math.floor(labels.dev.length)),
-      verb: Math.floor(Math.random() * Math.floor(labels.verb.length))
-    })
-  }
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
 
-  const changeLetterColor = (idx, nameType) => {
-    let newLettersIds = { ...lettersIds };
-    newLettersIds[nameType][idx] = letterIds[Math.floor(Math.random() * letterIds.length)];
-    setLettersIds(newLettersIds);
-  }
+  const randomColor = () => BRAND_COLORS[Math.floor(Math.random() * BRAND_COLORS.length)];
 
-  const renderAnimatedLetter = (letter, index, name) => {
-    const letterColor = lettersIds[name][index]
-    return (
-      <AnimatedLetter
-        key={index}
-        $color={letterColor || 'gray'}
-        onMouseEnter={() => changeLetterColor(index, name)}
-      >
-        {letter}
-      </AnimatedLetter>
-    )
-  };
+  // ─── Render ───────────────────────────────────────────────────────────────
 
   return (
-    <Container>
-      <Content>
-        <TitleContainer>
-          <TitleTextRow>
-            {letters.pablo.map((el, idx) => renderAnimatedLetter(el, idx, "firstName"))}
-          </TitleTextRow>
-          <TitleTextRow>
-            {letters.gastelum.map((el, idx) => renderAnimatedLetter(el, idx, "lastName"))}
-          </TitleTextRow>
-        </TitleContainer>
-        <Description onMouseEnter={changeLabels}>
-          <MobileDescription>
-            is a <MobileTextLabel $color="yellow">&nbsp;{labels.dev[labelsIdx.dev]}&nbsp;</MobileTextLabel>
-            developer that <MobileTextLabel $color="blue">&nbsp;{labels.verb[labelsIdx.verb]}&nbsp;</MobileTextLabel>
-            software projects.
-          </MobileDescription>
-          <DescriptionTextRow $marginBottom={"0.2rem"}>
-            <p>is a</p>
-            <TextColorLabel $color="yellow">&nbsp;{labels.dev[labelsIdx.dev]}&nbsp;</TextColorLabel>
-            <p>developer and product designer</p>
-          </DescriptionTextRow>
-          <DescriptionTextRow>
-            <p>that</p>
-            <TextColorLabel $color="blue" $fontColor="white">&nbsp;{labels.verb[labelsIdx.verb]}&nbsp;</TextColorLabel>
-            <p>software projects.</p>
-          </DescriptionTextRow>
-        </Description>
-        <a
-          onClick={() => {
-            setView('work');
-            document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          style={{ textDecoration: "none", color: "black" }}
+    <HeroWrapper>
+
+      {/* Main content */}
+      <ContentArea>
+
+        <NameSection>
+          {/* PABLO */}
+          <NameRow>
+            {PABLO.map((letter, i) => {
+              const key = `p${i}`;
+              return (
+                <Letter
+                  key={key}
+                  $hoverColor={hoverColors[key] || null}
+                  custom={i}
+                  initial="hidden"
+                  animate={isReady ? 'visible' : 'hidden'}
+                  variants={letterVariants}
+                  onMouseEnter={() => setHoverColors(c => ({ ...c, [key]: randomColor() }))}
+                >
+                  {letter}
+                </Letter>
+              );
+            })}
+          </NameRow>
+
+          {/* GASTELUM */}
+          <NameRow>
+            {GASTELUM.map((letter, i) => {
+              const key = `g${i}`;
+              return (
+                <Letter
+                  key={key}
+                  $hoverColor={hoverColors[key] || null}
+                  custom={PABLO.length + i}
+                  initial="hidden"
+                  animate={isReady ? 'visible' : 'hidden'}
+                  variants={letterVariants}
+                  onMouseEnter={() => setHoverColors(c => ({ ...c, [key]: randomColor() }))}
+                >
+                  {letter}
+                </Letter>
+              );
+            })}
+          </NameRow>
+        </NameSection>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isReady ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.9, duration: 0.6, ease: 'easeOut' }}
         >
-          <Button>
-            <h3>
-              Discover them here
-            </h3>
-          </Button>
-        </a>
-      </Content>
-    </Container>
+          <SubText>Senior Software Engineer</SubText>
+        </motion.div>
+
+      </ContentArea>
+
+      {/* Scroll indicator */}
+      <ScrollIndicator
+        initial={{ opacity: 0 }}
+        animate={isReady ? { opacity: 1 } : {}}
+        transition={{ delay: 1.55, duration: 0.8 }}
+      >
+        <ScrollLine />
+      </ScrollIndicator>
+
+    </HeroWrapper>
   );
 };
 

@@ -12,7 +12,6 @@ import {
   EmailLink,
   MobileMenu,
   ContactLink,
-  ContactButton,
   DesktopNavbar,
   MobileMenuIcon,
   ContactContent,
@@ -21,7 +20,7 @@ import {
 } from './styled'
 
 
-const Navigation = ({ setView, view, setDrawerOpen }) => {
+const Navigation = ({ setView, view }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const progressRef = useRef(null);
@@ -42,7 +41,7 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
       setIsScrolled(scrollTop > 20);
 
       // Active section: last section whose top edge is at or above 80px from viewport top
-      const sections = ['home', 'work', 'about'];
+      const sections = ['home', 'about', 'contact'];
       let active = 'home';
       for (const id of sections) {
         const el = document.getElementById(id);
@@ -78,7 +77,7 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
         onClick={() => setMobileMenuOpen(false)}
       />
       <MobileMenuSectionLinks>
-        {['work', 'about'].map(el => (
+        {['about'].map(el => (
           <a
             key={el}
             onClick={() => scrollAndClose(el)}
@@ -118,7 +117,7 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
   return (
     <>
       <ScrollProgressBar ref={progressRef} />
-      <Container $scrolled={isScrolled}>
+      <Container $scrolled={isScrolled} $isHome={view === 'home'}>
         <DesktopNavbar>
           <a
             onClick={() => scrollToSection('home')}
@@ -127,7 +126,7 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
             <NavLogo>pg</NavLogo>
           </a>
           <NavLinks>
-            {['work', 'about'].map(el => (
+            {['about', 'contact'].map(el => (
               <a
                 key={el}
                 onClick={() => scrollToSection(el)}
@@ -136,9 +135,6 @@ const Navigation = ({ setView, view, setDrawerOpen }) => {
                 <NavLink $isSelected={view === el}>{el}</NavLink>
               </a>
             ))}
-            <ContactButton onClick={() => setDrawerOpen(true)}>
-              contact
-            </ContactButton>
           </NavLinks>
         </DesktopNavbar>
         <MobileMenuIcon

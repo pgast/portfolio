@@ -1,149 +1,129 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components';
+import { motion } from 'framer-motion';
 
-import { 
-  btnPopHome,
-  fadeInBottom
-} from '../../constants/animations'
+// ─── Keyframes ────────────────────────────────────────────────────────────────
 
-export const Container = styled.div`
+// Glow scans down the scroll line, pauses at each end
+const scanDown = keyframes`
+  0%   { top: -22px; opacity: 0; }
+  8%   { top: -22px; opacity: 0; }
+  18%  { top: -22px; opacity: 1; }
+  68%  { top: 62px;  opacity: 1; }
+  78%  { top: 62px;  opacity: 0; }
+  100% { top: 62px;  opacity: 0; }
+`;
+
+// ─── Layout ───────────────────────────────────────────────────────────────────
+
+export const HeroWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  width: 1200px;
-  max-width: 1200px;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  -webkit-animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: ${fadeInBottom} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  overflow: hidden;
+  background: #ffffff;
+`;
 
-  @media screen and (max-width: 1200px) {
-    width: 80%;
+// ─── Content ──────────────────────────────────────────────────────────────────
+
+export const ContentArea = styled.div`
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 clamp(24px, 6.5vw, 88px);
+
+  @media (max-width: 768px) {
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
   }
+`;
 
-  @media screen and (max-width: 1025px) {
-    padding-left: 1rem;
+export const NameSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 26px;
+`;
+
+export const NameRow = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  line-height: 0.88;
+
+  @media (max-width: 768px) {
     justify-content: center;
   }
+`;
 
-  @media screen and (max-width: 740px) {
-    padding-left: 0rem;
+// Each letter is a framer-motion span — variants, custom, whileHover all pass through
+export const Letter = styled(motion.span)`
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: clamp(72px, 14vw, 196px);
+  line-height: 0.88;
+  letter-spacing: 0.04em;
+  cursor: default;
+  transition: color 0.15s ease;
+  color: ${({ $hoverColor }) => $hoverColor || '#005cef'};
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+
+  @media (max-width: 480px) {
+    font-size: clamp(52px, 13vw, 72px);
   }
+`;
 
-  @media screen and (max-width: 490px) {
-    margin: 0rem;
-  }
-`
+// ─── Subtitle ─────────────────────────────────────────────────────────────────
 
-export const TitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
-export const TitleTextRow = styled.div`
-  display: flex;
-  height: 4rem;
-
-  @media screen and (max-width: 1025px) {
-    height: 2.7rem;
-  }
-
-  @media screen and (max-width: 740px) {
-    height: 2.1rem;
-  }
-`
-
-export const AnimatedLetter = styled.h1`
-  color: ${({ theme, $color }) => theme.colors[$color]};
-  font-size: 5rem;
-
-  -moz-transition: color .2s ease-in;
-  -o-transition: color .2s ease-in;
-  -webkit-transition: color .2s ease-in;
-  transition: color .2s ease-in;
-
-  @media screen and (max-width: 1025px) {
-    font-size: 3rem; 
-  }
-
-  @media screen and (max-width: 740px) {
-    font-size: 2.4rem;
-  }
-`
-
-export const Description = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
-  margin-bottom: 2.5rem;
+export const SubText = styled.p`
+  font-size: clamp(0.55rem, 1.3vw, 0.8rem);
   font-weight: 600;
-  font-size: 1.3rem;
-  color: ${({ theme }) => theme.colors.black};
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999999;
+  margin-bottom: 36px;
+`;
 
-  @media screen and (max-width: 1025px) {
-    margin-top: 2rem;
-    margin-bottom: 2.5rem;
-    font-size: 0.8rem;
-  }
-`
+// ─── Scroll Indicator ─────────────────────────────────────────────────────────
 
-export const DescriptionTextRow = styled.div`
+export const ScrollIndicator = styled(motion.div)`
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  margin-bottom: ${({ $marginBottom = 0}) => $marginBottom};
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  pointer-events: none;
+  z-index: 3;
 
-  @media screen and (max-width: 490px) {
-    display: none;
+  @media (max-width: 768px) {
+    bottom: 20px;
   }
-`
+`;
 
-export const TextColorLabel = styled.p`
-  color: ${({ theme, $fontColor = 'black' }) => theme.colors[$fontColor]};
-  margin: 0 0.2rem;
-  background: ${({ $color, theme }) => theme.colors[$color]};
-`
-
-export const MobileDescription = styled.p`
-  display: none;
-
-  @media screen and (max-width: 490px) {
-    display: block;
-    text-align: left;
-    padding-right: 1rem;
-  }
-`
-
-export const MobileTextLabel = styled.span`
-  background: ${({ $color, theme }) => theme.colors[$color]};
-  color: ${({ theme }) => theme.colors.black}; 
-  margin: 0 0.2rem;
-`
-
-export const Button = styled.div`
-  border-radius: 3rem; 
-  padding:  0.7rem;
-  cursor: none;
-  width: 200px;
-  text-align: center;
-  font-size: 0.6rem;
-  color: ${({ theme, $color = 'white' }) => theme.colors[$color]};
-  background: ${({ theme, $color = 'blue' }) => theme.colors[$color]};
-
-  &:hover {
-    -webkit-animation: ${btnPopHome} 0.2s ease-in-out alternate both;
-    animation: ${btnPopHome} 0.2s ease-in-out alternate both;
-  }
-
-  @media screen and (max-width: 740px) {
-    font-size: 0.5rem;
-    width: 10rem;
-  }
-
-  @media screen and (max-width: 490px) {
-    position: fixed;
-    left: 50%;
-    margin-left: -100px;
-    top: 88%;
-  }
-`
-
-export const Content = styled.div`
+export const ScrollLine = styled.div`
+  width: 1px;
+  height: 60px;
   position: relative;
-  top: 12%;
-`
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.08);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 22px;
+    /* Soft glow fades in and out at edges so it looks like light, not a hard bar */
+    background: linear-gradient(to bottom, transparent, #ff1f25 45%, transparent);
+    animation: ${scanDown} 2.6s ease-in-out infinite;
+  }
+`;
