@@ -12,7 +12,6 @@ import {
   EmailLink,
   MobileMenu,
   ContactLink,
-  ContactButton,
   DesktopNavbar,
   MobileMenuIcon,
   ContactContent,
@@ -127,7 +126,7 @@ const Navigation = ({ setView, view }) => {
             <NavLogo>pg</NavLogo>
           </a>
           <NavLinks>
-            {['about'].map(el => (
+            {['about', 'contact'].map(el => (
               <a
                 key={el}
                 onClick={() => scrollToSection(el)}
@@ -136,9 +135,6 @@ const Navigation = ({ setView, view }) => {
                 <NavLink $isSelected={view === el}>{el}</NavLink>
               </a>
             ))}
-            <ContactButton onClick={() => scrollToSection('contact')}>
-              contact
-            </ContactButton>
           </NavLinks>
         </DesktopNavbar>
         <MobileMenuIcon

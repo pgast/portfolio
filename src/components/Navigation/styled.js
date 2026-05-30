@@ -9,7 +9,7 @@ export const ScrollProgressBar = styled.div`
   left: 0;
   height: 3px;
   width: 0%;
-  background: ${({ theme }) => theme.colors.blue};
+  background: ${({ theme }) => theme.colors.red};
   z-index: 11;
 `
 
