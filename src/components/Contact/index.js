@@ -61,7 +61,6 @@ const Contact = () => (
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >
               <LinkLeft>
-                <LinkIndex>{index}</LinkIndex>
                 <LinkName>{label}</LinkName>
               </LinkLeft>
               <LinkArrow>↗</LinkArrow>
