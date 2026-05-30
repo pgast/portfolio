@@ -1,20 +1,18 @@
 import styled from 'styled-components'
-
-import { LinkButton, ContactEmail } from '../SideDrawer/styled'
 import { menuEntrance } from '../../constants/animations'
 
 export const ScrollProgressBar = styled.div`
   position: fixed;
-  top: 67px;
+  top: 64px;
   left: 0;
-  height: 3px;
+  height: 2px;
   width: 0%;
-  background: ${({ theme }) => theme.colors.red};
+  background: ${({ theme }) => theme.colors.terracotta};
   z-index: 11;
 `
 
 export const Container = styled.div`
-  height: 70px;
+  height: 64px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -22,12 +20,13 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 10;
-  background: ${({ $isHome, theme }) => $isHome ? 'transparent' : theme.colors.white};
-  border-bottom: 1px solid ${({ $scrolled, $isHome, theme }) => (!$isHome && $scrolled) ? theme.colors.gray : 'transparent'};
-  transition: background 0.4s ease, border-color 0.3s ease;
+  background: ${({ $isHome }) => $isHome ? 'transparent' : '#0035A0'};
+  border-bottom: 0.5px solid ${({ $scrolled, $isHome }) =>
+    (!$isHome && $scrolled) ? 'rgba(255,255,255,0.12)' : 'transparent'};
+  transition: background 0.35s ease, border-color 0.25s ease;
 
   @media screen and (max-width: 480px) {
-    background: none;
+    background: transparent;
     border-bottom: none;
   }
 `
@@ -39,10 +38,7 @@ export const DesktopNavbar = styled.div`
   align-items: center;
   width: 1200px;
   max-width: 1200px;
-
-  @media screen and (max-width: 1200px) {
-    width: 80%;
-  }
+  padding: 0 clamp(24px, 6.5vw, 88px);
 
   @media screen and (max-width: 480px) {
     display: none;
@@ -50,62 +46,41 @@ export const DesktopNavbar = styled.div`
 `
 
 export const NavLogo = styled.div`
-  font-size: 1.6rem;
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: 22px;
   line-height: 1;
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.blue};
-  transition: color 0.15s ease;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  transition: opacity 0.15s ease;
+  cursor: none;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.red};
+    opacity: 0.7;
   }
+`
+
+export const TerracottaDot = styled.span`
+  color: ${({ theme }) => theme.colors.terracotta};
 `
 
 export const NavLinks = styled.div`
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 40px;
 `
 
-export const NavLink = styled.h5`
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
+export const NavLink = styled.span`
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-weight: 300;
+  font-size: 9px;
   text-transform: uppercase;
-  color: ${({ $isSelected, theme }) => $isSelected ? theme.colors.blue : theme.colors.black};
-  position: relative;
-  transition: color 0.15s ease;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: ${({ $isSelected }) => $isSelected ? '100%' : '0'};
-    height: 2px;
-    background: ${({ theme }) => theme.colors.blue};
-    transition: width 0.2s ease;
-  }
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.blue};
-  }
-`
-
-export const ContactButton = styled.div`
-  background: ${({ theme }) => theme.colors.yellow};
-  color: ${({ theme }) => theme.colors.black};
-  padding: 0.35rem 0.9rem;
-  border-radius: 1rem;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: ${({ $isSelected }) => $isSelected ? '#ffffff' : 'rgba(255,255,255,0.45)'};
   cursor: none;
-  transition: transform 0.15s ease;
+  transition: color 0.2s ease;
 
   &:hover {
-    transform: translateY(-1px);
+    color: #ffffff;
   }
 `
 
@@ -115,11 +90,11 @@ export const MobileMenuIcon = styled.i`
   @media screen and (max-width: 480px) {
     display: block;
     position: fixed;
-    top: 2.4rem;
-    right: 2rem;
+    top: 1.4rem;
+    right: 1.5rem;
     z-index: 890;
-    font-size: 1.3rem;
-    color: ${({ theme }) => theme.colors.black};
+    font-size: 1.1rem;
+    color: #ffffff;
   }
 `
 
@@ -129,7 +104,7 @@ export const MobileMenu = styled.div`
   @media screen and (max-width: 480px) {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-end;
     position: fixed;
     left: 0;
@@ -137,7 +112,8 @@ export const MobileMenu = styled.div`
     height: 100vh;
     width: 100vw;
     z-index: 888;
-    background: ${({ theme }) => theme.colors.yellow};
+    background: #0035A0;
+    padding: 0 32px 60px;
     -webkit-animation: ${menuEntrance} 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: ${menuEntrance} 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
@@ -147,40 +123,56 @@ export const MobileMenuSectionLinks = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  gap: 8px;
+
+  & a {
+    text-decoration: none;
+  }
 
   & p {
-    color: ${({ theme }) => theme.colors.black};
-    font-weight: 600;
-    font-size: 80px;
-    padding: 10px 0;
-    padding-left: 33px;
-    border-bottom: 1px solid black;
+    font-family: ${({ theme }) => theme.fonts.display};
+    color: rgba(255,255,255,0.9);
+    font-size: 48px;
+    letter-spacing: 0.04em;
+    padding: 8px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.15);
   }
 `
 
 export const Contact = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: column;
-
-  & p {
-    border: none;
-  }
+  width: 100%;
 `
 
 export const ContactContent = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 33px;
+  gap: 12px;
+  padding: 16px 0;
 `
 
-export const ContactLink = styled(LinkButton)`
-  font-size: 16px;
+export const EmailLink = styled.p`
+  font-family: ${({ theme }) => theme.fonts.mono} !important;
+  font-weight: 300 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.04em !important;
+  border-bottom: none !important;
+  color: rgba(255,255,255,0.7) !important;
 `
 
-export const EmailLink = styled(ContactEmail)`
-  margin: 50px 0;
-  margin-top: 10px;
-  font-size: 25px;
+export const ContactLink = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-weight: 300;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.6);
+
+  & a {
+    color: inherit;
+  }
 `

@@ -1,121 +1,78 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 import {
   HeroWrapper,
-  ContentArea,
-  NameSection,
-  NameRow,
-  Letter,
-  SubText,
-  ScrollIndicator,
-  ScrollLine
+  BlueBand,
+  ShadowPanel,
+  HeroContent,
+  IndexTag,
+  HeroHeadline,
+  HeadlineAccent,
+  ConcretoBand,
+  WhiteBand,
+  BandInner,
+  MonoLabel,
+  ViewWorkBtn,
+  Descriptor,
+  AvailableStamp,
 } from './styled';
 
-// ─── Constants ────────────────────────────────────────────────────────────────
-
-const PABLO    = ['P','A','B','L','O'];
-const GASTELUM = ['G','A','S','T','E','L','U','M'];
-
-const BRAND_COLORS = ['#ff1f25', '#ffdd18', '#005cef'];
-
-// ─── Animation Variants ───────────────────────────────────────────────────────
-
-const letterVariants = {
-  hidden: { opacity: 0, y: 70, scale: 0.22 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      delay: i * 0.062,
-      type: 'spring',
-      stiffness: 370,
-      damping: 16,
-    },
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay = 0) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay },
   }),
 };
 
-// ─── Component ────────────────────────────────────────────────────────────────
-
-const Home = ({ setView }) => {
-  const [isReady, setIsReady]         = useState(false);
-  const [hoverColors, setHoverColors] = useState({});
-
-  useEffect(() => {
-    setIsReady(true);
-  }, []);
-
-  const randomColor = () => BRAND_COLORS[Math.floor(Math.random() * BRAND_COLORS.length)];
-
-  // ─── Render ───────────────────────────────────────────────────────────────
+const Home = () => {
+  const scrollToWork = () => {
+    document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <HeroWrapper>
 
-      {/* Main content */}
-      <ContentArea>
-
-        <NameSection>
-          {/* PABLO */}
-          <NameRow>
-            {PABLO.map((letter, i) => {
-              const key = `p${i}`;
-              return (
-                <Letter
-                  key={key}
-                  $hoverColor={hoverColors[key] || null}
-                  custom={i}
-                  initial="hidden"
-                  animate={isReady ? 'visible' : 'hidden'}
-                  variants={letterVariants}
-                  onMouseEnter={() => setHoverColors(c => ({ ...c, [key]: randomColor() }))}
-                >
-                  {letter}
-                </Letter>
-              );
-            })}
-          </NameRow>
-
-          {/* GASTELUM */}
-          <NameRow>
-            {GASTELUM.map((letter, i) => {
-              const key = `g${i}`;
-              return (
-                <Letter
-                  key={key}
-                  $hoverColor={hoverColors[key] || null}
-                  custom={PABLO.length + i}
-                  initial="hidden"
-                  animate={isReady ? 'visible' : 'hidden'}
-                  variants={letterVariants}
-                  onMouseEnter={() => setHoverColors(c => ({ ...c, [key]: randomColor() }))}
-                >
-                  {letter}
-                </Letter>
-              );
-            })}
-          </NameRow>
-        </NameSection>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isReady ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.9, duration: 0.6, ease: 'easeOut' }}
+      <BlueBand>
+        <ShadowPanel />
+        <HeroContent
+          initial="hidden"
+          animate="visible"
         >
-          <SubText>Senior Software Engineer</SubText>
-        </motion.div>
+          <IndexTag variants={fadeUp} custom={0.1}>
+            01 — Senior Software Engineer
+          </IndexTag>
+          <HeroHeadline variants={fadeUp} custom={0.25}>
+            Making Complex<br />
+            Things <HeadlineAccent>Simple.</HeadlineAccent>
+          </HeroHeadline>
+        </HeroContent>
+      </BlueBand>
 
-      </ContentArea>
-
-      {/* Scroll indicator */}
-      <ScrollIndicator
+      <ConcretoBand
         initial={{ opacity: 0 }}
-        animate={isReady ? { opacity: 1 } : {}}
-        transition={{ delay: 1.55, duration: 0.8 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.6, ease: 'easeOut' }}
       >
-        <ScrollLine />
-      </ScrollIndicator>
+        <BandInner>
+          <MonoLabel>Senior Software Engineer · Product Systems</MonoLabel>
+          <ViewWorkBtn onClick={scrollToWork}>View work →</ViewWorkBtn>
+        </BandInner>
+      </ConcretoBand>
+
+      <WhiteBand
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.75, ease: 'easeOut' }}
+      >
+        <BandInner>
+          <Descriptor>
+            Product engineer turned software engineer — building systems as considered as they are correct.
+          </Descriptor>
+          <AvailableStamp>Available</AvailableStamp>
+        </BandInner>
+      </WhiteBand>
 
     </HeroWrapper>
   );

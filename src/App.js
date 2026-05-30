@@ -2,11 +2,12 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from '../src/constants/theme'
 import { useState } from 'react';
 
-import Home from './components/Home';
-import About from './components/About';
+import Home    from './components/Home';
+import Work    from './components/Work';
+import About   from './components/About';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
-import Cursor from './components/Cursor';
+import Cursor  from './components/Cursor';
 
 
 function App() {
@@ -19,7 +20,11 @@ function App() {
         <Navigation view={view} setView={setView} />
 
         <section id="home">
-          <Home setView={setView} />
+          <Home />
+        </section>
+
+        <section id="work">
+          <Work />
         </section>
 
         <section id="about">

@@ -39,30 +39,23 @@ const About = () => {
     <ScrollableSection>
       <Container>
 
-        {/* Left: sticky panel */}
         <LeftPanel>
-          {/* About block */}
-          <SectionLabel>about</SectionLabel>
+          <SectionLabel>03 — About</SectionLabel>
           <PanelTitle>Pablo<br />Gastelum</PanelTitle>
           <Bio>
             <p>{about.mainDescription.description}</p>
           </Bio>
           <ButtonRow>
             {buttons.map(btn => (
-              <Button key={btn.text}>
-                <a target="_blank" rel="noreferrer" href={btn.href}>
-                  <h3>{btn.text}</h3>
-                </a>
+              <Button key={btn.text} href={btn.href} target="_blank" rel="noreferrer">
+                {btn.text}
               </Button>
             ))}
           </ButtonRow>
-
         </LeftPanel>
 
-        {/* Right: scrollable content */}
         <RightPanel>
 
-          {/* Work Experience */}
           <SectionBlock>
             <SectionLabel>{workHistory.title}</SectionLabel>
             {workHistory.jobs.map(job => (
@@ -78,7 +71,6 @@ const About = () => {
             ))}
           </SectionBlock>
 
-          {/* Education */}
           <SectionBlock>
             <SectionLabel>{education.title}</SectionLabel>
             <EducationSchool>
@@ -100,7 +92,6 @@ const About = () => {
             </ul>
           </SectionBlock>
 
-          {/* Tech Skills */}
           <SectionBlock>
             <SectionLabel>{skillTech.title}</SectionLabel>
             <TechGrid>
@@ -141,7 +132,6 @@ const About = () => {
             </TechGrid>
           </SectionBlock>
 
-          {/* Skills */}
           <SectionBlock>
             <SectionLabel>{skills.title}</SectionLabel>
             <TagsRow>
@@ -149,7 +139,6 @@ const About = () => {
             </TagsRow>
           </SectionBlock>
 
-          {/* Awards */}
           <SectionBlock>
             <SectionLabel>{awards.title}</SectionLabel>
             {awards.columns.map(col => (

@@ -5,14 +5,13 @@
 }
 
 html {
-  font-size: 20px;
+  font-size: 16px;
   overflow-x: clip;
-  letter-spacing: 1.2px;
-  background: #ffffff;
+  letter-spacing: 0;
+  background: #F0EDE6;
   box-sizing: border-box;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'DM Sans', system-ui, sans-serif;
   scroll-behavior: smooth;
-  /* Option: Scroll Snapping for a "Section-by-Section" feel */
   scroll-snap-type: y proximity;
 }
 
@@ -21,7 +20,7 @@ section {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  scroll-snap-align: start; /* Each section "sticks" slightly when reached */
+  scroll-snap-align: start;
 }
 
 #container {
@@ -35,23 +34,21 @@ body {
 
 .cursor {
   position: fixed;
-  width: 20px;
-  height: 20px;
-  background: #ff1f25;
+  width: 18px;
+  height: 18px;
+  background: #D95B2A;
   border-radius: 50%;
   top: var(--y, 0);
   left: var(--x, 0);
   transform: translate(-50%, -50%);
   z-index: 201;
-  transition: transform .2s;
   pointer-events: none;
-  transition: all 100ms ease;
-  transition-property: opacity, background-color, transform;
+  transition: opacity 100ms ease, background-color 150ms ease, transform 120ms ease;
 }
 
 .c--click {
   transform: translate(-50%, -50%) scale(0.5);
-  background-color: #ff1f25;
+  background-color: #D95B2A;
 }
 
 .c--hidden {
@@ -88,14 +85,16 @@ a,
   }
 }
 
-/* Custom minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #F0EDE6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #003286; /* Your theme blue */
-  border-radius: 10px;
+  background: #DDD6CA;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9A8A78;
 }

@@ -1,129 +1,168 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { motion } from 'framer-motion';
-
-// ─── Keyframes ────────────────────────────────────────────────────────────────
-
-// Glow scans down the scroll line, pauses at each end
-const scanDown = keyframes`
-  0%   { top: -22px; opacity: 0; }
-  8%   { top: -22px; opacity: 0; }
-  18%  { top: -22px; opacity: 1; }
-  68%  { top: 62px;  opacity: 1; }
-  78%  { top: 62px;  opacity: 0; }
-  100% { top: 62px;  opacity: 0; }
-`;
 
 // ─── Layout ───────────────────────────────────────────────────────────────────
 
 export const HeroWrapper = styled.div`
-  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: #ffffff;
 `;
 
-// ─── Content ──────────────────────────────────────────────────────────────────
-
-export const ContentArea = styled.div`
+// Band 1 — Signal Blue wall
+export const BlueBand = styled.div`
+  flex: 1;
+  min-height: 56vh;
+  background: ${({ theme }) => theme.colors.signalBlue};
   position: relative;
-  z-index: 2;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
+`;
+
+// Deep blue shadow panel — Barragán's adjacent color field
+export const ShadowPanel = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28%;
+  height: 100%;
+  background: ${({ theme }) => theme.colors.deepBlue};
+  pointer-events: none;
+`;
+
+export const HeroContent = styled(motion.div)`
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1200px;
-  padding: 0 clamp(24px, 6.5vw, 88px);
-
-  @media (max-width: 768px) {
-    align-items: center;
-    text-align: center;
-    padding: 0 24px;
-  }
+  margin: 0 auto;
+  padding: clamp(100px, 14vh, 140px) clamp(24px, 6.5vw, 88px) 52px;
 `;
 
-export const NameSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 26px;
+// ─── Typography ───────────────────────────────────────────────────────────────
+
+export const IndexTag = styled(motion.p)`
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-weight: 300;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.28);
+  margin-bottom: 28px;
 `;
 
-export const NameRow = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  line-height: 0.88;
-
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
-`;
-
-// Each letter is a framer-motion span — variants, custom, whileHover all pass through
-export const Letter = styled(motion.span)`
-  display: inline-block;
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: 400;
-  font-size: clamp(72px, 14vw, 196px);
-  line-height: 0.88;
-  letter-spacing: 0.04em;
-  cursor: default;
-  transition: color 0.15s ease;
-  color: ${({ $hoverColor }) => $hoverColor || '#005cef'};
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+export const HeroHeadline = styled(motion.h1)`
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: clamp(52px, 8.5vw, 80px);
+  line-height: 0.93;
+  letter-spacing: 0.02em;
+  color: ${({ theme }) => theme.colors.white};
+  text-transform: uppercase;
+  margin: 0;
 
   @media (max-width: 480px) {
-    font-size: clamp(52px, 13vw, 72px);
+    font-size: clamp(44px, 13vw, 60px);
   }
 `;
 
-// ─── Subtitle ─────────────────────────────────────────────────────────────────
-
-export const SubText = styled.p`
-  font-size: clamp(0.55rem, 1.3vw, 0.8rem);
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #999999;
-  margin-bottom: 36px;
+export const HeadlineAccent = styled.span`
+  color: ${({ theme }) => theme.colors.terracotta};
 `;
 
-// ─── Scroll Indicator ─────────────────────────────────────────────────────────
+// ─── Concreto band ────────────────────────────────────────────────────────────
 
-export const ScrollIndicator = styled(motion.div)`
-  position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
+export const ConcretoBand = styled(motion.div)`
+  height: 100px;
+  background: ${({ theme }) => theme.colors.concreto};
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 14px;
-  pointer-events: none;
-  z-index: 3;
+  flex-shrink: 0;
 
-  @media (max-width: 768px) {
-    bottom: 20px;
+  @media (max-width: 480px) {
+    height: 80px;
   }
 `;
 
-export const ScrollLine = styled.div`
-  width: 1px;
-  height: 60px;
-  position: relative;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.08);
+// ─── White band ───────────────────────────────────────────────────────────────
 
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 22px;
-    /* Soft glow fades in and out at edges so it looks like light, not a hard bar */
-    background: linear-gradient(to bottom, transparent, #ff1f25 45%, transparent);
-    animation: ${scanDown} 2.6s ease-in-out infinite;
+export const WhiteBand = styled(motion.div)`
+  min-height: 110px;
+  background: ${({ theme }) => theme.colors.white};
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  @media (max-width: 480px) {
+    min-height: 100px;
   }
+`;
+
+// ─── Band inner layout ────────────────────────────────────────────────────────
+
+export const BandInner = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 6.5vw, 88px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+`;
+
+export const MonoLabel = styled.p`
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-weight: 300;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: ${({ theme }) => theme.colors.secondary};
+`;
+
+export const ViewWorkBtn = styled.button`
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-weight: 300;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: ${({ theme }) => theme.colors.signalBlue};
+  background: transparent;
+  border: 0.5px solid ${({ theme }) => theme.colors.signalBlue};
+  padding: 11px 18px;
+  cursor: none;
+  white-space: nowrap;
+  transition: background 0.18s ease, color 0.18s ease;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.signalBlue};
+    color: ${({ theme }) => theme.colors.white};
+  }
+`;
+
+export const Descriptor = styled.p`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.75;
+  color: ${({ theme }) => theme.colors.tertiary};
+  max-width: 320px;
+`;
+
+export const AvailableStamp = styled.span`
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-weight: 300;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: ${({ theme }) => theme.colors.terracotta};
+  border: 0.5px solid ${({ theme }) => theme.colors.terracotta};
+  padding: 9px 16px;
+  white-space: nowrap;
 `;

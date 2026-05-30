@@ -13,7 +13,7 @@ import {
   ContactRight,
   GetInTouchLabel,
   EmailDisplay,
-  YellowRule,
+  TerracottaRule,
   LinksList,
   LinkRow,
   LinkLeft,
@@ -25,9 +25,9 @@ import {
 import ScrollableSection from '../section'
 
 const LINKS = [
-  { index: '01', label: buttons[0].text, href: contact.pdfHref, external: false },
-  { index: '02', label: buttons[1].text, href: buttons[1].href, external: true },
-  { index: '03', label: buttons[2].text, href: buttons[2].href, external: true },
+  { index: '01', label: buttons[0].text, href: contact.pdfHref,  external: false },
+  { index: '02', label: buttons[1].text, href: buttons[1].href,  external: true  },
+  { index: '03', label: buttons[2].text, href: buttons[2].href,  external: true  },
 ];
 
 const Contact = () => (
@@ -35,8 +35,8 @@ const Contact = () => (
     <Container>
 
       <LeftPanel>
-        <SectionLabel>contact</SectionLabel>
-        <PanelTitle>{contact.title}</PanelTitle>
+        <SectionLabel>04 — Contact</SectionLabel>
+        <PanelTitle>Let's<br />Work<br />Together</PanelTitle>
         <ContactEmailButton href={contact.emailHref}>
           {contact.emailBtnText}
         </ContactEmailButton>
@@ -48,7 +48,7 @@ const Contact = () => (
           {contact.email}
         </EmailDisplay>
 
-        <YellowRule />
+        <TerracottaRule />
 
         <LinksList>
           {LINKS.map(({ index, label, href, external }) => (
@@ -57,10 +57,11 @@ const Contact = () => (
               href={href}
               target={external ? '_blank' : undefined}
               rel={external ? 'noreferrer' : undefined}
-              whileHover={{ paddingLeft: '16px' }}
-              transition={{ duration: 0.2, ease: 'easeOut' }}
+              whileHover={{ paddingLeft: '14px' }}
+              transition={{ duration: 0.18, ease: 'easeOut' }}
             >
               <LinkLeft>
+                <LinkIndex>{index}</LinkIndex>
                 <LinkName>{label}</LinkName>
               </LinkLeft>
               <LinkArrow>↗</LinkArrow>

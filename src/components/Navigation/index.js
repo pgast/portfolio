@@ -12,6 +12,7 @@ import {
   EmailLink,
   MobileMenu,
   ContactLink,
+  TerracottaDot,
   DesktopNavbar,
   MobileMenuIcon,
   ContactContent,
@@ -19,35 +20,31 @@ import {
   MobileMenuSectionLinks,
 } from './styled'
 
+const NAV_SECTIONS = ['work', 'about', 'contact']
 
 const Navigation = ({ setView, view }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const progressRef = useRef(null);
+  const [isScrolled, setIsScrolled]         = useState(false);
+  const progressRef    = useRef(null);
   const activeSectionRef = useRef('home');
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollTop  = window.scrollY;
+      const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
 
-      // Update progress bar directly — no re-render on every frame
       if (progressRef.current) {
         const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
         progressRef.current.style.width = `${progress}%`;
       }
 
-      // Nav border appears once user scrolls past the hero
       setIsScrolled(scrollTop > 20);
 
-      // Active section: last section whose top edge is at or above 80px from viewport top
-      const sections = ['home', 'about', 'contact'];
+      const sections = ['home', 'work', 'about', 'contact'];
       let active = 'home';
       for (const id of sections) {
         const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= 80) {
-          active = id;
-        }
+        if (el && el.getBoundingClientRect().top <= 80) active = id;
       }
       if (active !== activeSectionRef.current) {
         activeSectionRef.current = active;
@@ -56,13 +53,12 @@ const Navigation = ({ setView, view }) => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // sync state on mount
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [setView]);
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) element.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollAndClose = (id) => {
@@ -77,36 +73,24 @@ const Navigation = ({ setView, view }) => {
         onClick={() => setMobileMenuOpen(false)}
       />
       <MobileMenuSectionLinks>
-        {['about'].map(el => (
-          <a
-            key={el}
-            onClick={() => scrollAndClose(el)}
-            style={{ textDecoration: 'none' }}
-          >
+        {NAV_SECTIONS.map(el => (
+          <a key={el} onClick={() => scrollAndClose(el)}>
             <p>{el}</p>
           </a>
         ))}
         <Contact>
-          <p>contact</p>
           <ContactContent>
             <a href={contact.emailHref} style={{ color: 'inherit' }}>
               <EmailLink>{contact.email}</EmailLink>
             </a>
             <ContactLink>
-              <a href={contact.pdfHref}>
-                <h3>{buttons[0].text}</h3>
-              </a>
-              <i className="fas fa-regular fa-download" />
+              <a href={contact.pdfHref}>{buttons[0].text}</a>
             </ContactLink>
             <ContactLink>
-              <a target="_blank" rel="noreferrer" href={buttons[1].href}>
-                <h3>{buttons[1].text}</h3>
-              </a>
+              <a target="_blank" rel="noreferrer" href={buttons[1].href}>{buttons[1].text}</a>
             </ContactLink>
             <ContactLink>
-              <a target="_blank" rel="noreferrer" href={buttons[2].href}>
-                <h3>{buttons[2].text}</h3>
-              </a>
+              <a target="_blank" rel="noreferrer" href={buttons[2].href}>{buttons[2].text}</a>
             </ContactLink>
           </ContactContent>
         </Contact>
@@ -123,10 +107,10 @@ const Navigation = ({ setView, view }) => {
             onClick={() => scrollToSection('home')}
             style={{ textDecoration: 'none', cursor: 'none' }}
           >
-            <NavLogo>pg</NavLogo>
+            <NavLogo>PG<TerracottaDot>.</TerracottaDot></NavLogo>
           </a>
           <NavLinks>
-            {['about', 'contact'].map(el => (
+            {NAV_SECTIONS.map(el => (
               <a
                 key={el}
                 onClick={() => scrollToSection(el)}
