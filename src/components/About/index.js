@@ -40,7 +40,7 @@ const About = () => {
       <Container>
 
         <LeftPanel>
-          <SectionLabel>03 — About</SectionLabel>
+          <SectionLabel>02 — About</SectionLabel>
           <PanelTitle>Pablo<br />Gastelum</PanelTitle>
           <Bio>
             <p>{about.mainDescription.description}</p>

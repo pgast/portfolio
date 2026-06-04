@@ -20,7 +20,7 @@ import {
   MobileMenuSectionLinks,
 } from './styled'
 
-const NAV_SECTIONS = ['work', 'about', 'contact']
+const NAV_SECTIONS = ['about', 'contact']
 
 const Navigation = ({ setView, view }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -40,7 +40,7 @@ const Navigation = ({ setView, view }) => {
 
       setIsScrolled(scrollTop > 20);
 
-      const sections = ['home', 'work', 'about', 'contact'];
+      const sections = ['home', 'about', 'contact'];
       let active = 'home';
       for (const id of sections) {
         const el = document.getElementById(id);

@@ -24,9 +24,8 @@ section {
 }
 
 /* Section ground colors */
-section#work    { background: #0A0A0A; }
 section#about   { background: #FFFFFF; }
-section#contact { background: #FFFFFF; }
+section#contact { background: #0A0A0A; }
 
 #container {
   overflow-x: clip;

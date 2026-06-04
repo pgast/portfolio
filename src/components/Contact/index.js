@@ -2,21 +2,14 @@ import { contact } from '../../constants/contact'
 import { buttons } from '../../constants/about'
 
 import {
-  Container,
-  LeftPanel,
-  SectionLabel,
-  PanelTitle,
-  ContactEmailButton,
-} from '../About/styled'
-
-import {
-  ContactRight,
-  GetInTouchLabel,
+  ContactWrapper,
+  ContactContent,
+  ContactLabel,
+  ContactStatement,
+  StatementBlue,
   EmailDisplay,
-  SignalRule,
   LinksList,
   LinkRow,
-  LinkLeft,
   LinkIndex,
   LinkName,
   LinkArrow,
@@ -25,30 +18,24 @@ import {
 import ScrollableSection from '../section'
 
 const LINKS = [
-  { index: '01', label: buttons[0].text, href: contact.pdfHref,  external: false },
-  { index: '02', label: buttons[1].text, href: buttons[1].href,  external: true  },
-  { index: '03', label: buttons[2].text, href: buttons[2].href,  external: true  },
+  { index: '01', label: buttons[0].text, href: contact.pdfHref, external: false },
+  { index: '02', label: buttons[1].text, href: buttons[1].href, external: true  },
+  { index: '03', label: buttons[2].text, href: buttons[2].href, external: true  },
 ];
 
 const Contact = () => (
   <ScrollableSection>
-    <Container>
+    <ContactWrapper>
+      <ContactContent>
 
-      <LeftPanel>
-        <SectionLabel>04 — Contact</SectionLabel>
-        <PanelTitle>Let's<br />Work<br />Together</PanelTitle>
-        <ContactEmailButton href={contact.emailHref}>
-          {contact.emailBtnText}
-        </ContactEmailButton>
-      </LeftPanel>
+        <ContactLabel>03 — Contact</ContactLabel>
+        <ContactStatement>
+          Let's Work <StatementBlue>Together.</StatementBlue>
+        </ContactStatement>
 
-      <ContactRight>
-        <GetInTouchLabel>get in touch</GetInTouchLabel>
         <EmailDisplay href={contact.emailHref}>
           {contact.email}
         </EmailDisplay>
-
-        <SignalRule />
 
         <LinksList>
           {LINKS.map(({ index, label, href, external }) => (
@@ -57,20 +44,16 @@ const Contact = () => (
               href={href}
               target={external ? '_blank' : undefined}
               rel={external ? 'noreferrer' : undefined}
-              whileHover={{ paddingLeft: '14px' }}
-              transition={{ duration: 0.18, ease: 'easeOut' }}
             >
-              <LinkLeft>
-                <LinkIndex>{index}</LinkIndex>
-                <LinkName>{label}</LinkName>
-              </LinkLeft>
-              <LinkArrow>↗</LinkArrow>
+              <LinkIndex>{index}</LinkIndex>
+              <LinkName className="link-name">{label}</LinkName>
+              <LinkArrow className="link-arrow">→</LinkArrow>
             </LinkRow>
           ))}
         </LinksList>
-      </ContactRight>
 
-    </Container>
+      </ContactContent>
+    </ContactWrapper>
   </ScrollableSection>
 );
 

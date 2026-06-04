@@ -3,7 +3,6 @@ import { theme } from '../src/constants/theme'
 import { useState } from 'react';
 
 import Home    from './components/Home';
-import Work    from './components/Work';
 import About   from './components/About';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
@@ -21,10 +20,6 @@ function App() {
 
         <section id="home">
           <Home />
-        </section>
-
-        <section id="work">
-          <Work />
         </section>
 
         <section id="about">

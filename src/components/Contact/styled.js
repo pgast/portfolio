@@ -1,65 +1,66 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
-export const ContactRight = styled.div`
-  flex: 1;
-  padding-top: 100px;
-  padding-bottom: 80px;
-  min-height: calc(100vh - 64px);
+export const ContactWrapper = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  background: ${({ theme }) => theme.colors.void};
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-
-  @media screen and (max-width: 900px) {
-    padding-top: 40px;
-    padding-bottom: 60px;
-    min-height: auto;
-  }
+  justify-content: center;
 `;
 
-export const GetInTouchLabel = styled.p`
+export const ContactContent = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px clamp(24px, 6.5vw, 88px) 80px;
+`;
+
+export const ContactLabel = styled.p`
   font-family: ${({ theme }) => theme.fonts.mono};
   font-weight: 300;
   font-size: 9px;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: ${({ theme }) => theme.colors.muted};
-  margin-bottom: 20px;
+  letter-spacing: 0.22em;
+  color: #444444;
+  margin-bottom: 28px;
+`;
+
+export const ContactStatement = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: clamp(44px, 6vw, 64px);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.white};
+  margin-bottom: 56px;
+
+  @media (max-width: 480px) {
+    font-size: clamp(38px, 11vw, 52px);
+    margin-bottom: 40px;
+  }
+`;
+
+export const StatementBlue = styled.span`
+  color: ${({ theme }) => theme.colors.electricBlue};
 `;
 
 export const EmailDisplay = styled.a`
   display: block;
   font-family: ${({ theme }) => theme.fonts.display};
-  font-size: clamp(28px, 4vw, 48px);
+  font-size: clamp(20px, 3vw, 36px);
   color: ${({ theme }) => theme.colors.electricBlue};
   text-decoration: none;
-  line-height: 0.95;
-  letter-spacing: 0.03em;
+  line-height: 1;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  word-break: break-all;
+  margin-bottom: 48px;
   cursor: none;
-  position: relative;
+  transition: color 0.18s ease;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: ${({ theme }) => theme.colors.signalRed};
-    transition: width 0.3s ease;
+  &:hover {
+    color: ${({ theme }) => theme.colors.white};
   }
-
-  &:hover::after { width: 100%; }
-`;
-
-export const SignalRule = styled.div`
-  width: 32px;
-  height: 2px;
-  background: ${({ theme }) => theme.colors.signalRed};
-  margin: 40px 0;
-  flex-shrink: 0;
 `;
 
 export const LinksList = styled.div`
@@ -67,42 +68,33 @@ export const LinksList = styled.div`
   flex-direction: column;
 `;
 
-export const LinkRow = styled(motion.a)`
-  display: flex;
+export const LinkRow = styled.a`
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  padding: 22px 0;
-  border-top: 0.5px solid ${({ theme }) => theme.colors.borderLight};
+  gap: 0 24px;
+  padding: 24px 0;
+  border-bottom: 0.5px solid ${({ theme }) => theme.colors.borderDark};
   text-decoration: none;
   cursor: none;
-  position: relative;
-  overflow: hidden;
+  transition: border-color 0.2s ease;
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 0;
-    background: ${({ theme }) => theme.colors.signalRed};
-    transition: width 0.2s ease;
-    z-index: 0;
+  &:first-child {
+    border-top: 0.5px solid ${({ theme }) => theme.colors.borderDark};
   }
 
-  &:hover::before { width: 2px; }
-
-  &:last-child {
-    border-bottom: 0.5px solid ${({ theme }) => theme.colors.borderLight};
+  &:hover {
+    border-bottom-color: ${({ theme }) => theme.colors.electricBlue};
   }
-`;
 
-export const LinkLeft = styled.div`
-  display: flex;
-  align-items: baseline;
-  gap: 20px;
-  position: relative;
-  z-index: 1;
+  &:hover .link-name {
+    color: ${({ theme }) => theme.colors.electricBlue};
+  }
+
+  &:hover .link-arrow {
+    color: ${({ theme }) => theme.colors.white};
+    transform: translate(3px, -3px);
+  }
 `;
 
 export const LinkIndex = styled.span`
@@ -110,34 +102,27 @@ export const LinkIndex = styled.span`
   font-weight: 300;
   font-size: 9px;
   letter-spacing: 0.2em;
-  color: ${({ theme }) => theme.colors.muted};
-  flex-shrink: 0;
+  color: ${({ theme }) => theme.colors.signalRed};
 `;
 
 export const LinkName = styled.span`
   font-family: ${({ theme }) => theme.fonts.display};
-  font-size: 24px;
+  font-size: 28px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.void};
-  transition: color 0.18s ease;
+  color: ${({ theme }) => theme.colors.white};
   line-height: 1;
+  transition: color 0.18s ease;
 
-  ${LinkRow}:hover & {
-    color: ${({ theme }) => theme.colors.electricBlue};
+  @media (max-width: 480px) {
+    font-size: 22px;
   }
 `;
 
 export const LinkArrow = styled.span`
   font-family: ${({ theme }) => theme.fonts.mono};
   font-size: 14px;
-  color: ${({ theme }) => theme.colors.borderLight};
-  position: relative;
-  z-index: 1;
-  transition: transform 0.18s ease, color 0.18s ease;
-
-  ${LinkRow}:hover & {
-    transform: translate(3px, -3px);
-    color: ${({ theme }) => theme.colors.electricBlue};
-  }
+  color: #333333;
+  transition: color 0.18s ease, transform 0.18s ease;
+  display: inline-block;
 `;
