@@ -273,24 +273,24 @@ export const TechCategoryLabel = styled.p`
 export const TagsRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px;
 `
 
 export const Tag = styled.span`
   font-family: ${({ theme }) => theme.fonts.mono};
   font-weight: 300;
-  font-size: 8px;
+  font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  padding: 5px 12px;
-  border: 0.5px solid ${({ theme }) => theme.colors.borderLight};
-  color: ${({ theme }) => theme.colors.secondary};
-  transition: border-color 0.15s ease, color 0.15s ease;
+  padding: 5px 10px;
+  background: ${({ theme }) => theme.colors.electricBlue};
+  color: ${({ theme }) => theme.colors.white};
   cursor: default;
+  line-height: 1;
+  transition: background 0.15s ease;
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.electricBlue};
-    color: ${({ theme }) => theme.colors.electricBlue};
+    background: ${({ theme }) => theme.colors.deepBlue};
   }
 `
 
