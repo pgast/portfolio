@@ -85,10 +85,10 @@ export const RightPanel = styled.div`
 
 export const SectionLabel = styled.p`
   font-family: ${({ theme }) => theme.fonts.mono};
-  font-weight: 300;
-  font-size: 9px;
+  font-weight: 400;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.12em;
   color: ${({ theme }) => theme.colors.muted};
   margin-bottom: 16px;
 `

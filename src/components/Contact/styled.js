@@ -18,10 +18,10 @@ export const ContactContent = styled.div`
 
 export const ContactLabel = styled.p`
   font-family: ${({ theme }) => theme.fonts.mono};
-  font-weight: 300;
-  font-size: 9px;
+  font-weight: 400;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.12em;
   color: #444444;
   margin-bottom: 28px;
 `;

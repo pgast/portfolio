@@ -71,11 +71,11 @@ export const NavLinks = styled.div`
 
 export const NavLink = styled.span`
   font-family: ${({ theme }) => theme.fonts.mono};
-  font-weight: 300;
-  font-size: 9px;
+  font-weight: 400;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: ${({ $isSelected }) => $isSelected ? '#ffffff' : 'rgba(255,255,255,0.3)'};
+  letter-spacing: 0.12em;
+  color: ${({ $isSelected }) => $isSelected ? '#ffffff' : 'rgba(255,255,255,0.5)'};
   cursor: none;
   transition: color 0.2s ease;
 
