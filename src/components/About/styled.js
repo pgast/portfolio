@@ -6,24 +6,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  width: 1200px;
+  width: 100%;
   max-width: 1200px;
+  padding: 0 clamp(24px, 6.5vw, 88px);
   gap: 80px;
-
-  @media screen and (max-width: 1200px) {
-    width: 88%;
-    gap: 60px;
-  }
 
   @media screen and (max-width: 900px) {
     flex-direction: column;
-    width: 88%;
     gap: 0;
-  }
-
-  @media screen and (max-width: 480px) {
-    width: 100%;
-    padding: 0 24px;
   }
 `
 
