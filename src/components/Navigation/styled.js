@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 import { menuEntrance } from '../../constants/animations'
 
 export const ScrollProgressBar = styled.div`
@@ -20,9 +21,10 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 10;
-  background: ${({ $isHome }) => $isHome ? 'transparent' : '#0026CC'};
-  border-bottom: 0.5px solid ${({ $scrolled, $isHome }) =>
-    (!$isHome && $scrolled) ? 'rgba(255,255,255,0.1)' : 'transparent'};
+  background: ${({ $isHome, $lightBg }) =>
+    $isHome ? 'transparent' : $lightBg ? '#FFFFFF' : '#0A0A0A'};
+  border-bottom: 0.5px solid ${({ $isHome, $lightBg }) =>
+    $isHome ? 'transparent' : $lightBg ? '#E0E0E0' : 'rgba(255,255,255,0.1)'};
   transition: background 0.3s ease, border-color 0.25s ease;
 
   @media screen and (max-width: 480px) {
@@ -45,18 +47,24 @@ export const DesktopNavbar = styled.div`
   }
 `
 
-export const NavLogo = styled.div`
+export const LogoCircle = styled(motion.div)`
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: ${({ $lightBg }) => $lightBg ? '#0026CC' : '#ffffff'};
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+`
+
+export const NavLogo = styled(motion.div)`
   font-family: ${({ theme }) => theme.fonts.display};
   font-size: 22px;
   line-height: 1;
   letter-spacing: 0.06em;
-  color: #ffffff;
+  color: ${({ $lightBg }) => $lightBg ? '#0026CC' : '#ffffff'};
   cursor: none;
-  transition: opacity 0.15s ease;
-
-  &:hover {
-    opacity: 0.7;
-  }
+  white-space: nowrap;
+  transition: color 0.3s ease;
 `
 
 export const AccentDot = styled.span`
@@ -75,12 +83,15 @@ export const NavLink = styled.span`
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: ${({ $isSelected }) => $isSelected ? '#ffffff' : 'rgba(255,255,255,0.5)'};
+  color: ${({ $isSelected, $lightBg }) =>
+    $lightBg
+      ? ($isSelected ? '#0A0A0A' : 'rgba(10,10,10,0.45)')
+      : ($isSelected ? '#ffffff' : 'rgba(255,255,255,0.5)')};
   cursor: none;
   transition: color 0.2s ease;
 
   &:hover {
-    color: #ffffff;
+    color: ${({ $lightBg }) => $lightBg ? '#0A0A0A' : '#ffffff'};
   }
 `
 

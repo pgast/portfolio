@@ -16,16 +16,6 @@ export const ContactContent = styled.div`
   padding: 100px clamp(24px, 6.5vw, 88px) 80px;
 `;
 
-export const ContactLabel = styled.p`
-  font-family: ${({ theme }) => theme.fonts.mono};
-  font-weight: 400;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #444444;
-  margin-bottom: 28px;
-`;
-
 export const ContactStatement = styled.h2`
   font-family: ${({ theme }) => theme.fonts.display};
   font-size: clamp(44px, 6vw, 64px);

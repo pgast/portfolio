@@ -24,6 +24,7 @@ import {
   ButtonRow,
   CertTitle,
   AwardBlock,
+  SectionTitle,
   PanelTitle,
   TechCategory,
   SectionBlock,
@@ -40,7 +41,7 @@ const About = () => {
       <Container>
 
         <LeftPanel>
-          <SectionLabel>02 — About</SectionLabel>
+          <SectionTitle>About</SectionTitle>
           <PanelTitle>Pablo<br />Gastelum</PanelTitle>
           <Bio>
             <p>{about.mainDescription.description}</p>

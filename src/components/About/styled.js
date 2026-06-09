@@ -83,7 +83,17 @@ export const SectionLabel = styled.p`
   margin-bottom: 16px;
 `
 
-export const PanelTitle = styled.h2`
+export const SectionTitle = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: clamp(44px, 6vw, 64px);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.void};
+  margin-bottom: 20px;
+`
+
+export const PanelTitle = styled.h3`
   font-family: ${({ theme }) => theme.fonts.display};
   font-size: 40px;
   letter-spacing: 0.03em;

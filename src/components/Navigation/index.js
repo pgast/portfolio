@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { buttons } from '../../constants/about'
 import { contact } from '../../constants/contact'
@@ -13,6 +14,7 @@ import {
   MobileMenu,
   ContactLink,
   AccentDot,
+  LogoCircle,
   DesktopNavbar,
   MobileMenuIcon,
   ContactContent,
@@ -22,9 +24,29 @@ import {
 
 const NAV_SECTIONS = ['about', 'contact']
 
+const NAME_CHARS = 'Pablo Gastelum'.split('')
+
+const nameContainerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.04, delayChildren: 0.02 } },
+}
+
+const letterVariants = {
+  hidden: { opacity: 0, x: -10 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { type: 'spring', stiffness: 420, damping: 28 },
+  },
+}
+
 const Navigation = ({ setView, view }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled]         = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen]   = useState(false);
+  const [isScrolled, setIsScrolled]           = useState(false);
+  const [isLogoHovered, setIsLogoHovered]     = useState(false);
+  const isHome      = view === 'home';
+  const lightBg     = view === 'experience' || view === 'about';
+  const showFullName = !isHome || isLogoHovered;
   const progressRef    = useRef(null);
   const activeSectionRef = useRef('home');
 
@@ -40,7 +62,7 @@ const Navigation = ({ setView, view }) => {
 
       setIsScrolled(scrollTop > 20);
 
-      const sections = ['home', 'about', 'contact'];
+      const sections = ['home', 'experience', 'about', 'contact'];
       let active = 'home';
       for (const id of sections) {
         const el = document.getElementById(id);
@@ -101,13 +123,49 @@ const Navigation = ({ setView, view }) => {
   return (
     <>
       <ScrollProgressBar ref={progressRef} />
-      <Container $scrolled={isScrolled} $isHome={view === 'home'}>
+      <Container $scrolled={isScrolled} $isHome={isHome} $lightBg={lightBg}>
         <DesktopNavbar>
           <a
             onClick={() => scrollToSection('home')}
-            style={{ textDecoration: 'none', cursor: 'none' }}
+            onMouseEnter={() => setIsLogoHovered(true)}
+            onMouseLeave={() => setIsLogoHovered(false)}
+            style={{ textDecoration: 'none', cursor: 'none', display: 'flex', alignItems: 'center', minWidth: 16 }}
           >
-            <NavLogo>PG<AccentDot>.</AccentDot></NavLogo>
+            <AnimatePresence exitBeforeEnter>
+              {!showFullName ? (
+                <LogoCircle
+                  key="circle"
+                  $lightBg={lightBg}
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.6 }}
+                  transition={{ duration: 0.18, ease: 'easeOut' }}
+                />
+              ) : (
+                <NavLogo
+                  key="name"
+                  $lightBg={lightBg}
+                  variants={nameContainerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit={{ opacity: 0, transition: { duration: 0.15 } }}
+                >
+                  {NAME_CHARS.map((char, i) => (
+                    <motion.span
+                      key={i}
+                      variants={letterVariants}
+                      style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : 'normal' }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                  <motion.span
+                    variants={letterVariants}
+                    style={{ display: 'inline-block', color: '#FF3D2E' }}
+                  >.</motion.span>
+                </NavLogo>
+              )}
+            </AnimatePresence>
           </a>
           <NavLinks>
             {NAV_SECTIONS.map(el => (
@@ -116,7 +174,7 @@ const Navigation = ({ setView, view }) => {
                 onClick={() => scrollToSection(el)}
                 style={{ textDecoration: 'none' }}
               >
-                <NavLink $isSelected={view === el}>{el}</NavLink>
+                <NavLink $isSelected={view === el} $lightBg={lightBg}>{el}</NavLink>
               </a>
             ))}
           </NavLinks>

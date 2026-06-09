@@ -28,7 +28,6 @@ const Contact = () => (
     <ContactWrapper>
       <ContactContent>
 
-        <ContactLabel>03 — Contact</ContactLabel>
         <ContactStatement>
           Let's Work <StatementBlue>Together.</StatementBlue>
         </ContactStatement>
