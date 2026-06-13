@@ -1,3 +1,6 @@
+import { useEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
+
 import {
   about,
   awards,
@@ -6,46 +9,113 @@ import {
   skillTech,
   education,
   workHistory,
-} from '../../constants/about'
+} from '../../constants/about';
 
 import {
-  Tag,
-  Bio,
-  Button,
-  TagsRow,
-  TechGrid,
-  JobBlock,
-  JobTitle,
-  JobHeader,
-  JobDuration,
-  Container,
-  LeftPanel,
-  RightPanel,
-  ButtonRow,
-  CertTitle,
-  AwardBlock,
-  SectionTitle,
-  PanelTitle,
-  TechCategory,
-  SectionBlock,
-  SectionLabel,
-  EducationSchool,
-  TechCategoryLabel,
-} from './styled'
+  PosterSection, StickyHeader, BigName, NameAccent,
+  PosterBody, LeftColumn, LeftLabel, Bio, ButtonRow, Button,
+  RightColumn, Block, BlockLabel,
+  JobRow, JobHeader, JobTitle, JobCompanyAccent, JobDuration, JobBullets,
+  ChipCategory, ChipCategoryLabel, ChipRow, Chip,
+  EducationSchool, CertTitle, CertList,
+  AwardsGrid, AwardEntry,
+} from './styled';
 
-import ScrollableSection from '../section'
+// ─── Animation variants ────────────────────────────────────────────────────
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+};
+
+// ─── Helpers ────────────────────────────────────────────────────────────────
+
+const parseTitle = (title) => {
+  const idx = title.indexOf(' / ');
+  if (idx === -1) return { role: title, company: '' };
+  return { role: title.slice(0, idx), company: title.slice(idx + 3) };
+};
+
+const TECH_CATEGORIES = [
+  { label: 'Languages',              items: skillTech.skills.languages  },
+  { label: 'Frameworks & Libraries', items: skillTech.skills.frameworks },
+  { label: 'Styling',                items: skillTech.skills.styling    },
+  { label: 'Databases',              items: skillTech.skills.database   },
+  { label: 'Tools',                  items: skillTech.skills.tools      },
+];
+
+// ─── Reveal block (fade up on scroll into view) ───────────────────────────────
+
+const RevealBlock = ({ children, label }) => {
+  const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true });
+
+  return (
+    <Block ref={ref} variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
+      {label && <BlockLabel>{label}</BlockLabel>}
+      {children}
+    </Block>
+  );
+};
+
+// ─── About ──────────────────────────────────────────────────────────────────
+
+const SHRINK_DISTANCE = 320;
+const MIN_FONT_SIZE = 24;
+const STICKY_OFFSET = 64;
 
 const About = () => {
-  return (
-    <ScrollableSection>
-      <Container>
+  const sectionRef = useRef(null);
+  const nameRef = useRef(null);
+  const headerRef = useRef(null);
 
-        <LeftPanel>
-          <SectionTitle>About</SectionTitle>
-          <PanelTitle>Pablo<br />Gastelum</PanelTitle>
-          <Bio>
-            <p>{about.mainDescription.description}</p>
-          </Bio>
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let maxFontSize = parseFloat(window.getComputedStyle(nameRef.current).fontSize);
+
+    const handleScroll = () => {
+      const sectionTop = sectionRef.current.offsetTop;
+      const sectionBottom = sectionTop + sectionRef.current.offsetHeight;
+      const progress = Math.min(Math.max((window.scrollY - sectionTop) / SHRINK_DISTANCE, 0), 1);
+      const fontSize = maxFontSize - progress * (maxFontSize - MIN_FONT_SIZE);
+      nameRef.current.style.fontSize = `${fontSize}px`;
+
+      // Hide the sticky header once it would overflow past the section's
+      // bottom edge — keeps the white/dark section cut hard, no bleed.
+      const headerHeight = headerRef.current.offsetHeight;
+      const pastSection = window.scrollY + STICKY_OFFSET + headerHeight >= sectionBottom;
+      headerRef.current.style.visibility = pastSection ? 'hidden' : 'visible';
+    };
+
+    const handleResize = () => {
+      nameRef.current.style.fontSize = '';
+      maxFontSize = parseFloat(window.getComputedStyle(nameRef.current).fontSize);
+      handleScroll();
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return (
+    <PosterSection ref={sectionRef}>
+
+      <StickyHeader ref={headerRef}>
+        <BigName ref={nameRef}>
+          Pablo <NameAccent>Gastelum</NameAccent>
+        </BigName>
+      </StickyHeader>
+
+      <PosterBody>
+
+        <LeftColumn>
+          <LeftLabel>About</LeftLabel>
+          <Bio>{about.mainDescription.description}</Bio>
           <ButtonRow>
             {buttons.map(btn => (
               <Button key={btn.text} href={btn.href} target="_blank" rel="noreferrer">
@@ -53,106 +123,81 @@ const About = () => {
               </Button>
             ))}
           </ButtonRow>
-        </LeftPanel>
+        </LeftColumn>
 
-        <RightPanel>
+        <RightColumn>
 
-          <SectionBlock>
-            <SectionLabel>{workHistory.title}</SectionLabel>
-            {workHistory.jobs.map(job => (
-              <JobBlock key={job.header.title}>
-                <JobHeader>
-                  <JobTitle>{job.header.title}</JobTitle>
-                  <JobDuration>{job.header.duration}</JobDuration>
-                </JobHeader>
-                <ul>
-                  {job.items.map(item => <li key={item}>{item}</li>)}
-                </ul>
-              </JobBlock>
+          <RevealBlock label={workHistory.title}>
+            {workHistory.jobs.map(job => {
+              const { role, company } = parseTitle(job.header.title);
+              return (
+                <JobRow key={job.header.title}>
+                  <JobHeader>
+                    <JobTitle>
+                      {role}{company && <> / <JobCompanyAccent>{company}</JobCompanyAccent></>}
+                    </JobTitle>
+                    <JobDuration>{job.header.duration}</JobDuration>
+                  </JobHeader>
+                  {job.items.length > 0 && (
+                    <JobBullets>
+                      {job.items.map(item => <li key={item}>{item}</li>)}
+                    </JobBullets>
+                  )}
+                </JobRow>
+              );
+            })}
+          </RevealBlock>
+
+          <RevealBlock label={skillTech.title}>
+            {TECH_CATEGORIES.map(({ label, items }) => (
+              <ChipCategory key={label}>
+                <ChipCategoryLabel>{label}</ChipCategoryLabel>
+                <ChipRow>
+                  {items.map(item => <Chip key={item}>{item}</Chip>)}
+                </ChipRow>
+              </ChipCategory>
             ))}
-          </SectionBlock>
+          </RevealBlock>
 
-          <SectionBlock>
-            <SectionLabel>{education.title}</SectionLabel>
+          <RevealBlock label={skills.title}>
+            <ChipRow>
+              {skills.columns.map(item => <Chip key={item}>{item}</Chip>)}
+            </ChipRow>
+          </RevealBlock>
+
+          <RevealBlock label={education.title}>
             <EducationSchool>
               {education.school.map(el => <p key={el}>{el}</p>)}
             </EducationSchool>
             <CertTitle>{education.certifications.title}</CertTitle>
-            <ul>
+            <CertList>
               {education.certifications.links.map(el => (
                 <li key={el.title}>
-                  <a
-                    target={el.href === '' ? '' : '_blank'}
-                    rel="noreferrer"
-                    href={el.href === '' ? 'javascript:void(0);' : el.href}
-                  >
-                    {el.title}
-                  </a>
+                  {el.href
+                    ? <a target="_blank" rel="noreferrer" href={el.href}>{el.title}</a>
+                    : el.title
+                  }
                 </li>
               ))}
-            </ul>
-          </SectionBlock>
+            </CertList>
+          </RevealBlock>
 
-          <SectionBlock>
-            <SectionLabel>{skillTech.title}</SectionLabel>
-            <TechGrid>
-              <div>
-                <TechCategory>
-                  <TechCategoryLabel>Languages</TechCategoryLabel>
-                  <TagsRow>
-                    {skillTech.skills.languages.map(el => <Tag key={el}>{el}</Tag>)}
-                  </TagsRow>
-                </TechCategory>
-                <TechCategory>
-                  <TechCategoryLabel>Frameworks &amp; Libraries</TechCategoryLabel>
-                  <TagsRow>
-                    {skillTech.skills.frameworks.map(el => <Tag key={el}>{el}</Tag>)}
-                  </TagsRow>
-                </TechCategory>
-                <TechCategory>
-                  <TechCategoryLabel>Styling</TechCategoryLabel>
-                  <TagsRow>
-                    {skillTech.skills.styling.map(el => <Tag key={el}>{el}</Tag>)}
-                  </TagsRow>
-                </TechCategory>
-              </div>
-              <div>
-                <TechCategory>
-                  <TechCategoryLabel>Databases</TechCategoryLabel>
-                  <TagsRow>
-                    {skillTech.skills.database.map(el => <Tag key={el}>{el}</Tag>)}
-                  </TagsRow>
-                </TechCategory>
-                <TechCategory>
-                  <TechCategoryLabel>Tools</TechCategoryLabel>
-                  <TagsRow>
-                    {skillTech.skills.tools.map(el => <Tag key={el}>{el}</Tag>)}
-                  </TagsRow>
-                </TechCategory>
-              </div>
-            </TechGrid>
-          </SectionBlock>
+          <RevealBlock label={awards.title}>
+            <AwardsGrid>
+              {awards.columns.map(col => (
+                <AwardEntry key={col[0]}>
+                  <p>{col[0]}</p>
+                  <p>{col[1]}</p>
+                </AwardEntry>
+              ))}
+            </AwardsGrid>
+          </RevealBlock>
 
-          <SectionBlock>
-            <SectionLabel>{skills.title}</SectionLabel>
-            <TagsRow>
-              {skills.columns.map(el => <Tag key={el}>{el}</Tag>)}
-            </TagsRow>
-          </SectionBlock>
+        </RightColumn>
 
-          <SectionBlock>
-            <SectionLabel>{awards.title}</SectionLabel>
-            {awards.columns.map(col => (
-              <AwardBlock key={col[0]}>
-                <p>{col[0]}</p>
-                <p>{col[1]}</p>
-              </AwardBlock>
-            ))}
-          </SectionBlock>
+      </PosterBody>
 
-        </RightPanel>
-      </Container>
-    </ScrollableSection>
+    </PosterSection>
   );
 };
 
