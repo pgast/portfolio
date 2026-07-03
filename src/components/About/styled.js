@@ -1,44 +1,13 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-// ─── Poster header ─────────────────────────────────────────────────────────
+// ─── Layout ───────────────────────────────────────────────────────────────
 
-export const PosterSection = styled.div`
+export const AboutSection = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
 `;
 
-export const StickyHeader = styled(motion.div)`
-  position: sticky;
-  top: 64px;
-  z-index: 5;
-  width: 100%;
-  background: #ffffff;
-  border-bottom: 1.5px solid ${({ theme }) => theme.colors.signalRed};
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  padding: 24px clamp(24px, 6.5vw, 88px);
-`;
-
-export const BigName = styled(motion.h1)`
-  font-family: ${({ theme }) => theme.fonts.display};
-  font-size: clamp(56px, 11vw, 160px);
-  line-height: 1;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.void};
-  white-space: nowrap;
-`;
-
-export const NameAccent = styled.span`
-  color: ${({ theme }) => theme.colors.electricBlue};
-`;
-
-// ─── Body layout ───────────────────────────────────────────────────────────
-
-export const PosterBody = styled.div`
+export const AboutBody = styled.div`
   display: flex;
   align-items: flex-start;
   width: 100%;
@@ -53,10 +22,12 @@ export const PosterBody = styled.div`
   }
 `;
 
+// ─── Left sticky column ──────────────────────────────────────────────────
+
 export const LeftColumn = styled.div`
   position: sticky;
-  top: 128px;
-  width: 240px;
+  top: 90px;
+  width: 280px;
   flex-shrink: 0;
 
   @media screen and (max-width: 900px) {
@@ -68,14 +39,18 @@ export const LeftColumn = styled.div`
   }
 `;
 
-export const LeftLabel = styled.p`
-  font-family: ${({ theme }) => theme.fonts.mono};
-  font-weight: 400;
-  font-size: 11px;
+export const AboutTitle = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: ${({ theme }) => theme.colors.muted};
-  margin-bottom: 20px;
+  color: ${({ theme }) => theme.colors.void};
+  margin-bottom: 24px;
+`;
+
+export const TitleAccent = styled.span`
+  color: ${({ theme }) => theme.colors.electricBlue};
 `;
 
 export const Bio = styled.p`
@@ -115,23 +90,24 @@ export const Button = styled.a`
   }
 `;
 
-// ─── Right column ──────────────────────────────────────────────────────────
+// ─── Right column ─────────────────────────────────────────────────────────
 
 export const RightColumn = styled.div`
   flex: 1;
   min-width: 0;
 `;
 
-export const Block = styled(motion.div)`
-  padding: 36px 0;
-  border-bottom: 0.5px solid ${({ theme }) => theme.colors.borderLight};
+// ─── Content blocks ───────────────────────────────────────────────────────
 
-  &:first-child { padding-top: 0; }
-  &:last-child  { border-bottom: none; }
+export const ContentBlock = styled.div`
+  margin-bottom: 56px;
+  &:last-child { margin-bottom: 0; }
 
   @media (prefers-reduced-motion: reduce) {
-    opacity: 1 !important;
-    transform: none !important;
+    & * {
+      opacity: 1 !important;
+      transform: none !important;
+    }
   }
 `;
 
@@ -142,36 +118,31 @@ export const BlockLabel = styled.p`
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: ${({ theme }) => theme.colors.muted};
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 `;
 
-// ─── Job entries ───────────────────────────────────────────────────────────
-
-export const JobRow = styled.div`
-  margin-bottom: 32px;
-  &:last-child { margin-bottom: 0; }
-`;
-
-export const JobHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-`;
-
-export const JobTitle = styled.h3`
-  font-family: ${({ theme }) => theme.fonts.display};
-  font-size: clamp(22px, 2.6vw, 32px);
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.void};
-  line-height: 1;
-`;
-
-export const JobCompanyAccent = styled.span`
+export const BlockIndex = styled.span`
   color: ${({ theme }) => theme.colors.electricBlue};
+`;
+
+// ─── Work experience rows ─────────────────────────────────────────────────
+
+export const JobRow = styled(motion.div)`
+  transform-origin: top;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  align-items: baseline;
+  column-gap: 16px;
+  padding: 18px 0;
+  border-bottom: 0.5px solid ${({ theme }) => theme.colors.borderLight};
+
+  &:first-child { padding-top: 0; }
+  &:last-child { border-bottom: none; }
+
+  @media screen and (max-width: 640px) {
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+  }
 `;
 
 export const JobDuration = styled.span`
@@ -179,14 +150,32 @@ export const JobDuration = styled.span`
   font-weight: 300;
   font-size: 9px;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   color: ${({ theme }) => theme.colors.muted};
   white-space: nowrap;
 `;
 
+export const JobTitle = styled.h3`
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: clamp(16px, 1.8vw, 20px);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.void};
+  line-height: 1;
+`;
+
+export const JobCompany = styled.span`
+  color: ${({ theme }) => theme.colors.electricBlue};
+`;
+
 export const JobBullets = styled.ul`
+  grid-column: 2;
+  margin: 8px 0 0;
   padding-left: 0;
-  margin: 0;
+
+  @media screen and (max-width: 640px) {
+    grid-column: 1;
+  }
 
   & li {
     list-style: none;
@@ -207,14 +196,15 @@ export const JobBullets = styled.ul`
   }
 `;
 
-// ─── Tech / skill chips ────────────────────────────────────────────────────
+// ─── Tech / skill chips ──────────────────────────────────────────────────
 
-export const ChipCategory = styled.div`
+export const TechCategory = styled(motion.div)`
+  transform-origin: top;
   margin-bottom: 24px;
   &:last-child { margin-bottom: 0; }
 `;
 
-export const ChipCategoryLabel = styled.p`
+export const TechCategoryLabel = styled.p`
   font-family: ${({ theme }) => theme.fonts.mono};
   font-weight: 300;
   font-size: 9px;
@@ -227,7 +217,7 @@ export const ChipCategoryLabel = styled.p`
 export const ChipRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 6px;
 `;
 
 export const Chip = styled.span`
@@ -235,52 +225,45 @@ export const Chip = styled.span`
   font-weight: 300;
   font-size: 9px;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 5px 10px;
-  background: ${({ theme }) => theme.colors.electricBlue};
-  color: ${({ theme }) => theme.colors.white};
-  cursor: default;
+  letter-spacing: 0.12em;
+  padding: 5px 9px;
+  border: 0.5px solid ${({ theme }) => theme.colors.borderLight};
+  color: ${({ theme }) => theme.colors.void};
   line-height: 1;
-  transition: background 0.15s ease;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.deepBlue};
-  }
 `;
 
-// ─── Education & awards ────────────────────────────────────────────────────
+// ─── Education ────────────────────────────────────────────────────────────
 
-export const EducationSchool = styled.div`
-  margin-bottom: 20px;
-
-  & p {
-    font-family: ${({ theme }) => theme.fonts.body};
-    font-weight: 300;
-    font-size: 15px;
-    line-height: 1.7;
-    color: ${({ theme }) => theme.colors.secondary};
-  }
-
-  & p:first-child {
-    font-family: ${({ theme }) => theme.fonts.display};
-    font-size: 20px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.electricBlue};
-    line-height: 1;
-    margin-bottom: 6px;
-  }
+export const EduBlock = styled(motion.div)`
+  transform-origin: top;
 `;
 
-export const CertTitle = styled.p`
+export const SchoolName = styled.h3`
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: clamp(16px, 1.8vw, 20px);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.electricBlue};
+  line-height: 1;
+  margin-bottom: 6px;
+`;
+
+export const SchoolMeta = styled.p`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  color: ${({ theme }) => theme.colors.secondary};
+`;
+
+export const CertLabel = styled.p`
   font-family: ${({ theme }) => theme.fonts.mono};
   font-weight: 300;
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: ${({ theme }) => theme.colors.muted};
-  margin-bottom: 12px;
-  margin-top: 20px;
+  margin: 24px 0 12px;
 `;
 
 export const CertList = styled.ul`
@@ -313,39 +296,49 @@ export const CertList = styled.ul`
   }
 `;
 
-export const AwardsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 40px;
+// ─── Awards ───────────────────────────────────────────────────────────────
 
-  @media screen and (max-width: 600px) {
+export const AwardRow = styled(motion.div)`
+  transform-origin: top;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  column-gap: 16px;
+  padding: 16px 0;
+  border-bottom: 0.5px solid ${({ theme }) => theme.colors.borderLight};
+
+  &:first-child { padding-top: 0; }
+  &:last-child { border-bottom: none; }
+
+  @media screen and (max-width: 640px) {
     grid-template-columns: 1fr;
+    row-gap: 4px;
   }
 `;
 
-export const AwardEntry = styled.div`
-  margin-bottom: 20px;
-  padding-left: 16px;
-  border-left: 1.5px solid ${({ theme }) => theme.colors.borderLight};
+export const AwardYear = styled.span`
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-weight: 300;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: ${({ theme }) => theme.colors.muted};
+  white-space: nowrap;
+`;
 
-  &:last-child { margin-bottom: 0; }
+export const AwardTitle = styled.h3`
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: clamp(16px, 1.8vw, 20px);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.void};
+  line-height: 1.2;
+  margin-bottom: 4px;
+`;
 
-  & p:first-child {
-    font-family: ${({ theme }) => theme.fonts.display};
-    font-size: 16px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.void};
-    margin-bottom: 4px;
-    line-height: 1;
-  }
-
-  & p:last-child {
-    font-family: ${({ theme }) => theme.fonts.mono};
-    font-weight: 300;
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: ${({ theme }) => theme.colors.muted};
-  }
+export const AwardDescription = styled.p`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.6;
+  color: ${({ theme }) => theme.colors.secondary};
 `;
